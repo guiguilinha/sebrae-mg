@@ -126,16 +126,33 @@ main {
     max-width: 30rem;
 }
 
-.card-body {
-    background-image: linear-gradient(to bottom, transparent 50%, #00609F 100%);
-    border: 0;
-    border-color: transparent;
-}
-
 .card-title {
     position: absolute;
     bottom: 1.5rem;
     color: #ffffff;
+}
+
+.card-text, .card-title-course {
+    --lh: 1.3rem;
+    --max-line: 2;
+    position: relative;
+    max-height: calc(var(--lh)*var(--max-line));
+    overflow: hidden;
+}
+
+.card-text::before, .card-title-course::before {
+    position: absolute;
+    content: "...";
+    bottom: 0;
+    right: 0;
+}
+
+.card-text::after, .card-title-course::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 1rem;
+    height: 1rem;
 }
 
 .btn-question-sebrae {
@@ -169,23 +186,6 @@ main {
     right: 0.5rem;
     bottom: 0.5rem;
     margin-left: 0.5rem;
-}
-
-.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
-    color: #ffffff;
-    font-weight: 600;
-    background-color: #FFC01F;
-    border: 2px solid #FFC01F;
-}
-
-.btn-check:checked+.btn span {
-    color: #ffffff;
-    border-color: #ffffff;
-}
-
-.btn-check:checked+.btn::after {
-    border-bottom: 2px solid #ffffff;
-    border-right: 2px solid #ffffff;
 }
 
 .question {
@@ -230,6 +230,12 @@ main {
 
 .btn-hover::after {
     border-color: #ffffff;
+}
+
+.dropdown-units::after {
+    position: absolute;
+    right: 1rem;
+    top: 1.3rem;
 }
 
 footer {
@@ -352,6 +358,27 @@ footer {
     border-bottom-left-radius: 0;
 }
 
+.badge-course-position {
+    right: -2.8rem;
+    top: 1.2rem;
+}
+
+.bg-badge-iniciante {
+    background: #00AF35;
+}
+
+.bg-badge-aprendiz {
+    background: #FFB202;
+}
+
+.bg-badge-empreendedor {
+    background: #9800AF;
+}
+
+.bg-badge-inovador {
+    background: #00609F;
+}
+
 
  @-webkit-keyframes swing-in-top-fwd {
     0% {
@@ -424,6 +451,10 @@ footer {
 
 .nav-underline .nav-link:hover {
     border-color: #FFB202;
+}
+
+.nav-link {
+    cursor: pointer;
 }
 
 /* SCROLLBAR */
