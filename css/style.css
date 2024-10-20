@@ -1,0 +1,453 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+main {
+    height: 100vh;
+}
+
+/* HERO */
+
+.bg-index-hero {
+    background-image: radial-gradient(circle, rgba(255,192,31,0.5) 0%, rgba(255,255,255,0) 20%);
+    background-repeat: no-repeat;
+    background-size: 110%;
+    background-position: 15rem 15rem;
+}
+
+/* HERO */
+
+.hide {
+    display: none;
+}
+
+.questions {
+    height: calc(100vh - 176px);
+}
+
+.bg-brand, .btn-primary {
+    background-color: #0070BA;
+}
+
+.color-primary {
+    color: #0070BA;
+}
+
+.bg-brand-secondary {
+    color: #FFB202;
+}
+
+.letter-space {
+    letter-spacing: -0.07rem;
+}
+
+.btn-exception {
+    background-color: #FFB202;
+    color:#ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    padding: 0.5rem 2rem;
+    z-index: 30;
+    position: relative;
+    box-shadow: -5px 5px #A97600;
+}
+
+.progress {
+    height: 1rem;
+    background-color: #D9EDFF;
+}
+
+.progress-bar {
+    background-color: #0070BA;
+
+}
+
+.text-title-questions {
+    font-weight: 800;
+    font-size: 4rem;
+    letter-spacing: -0.1rem;
+    line-height: 3.6rem;
+}
+
+.text-title-first {
+    color: #fff;
+    text-shadow: -1px -1px 0 rgb(0, 112, 186), 1px -1px 0 #0070BA, -1px 1px 0 #0070BA, 1px 1px 0 #0070BA;
+    font-style: italic;
+}
+
+#inicianteDigital {
+    background-image: url("../img/iniciante_digital.png");
+}
+
+#aprendizDigital {
+    background-image: url("../img/aprendiz_digital.png");
+}
+
+#empreendedorDigital {
+    background-image: url("../img/empreendedor_digital.png");
+}
+
+#inovadorDigital {
+    background-image: url("../img/inovador_digital.png");
+}
+
+.card-list  {
+    height: 16rem !important;
+}
+
+.card-content {
+    height: 15rem;
+}
+
+.content-inner {
+    width: fit-content !important;
+    flex: 1 0 auto;
+    box-sizing: border-box;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.content-inner:not(.show) {
+    display:none !important;
+}
+
+.card {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 15rem;
+    max-height: 15rem;
+    border: 0;
+    border-color: transparent;
+    border-radius: 0.5rem;
+    min-width: 14.5rem;
+    max-width: 30rem;
+}
+
+.card-body {
+    background-image: linear-gradient(to bottom, transparent 50%, #00609F 100%);
+    border: 0;
+    border-color: transparent;
+}
+
+.card-title {
+    position: absolute;
+    bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.btn-question-sebrae {
+    transform: skewX(-12deg);
+    padding: 0.75rem 1rem;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to right, #0070BA, #FFC01F);
+    padding-right: 2.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 0 !important;
+    transition: filter 0.4s;
+    text-align: start;
+}
+
+.question-choice {
+    border: 2px solid #0070BA;
+    text-transform: uppercase;
+    padding: 2px 8px;
+}
+
+.btn-question-sebrae::after {
+    content: "d";
+    color: transparent;
+    width: 1rem;
+    height: 1.5rem;
+    border-bottom: 2px solid #FFC01F;
+    border-right: #FFC01F 2px solid;
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+    color: #ffffff;
+    font-weight: 600;
+    background-color: #FFC01F;
+    border: 2px solid #FFC01F;
+}
+
+.btn-check:checked+.btn span {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.btn-check:checked+.btn::after {
+    border-bottom: 2px solid #ffffff;
+    border-right: 2px solid #ffffff;
+}
+
+.question {
+    border: solid 1px;
+    border-image-slice: 1;
+    border-image-source: url(../img/question-border.svg);
+    padding: 0.75rem;
+    width: fit-content;
+    height: fit-content;
+   /* transform: skewX(-12deg); */
+}
+
+.question-container {
+    /* transform: skewX(-12deg); */
+    border: solid 0.1rem #0070BA;
+    padding: 0.5rem;
+}
+
+.question-core {
+    background-color: #0070BA;
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+    padding: 1rem;
+}
+
+.question-text {
+    color: #ffffff;
+}
+
+.btn-sebrae {
+    border-radius: 0;
+    transform: skewX(-12deg);
+}
+
+.btn-hover, .btn-question-sebrae:hover {
+    background: #FFC01F;
+    color: #ffffff;
+    border-color: #FFC01F;
+    transition: 0.5s;
+}
+
+.btn-hover::after {
+    border-color: #ffffff;
+}
+
+footer {
+    background-color: #212121;
+    position: relative;
+    bottom: 0;
+}
+
+.swing-in-top-fwd {
+	-webkit-animation: swing-in-top-fwd 0.8s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+	animation: swing-in-top-fwd 0.8s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
+
+
+.animaDelay-01 {
+    animation-delay: 0.5s;
+}
+
+.callToActionSebraePlay {
+    height: 342px;
+    width: 100%;
+    position: relative;
+    contain: size layout style;
+    z-index: 1;
+    overflow: hidden;
+    background-color: #0070BA;
+}
+
+
+.text-cta-sp {
+    z-index: 30;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    align-content: center;
+}
+
+.square {
+    position: absolute;
+    display: block;
+    visibility: visible;
+    translate: none;
+    rotate: none;
+    scale: none;
+    transform: skewX(-12deg);
+}
+
+.first-square {
+    width: 308px;
+    height: 224px;
+    z-index: 14;
+    top: -30%;
+    left: 20%;
+}
+
+.second-square {
+    width: 162px;
+    height: 126px;
+    z-index: 14;
+    top: -20%;
+    right: 20%;
+}
+
+.third-square {
+    width: 740px;
+    height: 330px;
+    z-index: 13;
+    top: -10%;
+    right: 25%;
+}
+
+.fourty-square {
+    width: 308px;
+    height: 224px;
+    z-index: 12;
+    bottom: -40%;
+    left: 20%;
+}
+
+.fivethy-square {
+    width: 308px;
+    height: 224px;
+    z-index: 12;
+    bottom: -10%;
+    right: 20%;
+}
+
+.first-square canvas {
+    background: #00609F;
+}
+
+.second-square canvas {
+    background-color: #037ECF;
+}
+
+.third-square canvas {
+    background-color: #056aad;
+}
+
+.fourty-square canvas {
+    background-color: #037ECF;
+}
+
+.fivethy-square canvas {
+    background-color: #00609F;
+}
+
+.under-detail {
+    width:  8rem;
+    height: 0.2rem;
+    background-color: #FFB202;
+}
+
+.badge-level-position {
+    left: 40px;
+    top: 18px;
+}
+
+.badge-invite {
+    border-bottom-left-radius: 0;
+}
+
+
+ @-webkit-keyframes swing-in-top-fwd {
+    0% {
+      -webkit-transform: rotateX(-100deg);
+              transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 0;
+      transform: skewX(0deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 1;
+      transform: skewX(-12deg);
+    }
+  }
+  @keyframes swing-in-top-fwd {
+    0% {
+      -webkit-transform: rotateX(-100deg);
+              transform: rotateX(-100deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 0;
+      transform: skewX(0deg);
+    }
+    100% {
+      -webkit-transform: rotateX(0deg);
+              transform: rotateX(0deg);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+      opacity: 1;
+      transform: skewX(-12deg);
+    }
+  }
+ 
+
+.color-change-2x:hover {
+	-webkit-animation: color-change-2x 0.5s linear alternate both;
+	animation: color-change-2x 0.5s linear alternate both;
+    color: #ffffff;
+}
+
+@-webkit-keyframes color-change-2x {
+    0% {
+      background: #FFB202;
+    }
+    100% {
+      background: #eca90a;
+      box-shadow: 0 0 0 #eca90a;
+    }
+  }
+  @keyframes color-change-2x {
+    0% {
+      background: #FFB202;
+    }
+    100% {
+      background: #eca90a;
+      box-shadow: 0 0 0 #eca90a;
+    }
+}
+  
+
+.nav-underline .nav-link.active {
+    color: #212121;
+    border-color: #FFB202;
+}
+
+.nav-underline .nav-link:hover {
+    border-color: #FFB202;
+}
+
+/* SCROLLBAR */
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  padding: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px #919191; 
+  border-radius: 6px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6e6e6e; 
+  border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #212121; 
+}
