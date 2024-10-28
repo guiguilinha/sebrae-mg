@@ -31,7 +31,6 @@ let totalCatFinance = 0;
 
 if (document.readyState !== "loading") {
     scrollCourses();
-} else {
   document.addEventListener("DOMContentLoaded", scrollCourses);
 }
 
