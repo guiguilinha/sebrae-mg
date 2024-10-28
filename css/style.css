@@ -92,13 +92,7 @@ main {
     background-image: url("../img/inovador_digital.png");
 }
 
-.card-list  {
-    height: 16rem !important;
-}
 
-.card-content {
-    height: 15rem;
-}
 
 .content-inner {
     width: fit-content !important;
@@ -117,19 +111,34 @@ main {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 15rem;
+    min-height: 6rem;
     max-height: 15rem;
     border: 0;
     border-color: transparent;
     border-radius: 0.5rem;
-    min-width: 14.5rem;
-    max-width: 30rem;
+    min-width: 12.5rem;
+    max-width: 60rem;
 }
 
 .card-title {
     position: absolute;
     bottom: 1.5rem;
     color: #ffffff;
+}
+
+.card-text {
+    display: none;
+}
+
+.card-course:hover {
+    -webkit-animation: scale-up-hor-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+	animation: scale-up-hor-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.card-course:hover .card-text {
+    display: block;
+    -webkit-animation: scale-in-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+    animation: scale-in-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
 
 .card-text, .card-title-course {
@@ -354,6 +363,10 @@ footer {
     top: 18px;
 }
 
+li.nav-item:nth-last-child(a):not(.active) {
+    opacity: 0.5;
+}
+
 .badge-invite {
     border-bottom-left-radius: 0;
 }
@@ -442,7 +455,61 @@ footer {
       box-shadow: 0 0 0 #eca90a;
     }
 }
+
+@-webkit-keyframes scale-in-top {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+}
+@keyframes scale-in-top {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    opacity: 1;
+  }
+}
   
+@-webkit-keyframes scale-up-hor-center {
+  0% {
+    -webkit-transform: scaleX(0.9);
+            transform: scaleX(0.9);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+@keyframes scale-up-hor-center {
+  0% {
+    -webkit-transform: scaleX(0.9);
+            transform: scaleX(0.9);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
 
 .nav-underline .nav-link.active {
     color: #212121;

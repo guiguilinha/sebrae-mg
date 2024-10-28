@@ -182,13 +182,13 @@
             <div class="container col-xxl-8 bg-brand rounded-3">
                 <div class="p-5 pb-0">
                     <p class="col-lg-12 fs-5 fw-light text-white">
-                        <strong>Objetivo:</strong> Avaliar o nível de maturidade digital do empreendedor em 5 frentes: <strong>processos e gestão</strong>, <strong>vendas e atendimento</strong>, <strong>presença digital</strong>, <strong>comunicação e branding</strong> e <strong>finanças e pagamentos</strong>.
+                        <strong>Objetivo:</strong> Avaliar o nível de maturidade digital do empreendedor em 5 temas: <strong>processos e gestão</strong>, <strong>vendas e atendimento</strong>, <strong>presença digital</strong>, <strong>comunicação e branding</strong> e <strong>finanças e pagamentos</strong>.
                     </p>
                     <p class="col-lg-12 fs-5 fw-light text-white">
                         Ao concluir você descobrirá em qual nível seu negócio se encontra em relação à transformação digital.     
                     </p>
                 </div>
-                <div class="row row-cols-1 row-cols-md-4 g-4 p-5">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-sm-2 row-cols-lg-4 g-4 p-5">
                     <div class="col">
                       <div class="card" id="inicianteDigital">
                         <div class="card-body rounded-2">
@@ -311,37 +311,505 @@
     </section>
 
     <section class="results hide">
-    <!-- Results-->
-        <!-- Results Hero -->
-        <section class="d-flex resultsHero">    
-            <div class="container col-xxl-8 px-4 pt-3">
-                <div class="row flex-lg align-items-center g-5 py-3">
-                    <div class="cols-10 col-sm8 col-lg-8">
-                        <h1 class="display-3 fw-bold text-body-emphasis lh-1 mb-3 level-title"></h1>
-                        <p class="lead level-text"></p>
-                    </div>
-                    <div class="col-10 col-sm-8 col-lg-4">
-                        <img src="" class="d-block mx-lg-auto img-fluid img-level-hero" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+        <!-- Results-->
+            <!-- Results Hero -->
+            <section class="d-block resultsHero">    
+                <div class="container col-xxl-8 px-4 pt-3">
+                    <div class="row flex-lg align-items-center g-5 py-3">
+                        <div class="cols-10 col-sm8 col-lg-8 pe-5">
+                            <!-- <h1 class="display-3 fw-bold text-body-emphasis text-uppercase lh-1 level-title">Iniciante digital</h1> -->
+                            <!-- <h2 class="fw-normal lh-1">Entenda seu nível</h2> -->
+                            <h1 class="h2 fw-normal lh-1 pb-3">Entenda como é calculado o nível de maturidade digital.</h1>
+                            <p class="lead level-text pe-5">O nível de maturidade digital é formado com a média do resultado de cinco importantes temas observados, cada resposta é relacionada a um tema e recebe uma pontuação.</p>
+                            <p class="lead level-text pe-5">A pontuação total em cada tema determina seu nível de maturidade digital neste tema, a soma total destes resultados indica o nível de maturidade digital do seu negócio.</p>
+                        </div>
+                        <div class="col-10 col-sm-8 col-lg-4" id="bars">
+                          <div class="pt-3 process">
+                            <label class="fw-medium">Processos e gestão</label>
+                            <div class="progress rounded-3" role="progressbar" aria-label="Processos e gestão" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                              <div class="progress-bar rounded-3"></div>
+                            </div>
+                            <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
+                          </div>
+                          <div class="pt-3 sell">
+                            <label class="fw-medium">Vendas e atendimento</label>
+                            <div class="progress rounded-3" role="progressbar" aria-label="Vendas e atendimento" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                              <div class="progress-bar rounded-3"></div>
+                            </div>
+                            <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
+                          </div>
+                          <div class="pt-3 digital">
+                            <label class="fw-medium">Presença digital</label>
+                            <div class="progress rounded-3" role="progressbar" aria-label="Presença digital" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                              <div class="progress-bar rounded-3" ></div>
+                            </div>
+                            <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
+                          </div>  
+                          <div class="pt-3 communication">
+                            <label class="fw-medium">Comunicação e marca</label>
+                            <div class="progress rounded-3" role="progressbar" aria-label="Comunicação e marca" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                              <div class="progress-bar rounded-3"></div>
+                            </div>
+                            <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
+                          </div>
+                          <div class="pt-3 finance">
+                            <label class="fw-medium">Finanças e pagamentos</label>
+                            <div class="progress rounded-3" role="progressbar" aria-label="Finanças e pagamentos" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                              <div class="progress-bar rounded-3"></div>
+                            </div>
+                            <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
+                          </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Results Hero -->
-    <!-- Results-->
+                <div class="container col-xxl-8 pt-5 resultBlock">
+                    <div class="row flex-lg align-items-center g-5">
+                      <div class="col-10 col-sm-8 col-lg-8 ps-lg-5">
+                        <h2 class="fs-1 fw-bold text-uppercase color-primary mb-0">Resultado geral</h2>
+                        <p class="h3 fw-bold text-uppercase letter-space mb-0 level-title"></p>
+                        <span class="under-detail d-block mb-3"></span>
+                        <p class="lead level-text "></p>  
+                      </div>
+                      <div class="col-10 col-sm-8 col-lg-3">
+                        <img src="img/iniciante_digital.png" class="d-block mx-lg-auto img-fluid img-level-hero" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                      </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Results Hero --> 
+            <section class="d-block callToActionSebraePlay mt-5">
+              <div class="square-top pt-5 px-2">
+                <div class="container col-xxl-8 justify-content-center pt-3">
+                  <h3 class="text-cta-sp justify-content-center">O Sebrae preparou uma trilha <span class="bg-brand-secondary">de vídeos</span> especial <span class="bg-brand-secondary">gratuita</span> no Sebrae Play com conteúdos para impulsionara Maturidade Digital do seu negócio</h3>
+                </div>
+                <div class="d-flex pt-4">
+                  <a  class="mx-auto btn btn-exception color-change-2x">Iniciante Digital <br> Acessar o Sebrae Play</a>
+                </div>
+                
+                <div class="square first-square">
+                  <canvas width="308" height="224" style="width: 100%; height: 100%;"></canvas>
+                </div>
+                <div class="square second-square">
+                  <canvas width="162" height="126" style="width: 100%; height: 100%;"></canvas>
+                </div>
+                <div class="square third-square">
+                  <canvas width="740" height="330" style="width: 100%; height: 100%;"></canvas>
+                </div>
+                <div class="square fourty-square">
+                  <canvas width="308" height="224" style="width: 100%; height: 100%;"></canvas>
+                </div>
+                <div class="square fivethy-square">
+                  <canvas width="308" height="224" style="width: 100%; height: 100%;"></canvas>
+                </div>
+              </div>
+            </section>
+            <section class="d-block levelDetail py-5">
+              <div class="container">
+                <h3 class="h2 fw-bold">Estas são as soluções selecionadas para você separadas por níveis e temática, as soluçoes estão organizadas de acordo com seu nível geral.</h3>
+              </div>
+              <!-- Lista de temas com cursos -->
+              <!-- Processos e gestão -->
+              <div class="container processTheme">
+                <p class="h4 fw-semibold mb-1">Processos e gestão</p>
+                <span class="under-detail d-block mb-2"></span>
+                <p class="fs-5 text-secondary mb-0 userLevelTheme">Nível</p>
+                <p class="text-body userDescLevel">Mensagem</p>
+              </div>
+              <div class="container bg-black bg-opacity-10 mb-5 pb-3 tab-courses" id="processCourses">
+                <nav class="navbar">
+                  <div class="navbar-expand">
+                    <ul class="nav nav-underline ms-2" id="box-tab-process" role="tablist">
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success visible ">Você está aqui</span>
+                        <a class="nav-link text-black-50 active" id="link-process-iniciante" data-bs-toggle="tab" data-bs-target="#tab-process-iniciante" role="tab" aria-controls="tab-process-iniciante" aria-selected="true">Iniciante Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-process-aprendiz" data-bs-toggle="tab" data-bs-target="#tab-process-aprendiz" role="tab" aria-controls="tab-process-aprendiz" aria-selected="false">Aprendiz Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-process-empreendedor" data-bs-toggle="tab" data-bs-target="#tab-process-empreendedor" role="tab" aria-controls="tab-process-empreendedor" aria-selected="false">Empreendedor Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-process-inovador" data-bs-toggle="tab" data-bs-target="#tab-process-inovador" role="tab" aria-controls="tab-process-inovador" aria-selected="false">Inovador Digital</a>
+                      </li>
+                      <li class="nav-item">
+                        <p class="text-body">
+                          <span class="position-relative badge-invite badge bg-warning p-2 visible">Clique nos outros níveis para mais conteúdo</span>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+                <div class="card-list overflow-x-scroll col">
+                  <div class="tab-content  card-content d-flex col-lg-12" id="tab-content-process">
+                    <!-- Iniciante -->
+                    <div class="tab-pane content-inner d-flex gap-2 show active" id="tab-process-iniciante" role="tabpanel" aria-labelledby="tab-process-iniciante" tabindex="0"></div>
+                    <!-- Aprendiz -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-process-aprendiz" role="tabpanel" aria-labelledby="tab-process-aprendiz" tabindex="0"></div>
+                    <!-- Empreendedor -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-process-empreendedor" role="tabpanel" aria-labelledby="tab-process-empreendedor" tabindex="0"></div>
+                    <!-- Inovador -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-process-inovador" role="tabpanel" aria-labelledby="tab-process-inovador" tabindex="0"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Vendas e atendimento -->
+              <div class="container sellTheme">
+                <p class="h4 fw-semibold mb-1">Vendas e atendimento</p>
+                <span class="under-detail d-block mb-2"></span>
+                <p class="fs-5 text-secondary mb-0 userLevelTheme">Nível</p>
+                <p class="text-body userDescLevel">Mensagem</p>
+              </div>
+              <div class="container bg-black bg-opacity-10 mb-5 pb-3 tab-courses" id="sellCourses">
+                <nav class="navbar">
+                  <div class="navbar-expand">
+                    <ul class="nav nav-underline ms-2" id="box-tab-sell" role="tablist">
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success visible ">Você está aqui</span>
+                        <a class="nav-link text-black-50 active" id="link-sell-iniciante" data-bs-toggle="tab" data-bs-target="#tab-sell-iniciante" role="tab" aria-controls="tab-sell-iniciante" aria-selected="true">Iniciante Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-sell-aprendiz" data-bs-toggle="tab" data-bs-target="#tab-sell-aprendiz" role="tab" aria-controls="tab-sell-aprendiz" aria-selected="false">Aprendiz Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-sell-empreendedor" data-bs-toggle="tab" data-bs-target="#tab-sell-empreendedor" role="tab" aria-controls="tab-sell-empreendedor" aria-selected="false">Empreendedor Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-sell-inovador" data-bs-toggle="tab" data-bs-target="#tab-sell-inovador" role="tab" aria-controls="tab-sell-inovador" aria-selected="false">Inovador Digital</a>
+                      </li>
+                      <li class="nav-item">
+                        <p class="text-body">
+                          <span class="position-relative badge-invite badge bg-warning p-2 visible">Clique nos outros níveis para mais conteúdo</span>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+                <div class="card-list overflow-x-scroll col">
+                  <div class="tab-content  card-content d-flex col-lg-12" id="tab-content-sell">
+                    <!-- Iniciante -->
+                    <div class="tab-pane content-inner d-flex gap-2 show active" id="tab-sell-iniciante" role="tabpanel" aria-labelledby="tab-sell-iniciante" tabindex="0"></div>
+                    <!-- Aprendiz -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-sell-aprendiz" role="tabpanel" aria-labelledby="tab-sell-aprendiz" tabindex="0"></div>
+                    <!-- Empreendedor -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-sell-empreendedor" role="tabpanel" aria-labelledby="tab-sell-empreendedor" tabindex="0"></div>
+                    <!-- Inovador -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-sell-inovador" role="tabpanel" aria-labelledby="tab-sell-inovador" tabindex="0"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Presença digital -->
+              <div class="container digitalTheme">
+                <p class="h4 fw-semibold mb-1">Presença digital</p>
+                <span class="under-detail d-block mb-2"></span>
+                <p class="fs-5 text-secondary mb-0 userLevelTheme">Nível</p>
+                <p class="text-body userDescLevel">Mensagem</p>
+              </div>
+              <div class="container bg-black bg-opacity-10 mb-5 pb-3 tab-courses" id="digitalCourses">
+                <nav class="navbar">
+                  <div class="navbar-expand">
+                    <ul class="nav nav-underline ms-2" id="box-tab-digital" role="tablist">
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success visible ">Você está aqui</span>
+                        <a class="nav-link text-black-50 active" id="link-digital-iniciante" data-bs-toggle="tab" data-bs-target="#tab-digital-iniciante" role="tab" aria-controls="tab-digital-iniciante" aria-selected="true">Iniciante Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-digital-aprendiz" data-bs-toggle="tab" data-bs-target="#tab-digital-aprendiz" role="tab" aria-controls="tab-digital-aprendiz" aria-selected="false">Aprendiz Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-digital-empreendedor" data-bs-toggle="tab" data-bs-target="#tab-digital-empreendedor" role="tab" aria-controls="tab-digital-empreendedor" aria-selected="false">Empreendedor Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-digital-inovador" data-bs-toggle="tab" data-bs-target="#tab-digital-inovador" role="tab" aria-controls="tab-digital-inovador" aria-selected="false">Inovador Digital</a>
+                      </li>
+                      <li class="nav-item">
+                        <p class="text-body">
+                          <span class="position-relative badge-invite badge bg-warning p-2 visible">Clique nos outros níveis para mais conteúdo</span>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+                <div class="card-list overflow-x-scroll col">
+                  <div class="tab-content  card-content d-flex col-lg-12" id="tab-content-digital">
+                    <!-- Iniciante -->
+                    <div class="tab-pane content-inner d-flex gap-2 show active" id="tab-digital-iniciante" role="tabpanel" aria-labelledby="tab-digital-iniciante" tabindex="0"></div>
+                    <!-- Aprendiz -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-digital-aprendiz" role="tabpanel" aria-labelledby="tab-digital-aprendiz" tabindex="0"></div>
+                    <!-- Empreendedor -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-digital-empreendedor" role="tabpanel" aria-labelledby="tab-digital-empreendedor" tabindex="0"></div>
+                    <!-- Inovador -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-digital-inovador" role="tabpanel" aria-labelledby="tab-digital-inovador" tabindex="0"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Comunicação e marca -->
+              <div class="container communicationTheme">
+                <p class="h4 fw-semibold mb-1">Comunicação e marca</p>
+                <span class="under-detail d-block mb-2"></span>
+                <p class="fs-5 text-secondary mb-0 userLevelTheme">Nível</p>
+                <p class="text-body userDescLevel">Mensagem</p>
+              </div>
+              <div class="container bg-black bg-opacity-10 mb-5 pb-3 tab-courses" id="communicationCourses">
+                <nav class="navbar">
+                  <div class="navbar-expand">
+                    <ul class="nav nav-underline ms-2" id="box-tab-communication" role="tablist">
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success visible ">Você está aqui</span>
+                        <a class="nav-link text-black-50 active" id="link-communication-iniciante" data-bs-toggle="tab" data-bs-target="#tab-communication-iniciante" role="tab" aria-controls="tab-communication-iniciante" aria-selected="true">Iniciante Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-communication-aprendiz" data-bs-toggle="tab" data-bs-target="#tab-communication-aprendiz" role="tab" aria-controls="tab-communication-aprendiz" aria-selected="false">Aprendiz Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-communication-empreendedor" data-bs-toggle="tab" data-bs-target="#tab-communication-empreendedor" role="tab" aria-controls="tab-communication-empreendedor" aria-selected="false">Empreendedor Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-communication-inovador" data-bs-toggle="tab" data-bs-target="#tab-communication-inovador" role="tab" aria-controls="tab-communication-inovador" aria-selected="false">Inovador Digital</a>
+                      </li>
+                      <li class="nav-item">
+                        <p class="text-body">
+                          <span class="position-relative badge-invite badge bg-warning p-2 visible">Clique nos outros níveis para mais conteúdo</span>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+                <div class="card-list overflow-x-scroll col">
+                  <div class="tab-content  card-content d-flex col-lg-12" id="tab-content-communication">
+                    <!-- Iniciante -->
+                    <div class="tab-pane content-inner d-flex gap-2 show active" id="tab-communication-iniciante" role="tabpanel" aria-labelledby="tab-communication-iniciante" tabindex="0"></div>
+                    <!-- Aprendiz -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-communication-aprendiz" role="tabpanel" aria-labelledby="tab-communication-aprendiz" tabindex="0"></div>
+                    <!-- Empreendedor -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-communication-empreendedor" role="tabpanel" aria-labelledby="tab-communication-empreendedor" tabindex="0"></div>
+                    <!-- Inovador -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-communication-inovador" role="tabpanel" aria-labelledby="tab-communication-inovador" tabindex="0"></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Finanças e pagamentos -->
+              <div class="container financeTheme">
+                <p class="h4 fw-semibold mb-1">Finanças e pagamentos</p>
+                <span class="under-detail d-block mb-2"></span>
+                <p class="fs-5 text-secondary mb-0 userLevelTheme">Nível</p>
+                <p class="text-body userDescLevel">Mensagem</p>
+              </div>
+              <div class="container bg-black bg-opacity-10 mb-5 pb-3 tab-courses" id="financeCourses">
+                <nav class="navbar">
+                  <div class="navbar-expand">
+                    <ul class="nav nav-underline ms-2" id="box-tab-finance" role="tablist">
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success visible ">Você está aqui</span>
+                        <a class="nav-link text-black-50 active" id="link-finance-iniciante" data-bs-toggle="tab" data-bs-target="#tab-finance-iniciante" role="tab" aria-controls="tab-finance-iniciante" aria-selected="true">Iniciante Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-finance-aprendiz" data-bs-toggle="tab" data-bs-target="#tab-finance-aprendiz" role="tab" aria-controls="tab-finance-aprendiz" aria-selected="false">Aprendiz Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-finance-empreendedor" data-bs-toggle="tab" data-bs-target="#tab-finance-empreendedor" role="tab" aria-controls="tab-finance-empreendedor" aria-selected="false">Empreendedor Digital</a>
+                      </li>
+                      <li class="nav-item align-baseline" role="presentation">
+                        <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
+                        <a class="nav-link text-black-50" id="link-finance-inovador" data-bs-toggle="tab" data-bs-target="#tab-finance-inovador" role="tab" aria-controls="tab-finance-inovador" aria-selected="false">Inovador Digital</a>
+                      </li>
+                      <li class="nav-item">
+                        <p class="text-body">
+                          <span class="position-relative badge-invite badge bg-warning p-2 visible">Clique nos outros níveis para mais conteúdo</span>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+                <div class="card-list overflow-x-scroll col">
+                  <div class="tab-content  card-content d-flex col-lg-12" id="tab-content-finance">
+                    <!-- Iniciante -->
+                    <div class="tab-pane content-inner d-flex gap-2 show active" id="tab-finance-iniciante" role="tabpanel" aria-labelledby="tab-finance-iniciante" tabindex="0"></div>
+                    <!-- Aprendiz -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-finance-aprendiz" role="tabpanel" aria-labelledby="tab-finance-aprendiz" tabindex="0"></div>
+                    <!-- Empreendedor -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-finance-empreendedor" role="tabpanel" aria-labelledby="tab-finance-empreendedor" tabindex="0"></div>
+                    <!-- Inovador -->
+                    <div class="tab-pane content-inner d-flex gap-2" id="tab-finance-inovador" role="tabpanel" aria-labelledby="tab-finance-inovador" tabindex="0"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+  
+            <section class="d-block unitsSebraeMg">
+              <div class="container">
+                <div class="btn-group gap-3 row row-cols-sm-8 row-cols-md-4 d-flex">
+                  <button class="btn btn-outline-secondary btn-lg dropdown-toggle text-start dropdown-units rounded-1 fs-6" data-bs-toggle="dropdown" aria-expanded="false">Regional Centro</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">Belo Horizonte - (31) 3379-9559</a></li>
+                    <li><a class="dropdown-item">Conselheiro Lafaiete - (31) 3721-4343</a></li>
+                    <li><a class="dropdown-item">Contagem - (31) 3392-7628</a></li>
+                    <li><a class="dropdown-item">Curvelo - (38) 3721-9190</a></li>
+                    <li><a class="dropdown-item">Sete Lagoas - (31) 3773-5757</a></li>
+                  </ul>
+  
+                  <button class="btn btn-outline-secondary btn-lg dropdown-toggle text-start dropdown-units rounded-1 fs-6" data-bs-toggle="dropdown" aria-expanded="false">Regional Centroeste e Sudoeste</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">Divinópolis - (37) 3213-2080</a></li>
+                    <li><a class="dropdown-item">Formiga - (37) 3322-2551</a></li>
+                    <li><a class="dropdown-item">Itaúna - (37) 3242-2473</a></li>
+                    <li><a class="dropdown-item">Passos - (35) 3526-8874</a></li>
+                    <li><a class="dropdown-item">São Sebastião do Paraíso - (35) 3531-2430</a></li>
+                  </ul>
+  
+                  <button class="btn btn-outline-secondary btn-lg dropdown-toggle text-start dropdown-units rounded-1 fs-6" data-bs-toggle="dropdown" aria-expanded="false">Regional Jequitinhonha e Mucuri</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">Almenara - (33) 3721-4031</a></li>
+                    <li><a class="dropdown-item">Araçuaí - (33) 3731-4440</a></li>
+                    <li><a class="dropdown-item">Capelinha - (33) 3516-3636</a></li>
+                    <li><a class="dropdown-item">Diamantina - (38) 3531-6167</a></li>
+                    <li><a class="dropdown-item">Nanuque - (33) 3621-1522</a></li>
+                    <li><a class="dropdown-item">Teófilo Otoni - (33) 3529-4950</a></li>
+                  </ul>
+                  
+                  <button class="btn btn-outline-secondary btn-lg dropdown-toggle text-start dropdown-units rounded-1 fs-6" data-bs-toggle="dropdown" aria-expanded="false">Regional Noroeste e Alto Paranaíba</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">Arinos - (38) 9905-9573</a></li>
+                    <li><a class="dropdown-item">Paracatu - (38) 3679-8301</a></li>
+                    <li><a class="dropdown-item">Patos de Minas - (34) 3821-4154</a></li>
+                    <li><a class="dropdown-item">Patrocínio - (34) 3832-4315</a></li>
+                    <li><a class="dropdown-item">Unaí - (38) 3676-8439</a></li>
+                  </ul>
+                  
+                  <button class="btn btn-outline-secondary btn-lg dropdown-toggle text-start dropdown-units rounded-1 fs-6" data-bs-toggle="dropdown" aria-expanded="false">Regional Norte</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">Janaúba - (38) 3821-3000</a></li>
+                    <li><a class="dropdown-item">Januária - (38) 3621-3444</a></li>
+                    <li><a class="dropdown-item">Montes Claros - (38) 3224-7356</a></li>
+                    <li><a class="dropdown-item">Pirapora - (38) 3741-3390</a></li>
+                    <li><a class="dropdown-item">Salinas - (38) 3841-4585</a></li>
+                  </ul>
+                  
+                  <button class="btn btn-outline-secondary btn-lg dropdown-toggle text-start dropdown-units rounded-1 fs-6" data-bs-toggle="dropdown" aria-expanded="false">Regional Rio Doce e Vale do Aço</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">Caratinga - (33) 3321-6829</a></li>
+                    <li><a class="dropdown-item">Governador Valadares - (33) 3276-8770</a></li>
+                    <li><a class="dropdown-item">Guanhães - (33) 3278-6952</a></li>
+                    <li><a class="dropdown-item">Ipatinga - (31) 3830-3314</a></li>
+                    <li><a class="dropdown-item">Itabira - (31) 3831-2120</a></li>
+                    <li><a class="dropdown-item">João Monlevade - (31) 3851-1002</a></li>
+                  </ul>
+                  
+                  <button class="btn btn-outline-secondary btn-lg dropdown-toggle text-start dropdown-units rounded-1 fs-6" data-bs-toggle="dropdown" aria-expanded="false">Regional Sul</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">Alfenas - (35) 3292-3696</a></li>
+                    <li><a class="dropdown-item">Itajubá - (35) 3622-2277</a></li>
+                    <li><a class="dropdown-item">Lavras - (35) 3694-1950</a></li>
+                    <li><a class="dropdown-item">Poços de Caldas - (35) 3722-3352</a></li>
+                    <li><a class="dropdown-item">Pouso Alegre - (35) 3422-9022</a></li>
+                    <li><a class="dropdown-item">Santa Rita do Sapucaí - (35) 3471-4185</a></li>
+                    <li><a class="dropdown-item">São Lourenço - (35) 3332-4998</a></li>
+                    <li><a class="dropdown-item">Varginha - (35) 3690-5117</a></li>
+                  </ul>
+                  
+                  <button class="btn btn-outline-secondary btn-lg dropdown-toggle text-start dropdown-units rounded-1 fs-6" data-bs-toggle="dropdown" aria-expanded="false">Regional Triangulo</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">Araguari - (34) 3513-7794</a></li>
+                    <li><a class="dropdown-item">Araxá - (34) 3664-7781</a></li>
+                    <li><a class="dropdown-item">Ituiutaba - (34) 3261-1459</a></li>
+                    <li><a class="dropdown-item">Uberaba - (34) 3318-1805</a></li>
+                    <li><a class="dropdown-item">Uberlândia (34) 3216-3209</a></li>
+                  </ul>
+                  
+                  <button class="btn btn-outline-secondary btn-lg dropdown-toggle text-start dropdown-units rounded-1 fs-6" data-bs-toggle="dropdown" aria-expanded="false">Regional Zona da Mata e Vertentes</button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">Barbacena - (32) 3332-9686</a></li>
+                    <li><a class="dropdown-item">Cataguases - (32) 3421-6326</a></li>
+                    <li><a class="dropdown-item">Juiz de Fora - (32) 4702-4705</a></li>
+                    <li><a class="dropdown-item">Manhuaçu - (33) 3331-4833</a></li>
+                    <li><a class="dropdown-item">Muriaé - (32) 3721-9722</a></li>
+                    <li><a class="dropdown-item">Ponte Nova - (31) 3881-2889</a></li>
+                    <li><a class="dropdown-item">São João Del Rei - (32) 3372-3833</a></li>
+                    <li><a class="dropdown-item">Ubá - (32) 3531-5166</a></li>
+                    <li><a class="dropdown-item">Viçosa - (32) 3891-4759</a></li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+        <!-- Results-->
     </section>
-    <footer>
-        <div class="container">
-            <div class="navbar-nav">
-                <div class="nav-item">Sebrae Minas Gerais</div>
-                <div class="nav-item">Quem Somos</div>
-                <div class="nav-item">Resultados</div>
-                <div class="nav-item">Notícias</div>
-                <div class="nav-item">Transparência</div>
+
+    <footer class="mt-5">
+        <div class="container text-center">
+            <div class="row justify-content-center pt-4">
+                <div class="col-8">
+                    <ul class="nav justify-content-around">
+                        <li class="text-secondary nav-item">
+                            <a class="nav-link active">Sebrae Minas Gerais</a>
+                        </li>
+                        <li class="text-secondary nav-item">
+                            <a class="nav-link">Quem Somos</a>
+                        </li>
+                        <li class="text-secondary nav-item">
+                            <a class="nav-link">Resultados</a>
+                        </li>
+                        <li class="text-secondary nav-item">
+                            <a class="nav-link">Notícias</a>
+                        </li>
+                        <li class="text-secondary nav-item">
+                            <a class="nav-link">Transparencia</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row justify-content-center py-4">
+                <div class="col-8">
+                    <ul class="nav justify-content-around">
+                        <li class="text-secondary nav-item">
+                            <p class="h4">0800 570 0800</p>
+                        </li>
+                        <li class="text-secondary nav-item">
+                            <ul class="nav justify-content-around">
+                                <li class="nav-item">
+                                    <a class="nav-link">Insta</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">Face</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">X</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">YT</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">In</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">Play</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="text-secondary nav-item">
+                            <a class="nav-link">Logo Sebrae</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </footer>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="js/index.js" async></script>
+    <script src="https://unpkg.com/scrollbooster@2/dist/scrollbooster.min.js"></script>
+    <script src="js/index.js" type="text/javascript"></script>
 </body>
 </html>
