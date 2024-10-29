@@ -15,6 +15,7 @@ const $resultHero = document.querySelector(".resultsHero");
 const $levelTitle = document.querySelector(".level-title");
 const $levelText = document.querySelector(".resultBlock .level-text");
 const $levelImg = document.querySelector(".img-level-hero");
+const $btnTrail = document.querySelector("#btn-level");
 // Variaveis página de resultados => progress bar
 const $resultBars = document.querySelectorAll(".progress-bar");
 const $levelNumberBar = document.querySelectorAll(".level-theme");
@@ -159,6 +160,7 @@ function populateResultHero(hero){
 	$levelTitle.append(hero.level);
 	$levelText.append(hero.text);
 	changeImageSrc(hero.img);
+	$btnTrail.textContent = hero.level;
 }
 // Function for theme //
 function levelName(points){
@@ -526,10 +528,10 @@ const questions = [
         category: "Processos e gestão",
         question: "Como você emite notas fiscais e documentos fiscais?",
         answers: [
-            {text: "Emito notas fiscais manualmente ou uso blocos de papel.", point: 1},
-            {text: "Uso sistemas on-line para emitir notas fiscais individualmente.", point: 2},
+            {text: "Utilizo suporte de terceiros (contador, Sala Mineira, Agência Sebrae) para emissão de notas fiscais e/ou outros documentos fiscais.", point: 1},
+            {text: "Uso sistemas on-line para emitir notas fiscais e/ou outros documentos fiscais.", point: 2},
             {text: "Utilizo um programa que integra vendas e emite notas fiscais automaticamente.", point: 3},
-            {text: "Tenho processos automatizados de faturamento integrados à gestão financeira.", point: 4}
+            {text: "Tenho processos automatizados de faturamento integrados à gestão financeira e fiscal.", point: 4}
         ]
     },
     {
