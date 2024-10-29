@@ -120,6 +120,19 @@ main {
     max-width: 60rem;
 }
 
+.card-home {
+    min-height: 14rem;
+}
+
+.card-home .card-title {
+    bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.card-home .card-body {
+    background-image: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50% );
+}
+
 .card-title {
     position: absolute;
     bottom: 1.5rem;
@@ -130,15 +143,18 @@ main {
     display: none;
 }
 
-.card-course:hover {
-    -webkit-animation: scale-up-hor-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	animation: scale-up-hor-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+.card-courses {
+    margin: 0.75rem 0;
 }
 
-.card-course:hover .card-text {
+.card-courses:hover {
+
+}
+
+.card-courses:hover .card-text {
     display: block;
-    -webkit-animation: scale-in-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-    animation: scale-in-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+/*    -webkit-animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;  */
 }
 
 .card-text, .card-title-course {
@@ -185,7 +201,7 @@ main {
 }
 
 .btn-question-sebrae::after {
-    content: "d";
+    content: "";
     color: transparent;
     width: 1rem;
     height: 1.5rem;
@@ -235,7 +251,9 @@ main {
     color: #ffffff;
     border-color: #FFC01F;
     transition: 0.5s;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
+
 
 .btn-hover::after {
     border-color: #ffffff;
@@ -376,19 +394,19 @@ li.nav-item:nth-last-child(a):not(.active) {
     top: 1.2rem;
 }
 
-.bg-badge-iniciante {
+#tab-process-iniciante span, #tab-sell-iniciante span, #tab-digital-iniciante span, #tab-communication-iniciante span, #tab-finance-iniciante span {
     background: #00AF35;
 }
 
-.bg-badge-aprendiz {
+#tab-process-aprendiz span, #tab-sell-aprendiz span, #tab-digital-aprendiz span, #tab-communication-aprendiz span, #tab-finance-aprendiz span {
     background: #FFB202;
 }
 
-.bg-badge-empreendedor {
+#tab-process-empreendedor span, #tab-sell-empreendedor span, #tab-digital-empreendedor span, #tab-communication-empreendedor span,#tab-finance-empreendedor span {
     background: #9800AF;
 }
 
-.bg-badge-inovador {
+#tab-process-inovador span, #tab-sell-inovador span, #tab-digital-inovador span, #tab-communication-inovador span, #tab-finance-inovador span {
     background: #00609F;
 }
 
@@ -510,6 +528,36 @@ li.nav-item:nth-last-child(a):not(.active) {
   }
 }
 
+ @-webkit-keyframes scale-up-ver-top {
+    0% {
+      -webkit-transform: scaleY(0.4);
+              transform: scaleY(0.4);
+      -webkit-transform-origin: 100% 0%;
+              transform-origin: 100% 0%;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+      -webkit-transform-origin: 100% 0%;
+              transform-origin: 100% 0%;
+    }
+  }
+  @keyframes scale-up-ver-top {
+    0% {
+      -webkit-transform: scaleY(0.4);
+              transform: scaleY(0.4);
+      -webkit-transform-origin: 100% 0%;
+              transform-origin: 100% 0%;
+    }
+    100% {
+      -webkit-transform: scaleY(1);
+              transform: scaleY(1);
+      -webkit-transform-origin: 100% 0%;
+              transform-origin: 100% 0%;
+    }
+  }
+  
+
 
 .nav-underline .nav-link.active {
     color: #212121;
@@ -548,4 +596,10 @@ li.nav-item:nth-last-child(a):not(.active) {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #212121; 
+}
+
+@media (max-width: 575.98px) {
+    #flag-home {
+        display: none;
+    }
 }

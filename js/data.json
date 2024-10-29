@@ -717,5 +717,46 @@
     		"nivel": [0],
     		"link": ""
     	}
-    ]
+    ],
+	
+	"user-data": [
+    	{
+    	    "nome": "GUILHERME MOACIR CAMPOS",
+    	    "empresa": "gui",
+    	    "email": "guilhermemcmps@gmail.com",
+    	    "whatsapp": "(51) 99586-2071",
+    	    "cidade": "Alfredo Vasconcelos",
+    	    "receberEmail": "on"
+    	},
+    	{
+    	    "category": "Processos e gestão",
+    	    "pontos": 12,
+    	    "nivel": "Inovador Digital",
+    	    "desc": "Você está na vanguarda da transformação digital, utilizando tecnologias avançadas e estratégias inovadoras."
+    	},
+    	{
+    	    "category": "Vendas e atendimento",
+    	    "pontos": 12,
+    	    "nivel": "Inovador Digital",
+    	    "desc": "Você está na vanguarda da transformação digital, utilizando tecnologias avançadas e estratégias inovadoras."
+    	},
+    	{
+    	    "category": "Presença digital",
+    	    "pontos": 12,
+    	    "nivel": "Inovador Digital",
+    	    "desc": "Você está na vanguarda da transformação digital, utilizando tecnologias avançadas e estratégias inovadoras."
+    	},
+    	{
+    	    "category": "Comunicação e marca",
+    	    "pontos": 12,
+    	    "nivel": "Inovador Digital",
+    	    "desc": "Você está na vanguarda da transformação digital, utilizando tecnologias avançadas e estratégias inovadoras."
+    	},
+    	{
+    	    "category": "Finanças e pagamentos",
+    	    "pontos": 12,
+    	    "nivel": "Inovador Digital",
+    	    "desc": "Você está na vanguarda da transformação digital, utilizando tecnologias avançadas e estratégias inovadoras."
+    	}
+	]
 }
