@@ -20,7 +20,7 @@ main {
 /* HERO */
 
 .hide {
-    display: none;
+    display: none !important;
 }
 
 .questions {
@@ -29,6 +29,18 @@ main {
 
 .bg-brand, .btn-primary {
     background-color: #0070BA;
+}
+
+.bg-agro {
+    background-color: #049b36;
+}
+
+.bg-food {
+    background-color: #f54d48;
+}
+
+.bg-civil {	
+    background-color: #657086;
 }
 
 .color-primary {
