@@ -24,7 +24,7 @@ main {
 }
 
 .questions {
-    height: calc(100vh - 176px);
+    height: 100vh;
 }
 
 .bg-brand, .btn-primary {
