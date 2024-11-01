@@ -60,20 +60,7 @@ const $tbFinApr = document.querySelector("#tab-finance-aprendiz");
 const $tbFinEmp = document.querySelector("#tab-finance-empreendedor");
 const $tbFinIno = document.querySelector("#tab-finance-inovador");
 // Variaveis página de resultados => dados de resultados
-let $dataUser = {
-    user:{
-        nome: "",
-        empresa: "",
-        email: "",
-        whatsapp: "",
-        newsletter: ""
-    },
-    pergunta: [],
-    resultado: {
-        nivel: "",
-        pontosTotais: 0
-    }
-};
+let $dataUser = [];
 let data;
 
 // -------   Página de inicio   ------ //
@@ -113,12 +100,14 @@ function startGame(){
 }
 // Função para guardar os dados do usuário //
 function getDataUser(){
-	$dataUser.user.nome = document.getElementById('formControlNome').value
-    $dataUser.user.empresa = document.getElementById('formControlEmpresa').value
-    $dataUser.user.email = document.getElementById('formControlEmail').value
-    $dataUser.user.whatsapp = document.getElementById('formControlWhats').value
-    $dataUser.user.cidade = document.getElementById('formControlCidade').value
-    $dataUser.user.receberEmail = document.getElementById('flexCheck').value
+	$dataUser.push({
+	"nome": document.getElementById('formControlNome').value,
+    "empresa": document.getElementById('formControlEmpresa').value,
+    "email": document.getElementById('formControlEmail').value,
+    "whatsapp": document.getElementById('formControlWhats').value,
+    "cidade": document.getElementById('formControlCidade').value,
+    "receberEmail": document.getElementById('flexCheck').value
+	})
 }
 
 // -------   Página de Nível de Maturidade   ------ //
@@ -165,7 +154,7 @@ function selectAnswer(event){
 	
 	calcPoints();
 	if(currentQuestionIndex < questions.length){
-		getQuestionData(actualQuestion, actualAnswer, actualAnswerCategory, pointActualAnswer);
+		getQuestionData(actualQuestion, actualAnswer, actualAnswerCategory, pointActualAnswer, currentQuestionIndex);
 	}
 }
 // Função que calcula os pontos //
@@ -175,18 +164,18 @@ function calcPoints(){
     displayNextQuestion();
 }
 // Função que preenche os resultados de cada questão //
-function getQuestionData(question, answer, category, points){
-	$dataUser.pergunta.push({
-		categoria: category,
-		questao: question,
-		resposta: answer,
-		pontos: points
+function getQuestionData(question, answer, category, points, index){
+	$dataUser.push({
+		"categoria": category,
+		"questao": question,
+		"resposta": answer,
+		"pontos": points
 	})
 }
 
 // Função que volta a pergunta anterior //
 function backQuestion(){
-    let back = $dataUser.pergunta.pop();
+    let back = $dataUser.pop();
 	pointsCategory.filter((categoria) => categoria.category === back.categoria).map((ponto) => ponto.points -= back.pontos)
 	currentQuestionIndex--;
     displayNextQuestion();
@@ -356,10 +345,12 @@ function finishTest(){
 		}
 	}
 	
-	$dataUser.resultado.nivel = pointsGeneral[0].level;
-	$dataUser.resultado.pontosTotais = totalPoints;
+	$dataUser.push({
+		nivel: pointsGeneral[0].level,
+		pontosTotais: totalPoints
+	})
 
-
+	sendData($dataUser, pointsCategory)
 }
 // Função que retorna o resultado geral do teste //
 function generalResult(result) {
@@ -517,14 +508,18 @@ function scrollCourses() {
 }
 
 // Função para enviar dados do teste para o Google Sheets //
-function sendData(data){
-	console.log(data);
-	const scriptGoogle = 'https://script.google.com/macros/s/AKfycbyPQp2-nzJJ9QSTaoHZfD_uYYXGxL403uc6VGSEsoYg9cagIoBloCCeRSP3gPKgl2RD/exec';
-	fetch(scriptGoogle, { method: 'POST', body: new FormData(data) })
-    .then(response => {
-        data.reset();
-    })
-    .catch(error => console.error('Erro no envio: ', error));
+function sendData(data, info){
+	const url = 'https://script.google.com/macros/s/AKfycbyWhZrkveeZw2nCt54Y6hTF-GD7Nga6y0BXG--9xQgb47cBbuc7lUBDq2y8d_NxPfqo/exec?gid=0';
+	let date = new Date(Date.now()).toLocaleString('pt-BR', {timezone: 'UTC'})
+	const calling = `${url}&data=${date}&nome=${data[0].nome}&empresa=${data[0].empresa}&email=${data[0].email}&whatsapp=${data[0].whatsapp}&cidade=${data[0].cidade}&newsletter=${data[0].receberEmail}&proc_gest_r1=${data[1].resposta}&proc_gest_p1=${data[1].pontos}&proc_gest_r2=${data[2].resposta}&proc_gest_p2=${data[2].pontos}&proc_gest_r3=${data[3].resposta}&proc_gest_p3=${data[3].pontos}&proc_gest_nv=${info[0].levelName}&proc_gest_pts=${info[0].points}&ven_atend_r1=${data[4].resposta}&ven_atend_p1=${data[4].pontos}&ven_atend_r2=${data[5].resposta}&ven_atend_p2=${data[5].pontos}&ven_atend_r3=${data[6].resposta}&ven_atend_p3=${data[6].pontos}&ven_atend_nv=${info[1].levelName}&ven_atend_pts=${info[1].points}&pre_dig_r1=${data[7].resposta}&pre_dig_p1=${data[7].pontos}&pre_dig_r2=${data[8].resposta}&pre_dig_p2=${data[8].pontos}&pre_dig_r3=${data[9].resposta}&pre_dig_p3=${data[9].pontos}&pre_dig_nv=${info[2].levelName}&pre_dig_pts=${info[2].points}&com_mar_r1=${data[10].resposta}&com_mar_p1=${data[10].pontos}&com_mar_r2=${data[11].resposta}&com_mar_p2=${data[11].pontos}&com_mar_r3=${data[12].resposta}&com_mar_p3=${data[12].pontos}&com_mar_nv=${info[3].levelName}&com_mar_pts=${info[3].points}&fin_pag_r1=${data[13].resposta}&fin_pag_p1=${data[13].pontos}&fin_pag_r2=${data[14].resposta}&fin_pag_p2=${data[14].pontos}&fin_pag_r3=${data[15].resposta}&fin_pag_p3=${data[15].pontos}&fin_pag_nv=${info[4].levelName}&fin_pag_pts=${info[4].points}&nivel_geral=${data[16].nivel}&pontos_totais=${data[16].pontosTotais}`;
+	const requestOptions = {
+  		method: "GET",
+  		redirect: "follow"
+	};
+	fetch(calling, requestOptions)
+	  .then((response) => response.text())
+	  .then((result) => console.log(result))
+	  .catch((error) => console.error(error));
 }
 
 // ------ Eventos de escuta ------ //

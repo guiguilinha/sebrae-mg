@@ -305,30 +305,30 @@
         <section class="d-flex indexStart" id="formStartTest">
             <div class="container d-grid col-lg-6 rounded-3 p-5 align-items-center">
                 <h2 class="h3">Para iniciar, preencha com seus dados</h2>
-                <form class="row g-3 needs-validation" autocomplete="on" novalidate>
+                <form class="row g-3 needs-validation" autocomplete="on" novalidate id="sebrae-form">
                     <div class="mb-3">
                         <label for="formControlNome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="formControlNome" placeholder="Digite seu nome" minlength="3" required>
+                        <input type="text" class="form-control" id="formControlNome" placeholder="Digite seu nome" minlength="3" name="nome" required>
                         <div class="invalid-feedback text-danger">Você deve informar seu nome</div>
                       </div>
                       <div class="mb-3">
                         <label for="formControlEmpresa" class="form-label">Empresa</label>
-                        <input type="text" class="form-control" id="formControlEmpresa" placeholder="Digite o nome da sua empresa" minlength="3" required>
+                        <input type="text" class="form-control" id="formControlEmpresa" placeholder="Digite o nome da sua empresa" minlength="3" name="empresa" required>
                         <div class="invalid-feedback text-danger">Você deve informar o nome de sua empresa</div>
                       </div>
                       <div class="mb-3">
                         <label for="formControlEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="formControlEmail" placeholder="nome@exemplo.com.br" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required>
+                        <input type="email" class="form-control" id="formControlEmail" placeholder="nome@exemplo.com.br" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" name="email" required>
                         <div class="invalid-feedback text-danger">Você deve informar um e-mail válido</div>
                       </div>
                       <div class="mb-3">
                         <label for="formControlWhats" class="form-label">WhatsApp</label>
-                        <input type="tel" class="form-control" id="formControlWhats" placeholder="(38) 99999-9999" required>
+                        <input type="tel" class="form-control" id="formControlWhats" placeholder="(38) 99999-9999" name="whats" required>
                         <div class="invalid-feedback text-danger">Você deve informar seu WhatsApp</div>
                       </div>
                       <div class="mb-3">
                         <label for="formControlCidade" class="form-label">Cidade</label>
-                        <select class="form-select" id="formControlCidade" aria-label="Selecione sua cidade" placeholder="Selecione sua cidade" required>
+                        <select class="form-select" id="formControlCidade" aria-label="Selecione sua cidade" placeholder="Selecione sua cidade" name="cidade" required>
                             <option selected disable value="">Selecione sua cidade</option>
                             <option value="Abadia dos Dourados">Abadia dos Dourados</option>
                             <option value="Abaeté">Abaeté</option>
