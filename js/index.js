@@ -1,3 +1,8 @@
+if(document.readyState === 'complete'){
+	window.location.reload()
+	console.log('complete');
+}
+
 // Variaveis globais
 const $startPage = document.querySelector(".start");
 const $testPage = document.querySelector(".questions");
@@ -27,7 +32,7 @@ let pointsGeneral = {}
 // Variaveis página de resultados => Hero
 const $resultHero = document.querySelector(".resultsHero");
 const $levelTitle = document.querySelector(".level-title");
-const $levelText = document.querySelector(".resultBlock .level-text");
+const $levelText = document.querySelector(".resultsHero .level-text");
 const $levelImg = document.querySelector(".img-level-hero");
 const $btnTrail = document.querySelector("#btn-level");
 // Variaveis página de resultados => progress bar
