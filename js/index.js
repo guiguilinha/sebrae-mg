@@ -1,7 +1,16 @@
-if(document.readyState === 'complete'){
-	window.location.reload()
+
+
+if(document.readyState){
 	console.log('complete');
 }
+
+$('#formControlCidade').select2({
+	placeholder: 'Selecione sua cidade',
+	language: 'pt-BR'
+});
+
+document.querySelector(".select2-container").classList.add("form-select")
+
 
 // Variaveis globais
 const $startPage = document.querySelector(".start");
@@ -29,6 +38,7 @@ let actualAnswerIndex = 0;
 let actualAnswerCategory = "";
 let pointsCategory = [{category: "Processos e gestão", points: 0, percent: 0, level: 0, levelName: "", desc: ""},{category: "Vendas e atendimento", points: 0, percent: 0, level: 0, levelName: "", desc: ""},{category: "Presença digital", points: 0, percent: 0, level: 0, levelName: "", desc: ""},{category: "Comunicação e marca", points:0, percent: 0, level: 0, levelName: "", desc: ""},{category: "Finanças e pagamentos", points: 0, percent: 0, level: 0, levelName: "", desc: ""}];
 let pointsGeneral = {}
+let $stateSelect = document.querySelector("#formControlUF")
 // Variaveis página de resultados => Hero
 const $resultHero = document.querySelector(".resultsHero");
 const $levelTitle = document.querySelector(".level-title");
@@ -68,6 +78,8 @@ const $tbFinIno = document.querySelector("#tab-finance-inovador");
 let $dataUser = [];
 let data;
 
+
+
 // -------   Página de inicio   ------ //
 // Função para validar o formulário
 function formValidate(){
@@ -105,15 +117,59 @@ function startGame(){
 }
 // Função para guardar os dados do usuário //
 function getDataUser(){
+	
+	$dataUser = [];
+	const checkbox = document.getElementById('flexCheck')
+	let marker
+	if(checkbox.checked){
+		marker = true;
+	} else {
+		marker = false;
+	}
 	$dataUser.push({
 	"nome": document.getElementById('formControlNome').value,
     "empresa": document.getElementById('formControlEmpresa').value,
     "email": document.getElementById('formControlEmail').value,
     "whatsapp": document.getElementById('formControlWhats').value,
+    "estado": document.getElementById('formControlUF').value,
     "cidade": document.getElementById('formControlCidade').value,
-    "receberEmail": document.getElementById('flexCheck').value
+    "receberEmail": marker
 	})
 }
+// Função para popular campos de estado e cidade
+function getState(){
+	fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(state => {
+            $stateSelect.append(new Option(state.nome, state.sigla));
+        });
+    });
+}
+
+function getCities(){
+	const state = $stateSelect.value;
+	const cities = document.getElementById('formControlCidade')
+
+	cities.length = 0
+	cities.appendChild(new Option("Selecione sua cidade"))
+
+    fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state}/municipios?orderBy=nome`)
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(city => {
+            cities.append(new Option(city.nome, city.nome));
+        });
+    });
+}
+
+// Função de busca no campo Select de cidades
+if (document.readyState){
+	getState()
+}
+
+$stateSelect.addEventListener("change", getCities);
+
 
 // -------   Página de Nível de Maturidade   ------ //
 // Função para limpar o estado das questões e respostas //
@@ -130,6 +186,11 @@ function displayNextQuestion(){
 		getQuestionData(actualQuestion, actualAnswer, actualAnswerCategory, pointActualAnswer);
         return finishTest();
     }
+	if(currentQuestionIndex === 0){
+		$backQuestionButton.classList.add("hide");
+	} else {
+		$backQuestionButton.classList.remove("hide");
+	}
     $questionText.textContent = questions[currentQuestionIndex].question;
     $questionText.dataset.category = questions[currentQuestionIndex].category;
     
@@ -435,7 +496,7 @@ function createCard(currentName, currentDesc, currentLink, currentImg, extraCate
 		<div class="card-body">
 			<h6 class="card-title-course">${currentName}</h6>
 		    <p class="card-text fw-light lh-sm text-break">${currentDesc}</p>
-			<a href="#${currentLink}" class="btn-link stretched-link" target="_blank">Veja mais</a>
+			<a href="${currentLink}" class="btn-link stretched-link" target="_blank">Veja mais</a>
 		</div>`;
 	return newCard;
 }
@@ -516,7 +577,7 @@ function scrollCourses() {
 function sendData(data, info){
 	const url = 'https://script.google.com/macros/s/AKfycbyWhZrkveeZw2nCt54Y6hTF-GD7Nga6y0BXG--9xQgb47cBbuc7lUBDq2y8d_NxPfqo/exec?gid=0';
 	let date = new Date(Date.now()).toLocaleString('pt-BR', {timezone: 'UTC'})
-	const calling = `${url}&data=${date}&nome=${data[0].nome}&empresa=${data[0].empresa}&email=${data[0].email}&whatsapp=${data[0].whatsapp}&cidade=${data[0].cidade}&newsletter=${data[0].receberEmail}&proc_gest_r1=${data[1].resposta}&proc_gest_p1=${data[1].pontos}&proc_gest_r2=${data[2].resposta}&proc_gest_p2=${data[2].pontos}&proc_gest_r3=${data[3].resposta}&proc_gest_p3=${data[3].pontos}&proc_gest_nv=${info[0].levelName}&proc_gest_pts=${info[0].points}&ven_atend_r1=${data[4].resposta}&ven_atend_p1=${data[4].pontos}&ven_atend_r2=${data[5].resposta}&ven_atend_p2=${data[5].pontos}&ven_atend_r3=${data[6].resposta}&ven_atend_p3=${data[6].pontos}&ven_atend_nv=${info[1].levelName}&ven_atend_pts=${info[1].points}&pre_dig_r1=${data[7].resposta}&pre_dig_p1=${data[7].pontos}&pre_dig_r2=${data[8].resposta}&pre_dig_p2=${data[8].pontos}&pre_dig_r3=${data[9].resposta}&pre_dig_p3=${data[9].pontos}&pre_dig_nv=${info[2].levelName}&pre_dig_pts=${info[2].points}&com_mar_r1=${data[10].resposta}&com_mar_p1=${data[10].pontos}&com_mar_r2=${data[11].resposta}&com_mar_p2=${data[11].pontos}&com_mar_r3=${data[12].resposta}&com_mar_p3=${data[12].pontos}&com_mar_nv=${info[3].levelName}&com_mar_pts=${info[3].points}&fin_pag_r1=${data[13].resposta}&fin_pag_p1=${data[13].pontos}&fin_pag_r2=${data[14].resposta}&fin_pag_p2=${data[14].pontos}&fin_pag_r3=${data[15].resposta}&fin_pag_p3=${data[15].pontos}&fin_pag_nv=${info[4].levelName}&fin_pag_pts=${info[4].points}&nivel_geral=${data[16].nivel}&pontos_totais=${data[16].pontosTotais}`;
+	const calling = `${url}&data=${date}&nome=${data[0].nome}&empresa=${data[0].empresa}&email=${data[0].email}&whatsapp=${data[0].whatsapp}&cidade=${data[0].cidade}&UF=${data[0].estado}&newsletter=${data[0].receberEmail}&proc_gest_r1=${data[1].resposta}&proc_gest_p1=${data[1].pontos}&proc_gest_r2=${data[2].resposta}&proc_gest_p2=${data[2].pontos}&proc_gest_r3=${data[3].resposta}&proc_gest_p3=${data[3].pontos}&proc_gest_nv=${info[0].levelName}&proc_gest_pts=${info[0].points}&ven_atend_r1=${data[4].resposta}&ven_atend_p1=${data[4].pontos}&ven_atend_r2=${data[5].resposta}&ven_atend_p2=${data[5].pontos}&ven_atend_r3=${data[6].resposta}&ven_atend_p3=${data[6].pontos}&ven_atend_nv=${info[1].levelName}&ven_atend_pts=${info[1].points}&pre_dig_r1=${data[7].resposta}&pre_dig_p1=${data[7].pontos}&pre_dig_r2=${data[8].resposta}&pre_dig_p2=${data[8].pontos}&pre_dig_r3=${data[9].resposta}&pre_dig_p3=${data[9].pontos}&pre_dig_nv=${info[2].levelName}&pre_dig_pts=${info[2].points}&com_mar_r1=${data[10].resposta}&com_mar_p1=${data[10].pontos}&com_mar_r2=${data[11].resposta}&com_mar_p2=${data[11].pontos}&com_mar_r3=${data[12].resposta}&com_mar_p3=${data[12].pontos}&com_mar_nv=${info[3].levelName}&com_mar_pts=${info[3].points}&fin_pag_r1=${data[13].resposta}&fin_pag_p1=${data[13].pontos}&fin_pag_r2=${data[14].resposta}&fin_pag_p2=${data[14].pontos}&fin_pag_r3=${data[15].resposta}&fin_pag_p3=${data[15].pontos}&fin_pag_nv=${info[4].levelName}&fin_pag_pts=${info[4].points}&nivel_geral=${data[16].nivel}&pontos_totais=${data[16].pontosTotais}`;
 	const requestOptions = {
   		method: "GET",
   		redirect: "follow"

@@ -426,6 +426,28 @@ li.nav-item:nth-last-child(a):not(.active) {
     font-size: 1.5rem;
 }
 
+.select2-container--default .select2-selection--single {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: 0 !important;;
+    border-radius: none !important;
+}
+
+.select2-selection__arrow {
+    display:none !important;
+}
+
+#select2-formControlCidade-container {
+    padding: 0 !important;
+}
+
+span.select2-container {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.select2-selection__placeholder {
+    color: #444 !important;
+}
 
  @-webkit-keyframes swing-in-top-fwd {
     0% {
@@ -586,6 +608,10 @@ li.nav-item:nth-last-child(a):not(.active) {
 
 .nav-link {
     cursor: pointer;
+}
+
+.color-line {
+    background: linear-gradient(-60deg, rgba(0, 95, 179) 0%, rgba(0, 95, 179) 25%, rgba(0, 234, 175) 25%, rgba(0, 234, 175) 50%, rgba(142, 128, 242) 50%, rgba(142, 128, 242) 75%, rgba(242, 164, 66) 75%);
 }
 
 /* SCROLLBAR */
