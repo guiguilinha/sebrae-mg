@@ -450,6 +450,7 @@ function populateResultHero(hero){
 	$levelText.append(hero.text);
 	changeImageSrc(hero.img);
 	$btnTrail.textContent = hero.level;
+	$btnTrail.parentElement.setAttribute('href', hero.link);
 }
 // Função que popula o nível do usuário por tema //
 function setLevelTheme(i, level){
@@ -645,8 +646,8 @@ const questions = [
         answers: [
             {text: "Atendo apenas pessoalmente ou por telefone, sem anotar informações dos clientes", point: 1},
             {text: "Mantenho o histórico das conversas na ferramenta que o cliente fez contato (WhatsApp Business, e-mail etc).", point: 2},
-            {text: "Utilizo ferramentas para gerenciar contatos e acompanhar solicitações.", point: 3},
-            {text: "Uso sistemas que automatizam o atendimento, com histórico do cliente e atendimento personalizado.", point: 4}
+            {text: "Uso sistemas que registram os atendimentos, com dados dos clientes e histórico de compras, permitindo um atendimento personalizado.", point: 3},
+            {text: "Além de registrar atendimentos utilizo estratégias de gestão do relacionamento com o cliente (CRM) com suporte de um sistema dedicado.", point: 4}
         ]
     },
     {
@@ -656,8 +657,8 @@ const questions = [
         answers: [
             {text: "Não tenho um processo para receber opiniões.", point: 1},
             {text: "Recebo opiniões informalmente, quando os clientes procuram.", point: 2},
-            {text: "Peço opiniões através de pesquisas ou redes sociais.", point: 3},
-            {text: "Utilizo ferramentas específicas para coletar e analisar opiniões, melhorando produtos e serviços.", point: 4}
+            {text: "Acompanho regularmente os comentários em redes sociais, aplicativos e sites de avaliação/reclamação", point: 3},
+            {text: "Utilizo ferramentas específicas para coletar e analisar opiniões, tenho processos de envio e análise, melhorando produtos e serviços.", point: 4}
         ]
     },
     {
@@ -667,19 +668,19 @@ const questions = [
         answers: [
             {text: "Não tenho presença on-line ou tenho apenas um perfil básico em redes sociais.", point: 1},
             {text: "Tenho perfis ativos em redes sociais, mas posto de forma irregular e sem planejamento.", point: 2},
-            {text: "Tenho um site atualizado e utilizo as redes sociais com estratégia definida.", point: 3},
-            {text: "Invisto em marketing digital, tenho verba mensal para anúncios on-line, tenho site otimizado e faço análise de resultados com frequência.", point: 4}
+            {text: "Uso os canais digitais de forma estratégica, e eles contribuem fortemente para meus resultados empresariais.", point: 3},
+            {text: " Invisto em marketing digital, tenho verba mensal para anúncios on-line, tenho canais otimizados e faço análise de resultados com frequência.", point: 4}
         ]
     },
     {
         category: "Presença digital",
 		number: 2,
-        question: "Como você utiliza a internet para promover e vender seus produtos ou serviços?",
+        question: "Como você utiliza os canais digitais para promover e vender seus produtos ou serviços?",
         answers: [
-            {text: "Não utilizo a internet para promoção ou vendas.", point: 1},
+            {text: "Não utilizo canais digitais para promoção ou vendas.", point: 1},
             {text: "Divulgo produtos ou serviços nas redes sociais, sem estratégia definida.", point: 2},
-            {text: "Vendo pela internet através de site próprio ou sites de vendas online e faço promoções online.", point: 3},
-            {text: "Utilizo estratégias avançadas de vendas online, campanhas de marketing e análise de dados para melhorar resultados.", point: 4}
+            {text: "Vendo on-line por meio de site próprio ou plataformas de vendas on-line (ex: Mercado Livre, OLX), e faço promoções on-line", point: 3},
+            {text: "Utilizo estratégias avançadas de vendas on-line em múltiplos canais, campanhas de marketing e análise de dados para melhorar resultados.", point: 4}
         ]
     },
     {
@@ -710,9 +711,9 @@ const questions = [
         question: "Como você planeja e executa a comunicação com seus clientes?",
         answers: [
             {text: "Comunico-me esporadicamente, sem planejamento.", point: 1},
-            {text: "Faço publicações e envios, mas sem calendário definido.", point: 2},
-            {text: "Planejo conteúdos e ações de comunicação com base em objetivos claros.", point: 3},
-            {text: "Uso dados para personalizar a comunicação e automatizo interações com os clientes.", point: 4}
+            {text: "Faço publicações e envios, mas sem calendário definido ou objetivos claros.", point: 2},
+            {text: "Planejo conteúdos e ações de comunicação com base em objetivos claros, e invisto na produção de textos, fotos e vídeos profissionais para aumentar a percepção de valor da minha marca.", point: 3},
+            {text: "Promovo atividades de engajamento com meus clientes (por exemplo, eventos presenciais ou virtuais), utilizo dados para personalizar a comunicação, automatizo interações e analiso os resultados para otimizar minha estratégia de comunicação.", point: 4}
         ]
     },
     {
@@ -732,9 +733,9 @@ const questions = [
         question: "Quais formas de pagamento você oferece aos seus clientes?",
         answers: [
             {text: "Apenas dinheiro.", point: 1},
-            {text: "Dinheiro e cartões por meio de maquininha.", point: 2},
-            {text: "Além dos anteriores, aceito PIX e pagamentos on-line, boletos bancários e pagamentos por aproximação.", point: 3},
-            {text: "Ofereço diversas opções digitais, incluindo carteiras digitais e pagamentos por aproximação (por exemplo, via celular).", point: 4}
+            {text: "Dinheiro, cartões de débito e crédito por meio de maquininhas e também pagamento via PIX.", point: 2},
+            {text: "Além dos anteriores, aceito boleto bancário e pagamento on-line.", point: 3},
+            {text: "Ofereço diversas opções digitais, incluindo pagamentos on-line, carteiras digitais (por exemplo, PayPal, Mercado Pago), pagamentos via aplicativos como WhatsApp, QR codes, e integro soluções de pagamento aos meus canais de venda.", point: 4}
         ]
     },
     {
@@ -768,28 +769,32 @@ const levels = [
         level: "Iniciante Digital",
         text: "Seu negócio está nos primeiros passos da transformação digital. Há muitas oportunidades para incorporar ferramentas e práticas digitais que podem melhorar sua eficiência e competitividade.",
         img: "img/iniciante_digital.png",
-		points: 0
+		points: 0,
+		link: "https://sebraeplay.com.br/cursos/iniciante-digital-despertando-para-o-digital"
     },
     {
 		id: 2,
         level: "Aprendiz Digital",
         text: "Você já iniciou a jornada digital e utiliza algumas ferramentas. Focar em áreas específicas pode impulsionar ainda mais seu negócio.",
         img: "img/aprendiz_digital.png",
-		points: 0
+		points: 0,
+		link: "https://sebraeplay.com.br/cursos/aprendiz-digital"
     },
     {
 		id: 3,
         level: "Empreendedor Digital",
         text: "Seu negócio já adota várias práticas digitais e está colhendo os benefícios. Continuar inovando e integrando processos será essencial.",
         img: "img/empreendedor_digital.png",
-		points: 0
+		points: 0,
+		link: "https://sebraeplay.com.br/cursos/empreendedor-digital"
     },
     {
 		id: 4,
         level: "Inovador Digital",
         text: "Você está na vanguarda da transformação digital, utilizando tecnologias avançadas e estratégias inovadoras.",
         img: "img/inovador_digital.png",
-		points: 0
+		points: 0,
+		link: "https://sebraeplay.com.br/cursos/inovador-digital-automatizando-e-escalando"
     },
 ]
 // --------------------------------------------------------------------------------------------- //
