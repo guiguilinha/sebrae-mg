@@ -1,9 +1,3 @@
-
-
-if(document.readyState){
-	console.log('complete');
-}
-
 $('#formControlCidade').select2({
 	placeholder: 'Selecione sua cidade',
 	language: 'pt-BR'
@@ -119,13 +113,13 @@ function startGame(){
 function getDataUser(){
 	
 	$dataUser = [];
-	const checkbox = document.getElementById('flexCheck')
-	let marker
-	if(checkbox.checked){
-		marker = true;
-	} else {
-		marker = false;
-	}
+	//const checkbox = document.getElementById('flexCheck')
+	//let marker
+	//if(checkbox.checked){
+	//	marker = true;
+	//} else {
+	//	marker = false;
+	//}
 	$dataUser.push({
 	"nome": document.getElementById('formControlNome').value,
     "empresa": document.getElementById('formControlEmpresa').value,
@@ -133,11 +127,11 @@ function getDataUser(){
     "whatsapp": document.getElementById('formControlWhats').value,
     "estado": document.getElementById('formControlUF').value,
     "cidade": document.getElementById('formControlCidade').value,
-    "receberEmail": marker
+    //"receberEmail": marker
 	})
 }
 // Função para popular campos de estado e cidade
-function getState(){
+//function getState(){
 	fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
     .then(response => response.json())
     .then(data => {
@@ -145,7 +139,7 @@ function getState(){
             $stateSelect.append(new Option(state.nome, state.sigla));
         });
     });
-}
+//}
 
 function getCities(){
 	const state = $stateSelect.value;
@@ -165,7 +159,7 @@ function getCities(){
 
 // Função de busca no campo Select de cidades
 if (document.readyState){
-	getState()
+	
 }
 
 $stateSelect.addEventListener("change", getCities);
@@ -413,10 +407,20 @@ function finishTest(){
 	
 	$dataUser.push({
 		nivel: pointsGeneral[0].level,
-		pontosTotais: totalPoints
+		pontosTotais: totalPoints,
+		processo_nivel: pointsCategory[0].levelName,
+		processo_pontos: pointsCategory[0].points,
+		vendas_nivel: pointsCategory[1].levelName,
+		vendas_pontos: pointsCategory[1].points,
+		presenca_nivel: pointsCategory[2].levelName,
+		presenca_pontos: pointsCategory[2].points,
+		comunicacao_nivel: pointsCategory[3].levelName,
+		comunicacao_pontos: pointsCategory[3].points,
+		financas_nivel: pointsCategory[4].levelName,
+		financas_pontos: pointsCategory[4].points,
 	})
 
-	sendData($dataUser, pointsCategory)
+	dataSave($dataUser)
 }
 // Função que retorna o resultado geral do teste //
 function generalResult(result) {
@@ -587,6 +591,28 @@ function sendData(data, info){
 	  .then((response) => response.text())
 	  .then((result) => console.log(result))
 	  .catch((error) => console.error(error));
+}
+
+function dataSave(data){
+	fetch('processar_quiz.php', {
+		method: 'POST',
+		body: JSON.stringify(data),  // Envia os dados no formato JSON
+		headers: {
+			'Content-Type': 'application/json',  // Definindo que o conteúdo é JSON
+		},
+	})
+	.then(response => response.json())
+	.then(result => {
+		if (result.success) {
+			alert('Dados enviados com sucesso!');
+		} else {
+			alert('Ocorreu um erro ao enviar os dados.');
+		}
+	})
+	.catch(error => {
+		console.error('Erro:', error);
+		alert('Erro na requisição.');
+	});
 }
 
 // ------ Eventos de escuta ------ //
