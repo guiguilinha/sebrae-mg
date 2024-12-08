@@ -200,6 +200,7 @@ function displayNextQuestion(){
         $answersContainer.appendChild(newAnswer);
         newAnswer.addEventListener("click", selectAnswer)
     })
+	document.querySelectorAll(".btn-question-sebrae").classList.remove("btn-hover");
 }
 // Função para selecionar a resposta //
 function selectAnswer(event){
@@ -497,6 +498,8 @@ function createCard(currentName, currentDesc, currentLink, currentImg, extraCate
 	if(extraCategory === "civil") {
         setBg = "bg-civil";
     }
+	if(currentLink === "") currentLink = "#sebrae-units";
+	
 	const newCard = document.createElement("div");
     newCard.classList.add("card", "card-courses");
 	newCard.innerHTML = `

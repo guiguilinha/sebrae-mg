@@ -171,7 +171,7 @@
 	    {
 	    	"id": 1,
             "level": "Iniciante Digital",
-            "text": "Seu negócio está nos primeiros passos da transformação digital. Há muitas oportunidades para incorporar ferramentas e práticas digitais que podem melhorar sua eficiência e competitividade.",
+            "text": "Você está iniciando sua jornada digital, um ótimo ponto de partida! Experimente ferramentas básicas (WhatsApp Business, Google Perfil da Empresa) e veja como o digital facilita gestão, comunicação e vendas. Há muitas oportunidades à sua frente!",
             "img": "img/iniciante_digital.png",
 	    	"points": 0,
 	    	"link": "https://sebraeplay.com.br/cursos/iniciante-digital-despertando-para-o-digital"
@@ -179,7 +179,7 @@
         {
 	    	"id": 2,
             "level": "Aprendiz Digital",
-            "text": "Você já iniciou a jornada digital e utiliza algumas ferramentas. Focar em áreas específicas pode impulsionar ainda mais seu negócio.",
+            "text": "Parabéns, você já utiliza algumas ferramentas digitais e segue aprendendo! Continue explorando soluções como e-mail marketing e lojas virtuais para fortalecer sua presença online e ampliar seu alcance de clientes.",
             "img": "img/aprendiz_digital.png",
 	    	"points": 0,
 	    	"link": "https://sebraeplay.com.br/cursos/aprendiz-digital"
@@ -187,7 +187,7 @@
         {
 	    	"id": 3,
             "level": "Empreendedor Digital",
-            "text": "Seu negócio já adota várias práticas digitais e está colhendo os benefícios. Continuar inovando e integrando processos será essencial.",
+            "text": "Seu negócio já adota práticas digitais e obtém resultados! Aprimore estratégias com automação, análise de dados e CRM, otimizando resultados e escalando seu negócio com eficiência.",
             "img": "img/empreendedor_digital.png",
 	    	"points": 0,
 	    	"link": "https://sebraeplay.com.br/cursos/empreendedor-digital"
@@ -195,7 +195,7 @@
         {
 	    	"id": 4,
             "level": "Inovador Digital",
-            "text": "Você está na vanguarda da transformação digital, utilizando tecnologias avançadas e estratégias inovadoras.",
+            "text": "Você está na vanguarda, superando a concorrência! Compartilhe sua experiência, inspire outros e explore tecnologias emergentes para manter-se no topo da transformação digital.",
             "img": "img/inovador_digital.png",
 	    	"points": 0,
 	    	"link": "https://sebraeplay.com.br/cursos/inovador-digital-automatizando-e-escalando"
@@ -206,121 +206,121 @@
 	    {
 	    	"category": "Processos e gestão",
 	    	"level": "Iniciante Digital",
-	    	"desc": "Aprenda a organizar, planejar e gerenciar seu negócio de maneira digital, com foco na estratégia de marketing digital.",
+	    	"desc": "Use ferramentas básicas (planilhas, nuvem) para organizar informações, ganhar agilidade e economizar tempo e recursos na gestão.",
 	    	"lvl": 1
 	    },
 	    {
 	    	"category": "Processos e gestão",
             "level": "Aprendiz Digital",
-            "desc": "Continue a evoluir em sua jornada digital, focando em áreas específicas e explorando novos métodos de gestão.",
+            "desc": "Experimente plataformas de tarefas e projetos para otimizar tempo, melhorar a comunicação interna e fortalecer a organização, base do crescimento.",
 	    	"lvl": 2
 	    },
 	    {
 	    	"category": "Processos e gestão",
             "level": "Empreendedor Digital",
-            "desc": "Utilize as ferramentas digitais para melhorar sua gestão, planejar e executar suas ações de maneira mais eficiente.",
+            "desc": "Integre processos com um ERP e automatize tarefas, aumentando eficiência e escalabilidade. Monitore indicadores e tome decisões estratégicas baseadas em dados.",
 	    	"lvl": 3
 	    },
 	    {
 	    	"category": "Processos e gestão",
             "level": "Inovador Digital",
-            "desc": "Conheça as novas tecnologias e ferramentas digitais que estão mudando a maneira de gerenciar seu negócio, como o Google Analytics, o Microsoft Power BI e a plataforma de e-commerce.",
+            "desc": "Adote RPA, BI e outras soluções avançadas para automatizar processos complexos, extrair insights e impulsionar a inovação e o crescimento do negócio.",
 	    	"lvl": 4
 	    },
 	    {
 	    	"category": "Vendas e atendimento",
 	    	"level": "Iniciante Digital",
-            "desc": "Aprenda a gerenciar as vendas de maneira digital, utilizando ferramentas como o WooCommerce e o Magento.",
+            "desc": "Venda online via WhatsApp Business e expanda canais de atendimento. Facilite a comunicação e ofereça mais opções de compra.",
 	    	"lvl": 1
 	    },
 	    {
 	    	"category": "Vendas e atendimento",
             "level": "Aprendiz Digital",
-            "desc": "Continue a evoluir em seu negócio, explorando novos métodos de vendas e atendimento.",
+            "desc": "Use redes sociais, marketplaces e e-mail marketing para diversificar canais de vendas e melhorar a experiência do cliente, impulsionando resultados.",
 	    	"lvl": 2
 	    },
 	    {
 	    	"category": "Vendas e atendimento",
             "level": "Empreendedor Digital",
-            "desc": "Utilize as ferramentas digitais para melhorar sua gestão de vendas, planejar e executar suas ações de maneira mais eficiente.",
+            "desc": "Integre canais, ofereça experiência omnichannel e personalize o atendimento. Invista em CRM para fidelizar clientes e elevar o valor do negócio.",
 	    	"lvl": 3
 	    },
 	    {
 	    	"category": "Vendas e atendimento",
             "level": "Inovador Digital",
-            "desc": "Conheça as novas tecnologias e ferramentas digitais que estão mudando a maneira de gerenciar seu negócio, como o Google Analytics, o Microsoft Power BI e a plataforma de e-commerce.",
+            "desc": "Automatize vendas e atendimento com chatbots, IA e tecnologias avançadas. Escale o negócio e ofereça experiências únicas e personalizadas.",
 	    	"lvl": 4
 	    },
 	    {
 	    	"category": "Presença digital",
 	    	"level": "Iniciante Digital",
-            "desc": "Aprenda a gerenciar a sua presença digital, utilizando ferramentas como o Google Analytics e o Facebook Ads.",
+            "desc": "Crie perfis no Google Meu Negócio e redes sociais. Seja encontrado por novos clientes e dê os primeiros passos na presença online.",
 	    	"lvl": 1
 	    },
 	    {
 	    	"category": "Presença digital",
             "level": "Aprendiz Digital",
-            "desc": "Continue a evoluir em seu negócio, explorando novos métodos de gerenciar a sua presença digital.",
+            "desc": "Crie um site simples, compartilhe conteúdo relevante e interaja nas redes. Fortaleça sua presença online e amplie o alcance.",
 	    	"lvl": 2
 	    },
 	    {
 	    	"category": "Presença digital",
             "level": "Empreendedor Digital",
-            "desc": "Utilize as ferramentas digitais para melhorar sua gestão de presença digital, planejar e executar suas ações de maneira mais eficiente.",
+            "desc": "Otimize SEO, invista em anúncios e e-mail marketing para atrair mais clientes. Acelere resultados com estratégias digitais eficazes.",
 	    	"lvl": 3
 	    },
 	    {
 	    	"category": "Presença digital",
             "level": "Inovador Digital",
-            "desc": "Conheça as novas tecnologias e ferramentas digitais que estão mudando a maneira de gerenciar seu negócio, como o Google Analytics, o Microsoft Power BI e a plataforma de e-commerce.",
+            "desc": "Domine marketing digital e use análises avançadas de dados. Monitore, otimize e destaque-se no ambiente online.",
 	    	"lvl": 4
 	    },
 	    {
 	    	"category": "Comunicação e marca",
 	    	"level": "Iniciante Digital",
-            "desc": "Aprenda a gerenciar a sua comunicação digital, utilizando ferramentas como o Google Analytics e o Facebook Ads.",
+            "desc": "Defina a identidade visual, crie um logotipo e comunique-se com clareza e consistência. A primeira impressão conta muito!",
 	    	"lvl": 1
 	    },
 	    {
 	    	"category": "Comunicação e marca",
             "level": "Aprendiz Digital",
-            "desc": "Continue a evoluir em seu negócio, explorando novos métodos de gerenciar a sua comunicação digital.",
+            "desc": "Crie um guia de estilo e use ferramentas de design para materiais profissionais. Fortaleça a marca e torne-a memorável.",
 	    	"lvl": 2
 	    },
 	    {
 	    	"category": "Comunicação e marca",
             "level": "Empreendedor Digital",
-            "desc": "Utilize as ferramentas digitais para melhorar sua gestão de comunicação digital, planejar e executar suas ações de maneira mais eficiente.",
+            "desc": "Desenvolva comunicação alinhada aos valores da marca. Conecte-se com seu público e crie relacionamentos duradouros.",
 	    	"lvl": 3
 	    },
 	    {
 	    	"category": "Comunicação e marca",
             "level": "Inovador Digital",
-            "desc": "Conheça as novas tecnologias e ferramentas digitais que estão mudando a maneira de gerenciar seu negócio, como o Google Analytics, o Microsoft Power BI e a plataforma de e-commerce.",
+            "desc": "Use storytelling e marketing de influência para experiências memoráveis. Fortaleça o posicionamento da marca no mercado.",
 	    	"lvl": 4
 	    },
 	    {
 	    	"category": "Finanças e pagamentos",
 	    	"level": "Iniciante Digital",
-            "desc": "Aprenda a gerenciar as suas finanças digitais, utilizando ferramentas como o Google Analytics e o Mint.",
+            "desc": "Use planilhas ou anotações para controlar finanças e aceite pagamentos digitais. Facilite transações e ganhe mais controle financeiro.",
 	    	"lvl": 1
 	    },
 	    {
 	    	"category": "Finanças e pagamentos",
             "level": "Aprendiz Digital",
-            "desc": "Continue a evoluir em seu negócio, explorando novos métodos de gerenciar as suas finanças digitais.",
+            "desc": "Utilize planilhas ou apps financeiros para acompanhar fluxo de caixa com precisão. Monitore receitas e despesas para decisões informadas.",
 	    	"lvl": 2
 	    },
 	    {
 	    	"category": "Finanças e pagamentos",
             "level": "Empreendedor Digital",
-            "desc": "Utilize as ferramentas digitais para melhorar sua gestão de finanças, planejar e executar suas ações de maneira mais eficiente.",
+            "desc": "Automatize finanças com softwares integrados a outras áreas. Analise indicadores e planeje o futuro com mais segurança.",
 	    	"lvl": 3
 	    },
 	    {
 	    	"category": "Finanças e pagamentos",
             "level": "Inovador Digital",
-            "desc": "Conheça as novas tecnologias e ferramentas digitais que estão mudando a maneira de gerenciar seu negócio, como o Google Analytics, o Microsoft Power BI e a plataforma de e-commerce.",
+            "desc": "Use ferramentas avançadas para análise, previsão e gestão de riscos. Otimize investimentos, reduza custos e cresça de forma sustentável.",
 	    	"lvl": 4
 	    }
     ],
@@ -539,7 +539,7 @@
     		"nome": "Digitalize ",
     		"desc": "Participe de oficinas e atividades práticas, que vão te ensinar a implementar conhecimentos sobre digitalização de forma prática e eficaz nos seus negócios.",
     		"nivel": [0],
-    		"link": "https://www.canva.com/design/DAGDPhE6uoQ/gnqnqq1OtmeakFjhrURR7Q/view?utm_content=DAGDPhE6uoQ&utm_campaign=designshare&utm_medium=link&utm_source=editor",
+    		"link": "",
     		"img": "",
     		"extra": ""
     	},
