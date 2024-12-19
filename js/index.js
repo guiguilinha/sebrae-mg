@@ -595,14 +595,14 @@ function dataSave(data){
 	.then(response => response.text())
 	.then(result => {
 		if (result === '{"success":true}') {
-			alert('Dados enviados com sucesso!');
+			//alert('Dados enviados com sucesso!');
 		} else {
-			alert('Ocorreu um erro ao enviar os dados.');
+			//alert('Ocorreu um erro ao enviar os dados.');
 		}
 	})
 	.catch(error => {
 		console.error('Erro:', error);
-		alert('Erro na requisição.');
+		//alert('Erro na requisição.');
 	});
 }
 
