@@ -16,10 +16,10 @@
                 "number": 2,
                 "question": "Como você controla o estoque e as compras do seu negócio?",
                 "answers": [
-                    {"text": "Faço registros manuais e não acompanho regularmente.", "point": 1},
-                    {"text": "Uso planilhas para controlar estoque e compras.", "point": 2},
+                    {"text": "Faço registros manuais esporádicos e não monitoro com frequência.", "point": 1},
+                    {"text": "Uso planilhas para controlar estoque e compras de forma regular.", "point": 2},
                     {"text": "Utilizo programas específicos para gestão de estoque e pedidos a fornecedores.", "point": 3},
-                    {"text": "Tenho sistemas integrados que automatizam vendas, estoque, compras e preveem necessidades futuras.", "point": 4}
+                    {"text": "Tenho sistemas integrados que automatizam vendas, estoque, compras e preveem necessidades futuras / Não faço controle de estoque e de compras porque meu negócio não exige.", "point": 4}
                 ]
             },
             {
