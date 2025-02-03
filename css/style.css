@@ -159,10 +159,6 @@ main {
     margin: 0.75rem 0;
 }
 
-.card-courses:hover {
-
-}
-
 .card-courses:hover .card-text {
     display: block;
 /*    -webkit-animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
@@ -447,6 +443,21 @@ span.select2-container {
 
 .select2-selection__placeholder {
     color: #444 !important;
+}
+
+
+/* map  */
+
+svg#mapSVG {
+    fill-opacity: 1;
+    filter: opacity(1);
+}
+svg#mapSVG .regiao {
+  transition: .5s;
+  filter: opacity(0.7);
+}
+svg#mapSVG .regiao:hover {
+    filter: opacity(1);
 }
 
  @-webkit-keyframes swing-in-top-fwd {

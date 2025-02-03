@@ -200,7 +200,9 @@ function displayNextQuestion(){
         $answersContainer.appendChild(newAnswer);
         newAnswer.addEventListener("click", selectAnswer)
     })
-	document.querySelectorAll(".btn-question-sebrae").classList.remove("btn-hover");
+	if(currentQuestionIndex >= 15){
+		document.querySelectorAll(".btn-question-sebrae").classList.remove("btn-hover");
+	}
 }
 // Função para selecionar a resposta //
 function selectAnswer(event){
@@ -609,3 +611,4 @@ function dataSave(data){
 // ------ Eventos de escuta ------ //
 $startGameButton.addEventListener("click", formValidate);
 $backQuestionButton.addEventListener("click", backQuestion);
+
