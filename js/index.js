@@ -5,6 +5,24 @@ $('#formControlCidade').select2({
 
 document.querySelector(".select2-container").classList.add("form-select")
 
+function output(data) {
+	if(typeof data === 'object') {
+		data = JSON.stringify(data, null, ' ');
+	}
+	document.getElementById(output).innerHTML = data;
+}
+
+let keycloak = new Keycloak();
+
+let initOptions = {
+	onload: 'check-sso'
+};
+
+keycloak.init(initOptions).success(function(authenticated) {
+	output('Init Success (' +(authenticated ? 'Authenticated' : 'Not Authenticated') + ')');
+}).error(function() {
+	output('Init Error');
+});
 
 let $questoes = {}
 let $niveis = {}
@@ -255,6 +273,7 @@ function finishTest(){
     $resultPage.classList.remove("hide");
 	$headerSection.classList.remove("hide");
 	$footerSection.classList.remove("hide");
+	window.location.href = "#formfinishingTest";
 	window.scrollTo(0, 0);
     
 	// Calcula o total de pontos do usuário
@@ -487,6 +506,7 @@ function setLevelTheme(i, level){
 // Função para criar os cards de cursos //
 function createCard(currentName, currentDesc, currentLink, currentImg, extraCategory, currentLevel){ 
     let setBg = "bg-brand";
+	let linkTarget = "_blank";
 	if(currentImg === "") currentImg = "default-course-icon";
 	if(extraCategory === ""){
 		setBg = "bg-brand";
@@ -500,8 +520,11 @@ function createCard(currentName, currentDesc, currentLink, currentImg, extraCate
 	if(extraCategory === "civil") {
         setBg = "bg-civil";
     }
-	if(currentLink === "") currentLink = "#sebrae-units";
-	
+	if(currentLink === "") {
+		currentLink = "#sebrae-units";
+		linkTarget = ""
+	}
+
 	const newCard = document.createElement("div");
     newCard.classList.add("card", "card-courses");
 	newCard.innerHTML = `
@@ -512,7 +535,7 @@ function createCard(currentName, currentDesc, currentLink, currentImg, extraCate
 		<div class="card-body">
 			<h6 class="card-title-course">${currentName}</h6>
 		    <p class="card-text fw-light lh-sm text-break">${currentDesc}</p>
-			<a href="${currentLink}" class="btn-link stretched-link" target="_blank">Veja mais</a>
+			<a href="${currentLink}" class="btn-link stretched-link" target="${linkTarget}">Veja mais</a>
 		</div>`;
 	return newCard;
 }
