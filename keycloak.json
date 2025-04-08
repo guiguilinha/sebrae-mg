@@ -1,8 +1,8 @@
 {
-    "realm": "dev",
-    "auth-server-url": "http://amei.homolog.kubernetes.sebrae.com.br/auth",
+    "realm": "externo",
+    "auth-server-url": "https://amei.homolog.kubernetes.sebrae.com.br/auth",
     "ssl-required": "external",
-    "resources": "app-mg",
+    "resource": "maturidadedigital",
     "public-client": true,
     "confidential-port": 0
-}
+  }

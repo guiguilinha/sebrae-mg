@@ -1,54 +1,25 @@
-$('#formControlCidade').select2({
-	placeholder: 'Selecione sua cidade',
-	language: 'pt-BR'
-});
-
-document.querySelector(".select2-container").classList.add("form-select")
-
-function output(data) {
-	if(typeof data === 'object') {
-		data = JSON.stringify(data, null, ' ');
-	}
-	document.getElementById(output).innerHTML = data;
-}
-
-let keycloak = new Keycloak();
-
-let initOptions = {
-	onload: 'check-sso'
-};
-
-keycloak.init(initOptions).success(function(authenticated) {
-	output('Init Success (' +(authenticated ? 'Authenticated' : 'Not Authenticated') + ')');
-}).error(function() {
-	output('Init Error');
-});
-
+// Variaveis Keycloak //
+let keycloak = Keycloak()
+let initOptions = {onLoad: 'check-sso',};
+// Variaveis de dados user //
+let dataUserKc
+let tokenId
+let dataId
+let cnpj
+// Variaveis da meta //
+let meta = []
+let actualDate = [];
+let dateTime = getFormattedDateGMT3();
+let dateTimeEnd;
+// Variavel checar login //
+const $startTest = document.getElementById("iniciaTeste");
+// Variaveis de dados //
 let $questoes = {}
 let $niveis = {}
 let $desc = {}
 let $cursos = {}
-
-
-fetch('js/dados.json')
-.then(response => response.json())
-.then(data => {
-	$questoes = data.questions
-	$niveis = data.levels
-	$desc = data.userDesc
-	$cursos = data.cursos
-	}
-)
-
-fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
-.then(response => response.json())
-.then(data => {
-    data.forEach(state => {
-        $stateSelect.append(new Option(state.nome, state.sigla));
-    });
-});
-
 // Variaveis globais
+const ApiKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjcmVkZW50aWFsIjoiTUFUVVJJREFERS1ESUdJVEFMIiwiaXNzIjoiaHR0cHM6XC9cL2Rldi5hcGkucGFydG5lci5zZWJyYWVtZy5jb20uYnJcL3YxIiwiaWF0IjoxNzQxNjIyNjczLCJleHAiOjE4Mjg4ODY2NzN9.6qgFrrzFR77g50g23B3pJhuKrX4jdGor4wOMgmSByFo';
 const $startPage = document.querySelector(".start");
 const $testPage = document.querySelector(".questions");
 const $resultPage = document.querySelector(".results");
@@ -110,37 +81,48 @@ const $tbFinIni = document.querySelector("#tab-finance-iniciante");
 const $tbFinApr = document.querySelector("#tab-finance-aprendiz");
 const $tbFinEmp = document.querySelector("#tab-finance-empreendedor");
 const $tbFinIno = document.querySelector("#tab-finance-inovador");
-// Variaveis página de resultados => dados de resultados
+// Variaveis página de resultados => dados de resultados //
 let $dataUser = [];
 let data;
 
+// ----------------------------------------------------------- //
+// -------------------- Valida Login Amei -------------------- //
+// ----------------------------------------------------------- //
 
+keycloak = new Keycloak();
+keycloak.init(initOptions)
+	.then(authenticated => {
+		console.log('Init Success (' +(authenticated ? 'Authenticated' : 'Not Authenticated') + ')');
+		dataUserKc = keycloak.idTokenParsed
+		
+		document.getElementById('login-btns').classList.add('hide');
+		document.getElementById('login-info').classList.remove('hide');
+		document.getElementById('user-name').innerHTML = `${dataUserKc.name}`;
 
-// -------   Página de inicio   ------ //
-// Função para validar o formulário
-function formValidate(){
-	'use strict';
-	
-	const forms = document.querySelectorAll('.needs-validation');
-	Array.from(forms).forEach(form => {
-		form.addEventListener('submit', event => {
-            if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-				console.log("Formulário inválido!")
-            } 
-			form.classList.add('was-validated');
-			if(form.checkValidity()){
-				console.log("Formulário válido!")
-				event.preventDefault();
-				event.stopPropagation();
-				startGame();
-				getDataUser();
-			}
-        }, false ); 
-    });
-	
+	})
+	.catch( () => {
+		output(authenticated);
+	});
+// ------------------------------------------------------------------------- //
+// -------------------- Valida login para iniciar teste -------------------- //
+// ------------------------------------------------------------------------- //
+
+function checkLogin() {
+	if(keycloak.authenticated === true){
+		startGame();
+	} else {
+		const loginModal = new bootstrap.Modal(document.getElementById("notLogin"));
+		loginModal.show();
+	} 
 };
+
+// Escuta se usuário clicou em iniciar teste //
+$startTest.addEventListener('click', checkLogin) 
+
+// ---------------------------------------------------------- //
+// -------------------- Página de inicio -------------------- //
+// ---------------------------------------------------------- //
+
 // Função para iniciar o jogo //
 function startGame(){
 	$startPage.classList.add("hide");
@@ -149,43 +131,13 @@ function startGame(){
 	$headerSection.classList.add("hide");
 	$footerSection.classList.add("hide");
     displayNextQuestion();
-
-}
-// Função para guardar os dados do usuário //
-function getDataUser(){
-	$dataUser.push({
-		"user": {
-			"nome": document.getElementById('formControlNome').value,
-    		"empresa": document.getElementById('formControlEmpresa').value,
-    		"email": document.getElementById('formControlEmail').value,
-    		"whatsapp": document.getElementById('formControlWhats').value,
-    		"estado": document.getElementById('formControlUF').value,
-    		"cidade": document.getElementById('formControlCidade').value,
-    		//"receberEmail": marker
-		}
-	})
+	setTimeout(autoLogout, 30* 60 * 1000);
 }
 
-function getCities(){
-	const state = $stateSelect.value;
-	const cities = document.getElementById('formControlCidade')
+// ----------------------------------------------------------------------- //
+// -------------------- Página de Nível de Maturidade -------------------- //
+// ----------------------------------------------------------------------- //
 
-	cities.length = 0
-	cities.appendChild(new Option("Selecione sua cidade"))
-
-    fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${state}/municipios?orderBy=nome`)
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(city => {
-            cities.append(new Option(city.nome, city.nome));
-        });
-    });
-}
-
-// Função de busca no campo Select de cidades
-$stateSelect.addEventListener("change", getCities);
-
-// -------   Página de Nível de Maturidade   ------ //
 // Função para limpar o estado das questões e respostas //
 function resetState(){
     while($answersContainer.firstChild) {
@@ -266,7 +218,10 @@ function backQuestion(){
     displayNextQuestion();
 }
 
-// --------   Página de Resultados   ------ //
+// -------------------------------------------------------------- //
+// -------------------- Página de Resultados -------------------- //
+// -------------------------------------------------------------- //
+
 // Função que finaliza o teste e prepara a página de resultados //
 function finishTest(){
     $testPage.classList.add("hide");
@@ -330,7 +285,7 @@ function finishTest(){
 	}
 
 	//Cria e popula os cards de cursos por categoria
-	if (document.readyState !== "loading") {
+	/*if (document.readyState !== "loading") {
 		$cursos.forEach((item)  => {		
 			let cardMount = "";
 			if(item.categoria === "Processos e gestão"){ 
@@ -390,7 +345,7 @@ function finishTest(){
 			if(item.categoria === "Comunicação e marca"){
 					if(item.nivel.includes(1) || item.nivel.includes(0)) {
     	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Iniciante digital");
-    	                $tbComIni.appendChild(cardMount);
+    	                $tbComIni.append(cardMount);
     	            }
 					if(item.nivel.includes(2) || item.nivel.includes(0)) {
     	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Aprendiz digital");
@@ -429,7 +384,7 @@ function finishTest(){
 		} else {
 		  document.addEventListener("DOMContentLoaded", scrollCourses);
 		}
-	}
+	} */
 	
 	$dataUser.push({
 		level: {
@@ -449,6 +404,7 @@ function finishTest(){
 	})
 
 	dataSave($dataUser)
+	dadosMeta();
 }
 // Função que retorna o resultado geral do teste //
 function generalResult(result) {
@@ -508,56 +464,36 @@ function createCard(currentName, currentDesc, currentLink, currentImg, extraCate
     let setBg = "bg-brand";
 	let linkTarget = "_blank";
 	if(currentImg === "") currentImg = "default-course-icon";
-	if(extraCategory === ""){
-		setBg = "bg-brand";
-	}
-	if(extraCategory === "agro") {
-		setBg = "bg-agro";
-	}
-	if(extraCategory === "food") {
-        setBg = "bg-food";
-    }
-	if(extraCategory === "civil") {
-        setBg = "bg-civil";
-    }
+	
 	if(currentLink === "") {
 		currentLink = "#sebrae-units";
 		linkTarget = ""
 	}
 
 	const newCard = document.createElement("div");
-    newCard.classList.add("card", "card-courses");
+    newCard.classList.add("col");
 	newCard.innerHTML = `
-        <div class="${setBg} d-flex justify-content-center pt-4 pb-2 m-3 mb-0 rounded-3">
-			<span class="position-absolute badge-course-position translate-middle badge rounded-1 bg-badge-iniciante fw-normal text-end">${currentLevel}</span>
-			<svg class="bi" width="40" height="40"><use xlink:href="#${currentImg}"/></svg>
-		</div>
-		<div class="card-body">
-			<h6 class="card-title-course">${currentName}</h6>
-		    <p class="card-text fw-light lh-sm text-break">${currentDesc}</p>
-			<a href="${currentLink}" class="btn-link stretched-link" target="${linkTarget}">Veja mais</a>
-		</div>`;
+        <div class="card">
+          <img src="${currentImg}" class="img-fluid rounded-start">
+          <div class="card-body">
+            <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Processos e gestão</small></p>
+            <h5 class="card-title">${currentName}</h5>
+            <div class="card-level-badge mb-2">
+              <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+              <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+              <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+              <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+            </div>
+            <p class="card-text">${currentDesc}</p>
+            <p class="card-text"><small class="text-body-secondary"><a href="${currentLink}" target="${linkTarget}">Saiba mais</a></small></p>
+          </div>
+        </div>`
 	return newCard;
 }
 // Função que altera a imagem do Hero //
 function changeImageSrc(newSrc){
     $levelImg.src = newSrc;
 }
-
-// ------ Funções auxiliares para funcionamento da aplicação ------ //
-// Função para criar a mascara de telefone do form //
-const $telMask = document.getElementById('formControlWhats');
-$telMask.addEventListener('input', function (event) {
-    const target = event.target;
-    target.value = target.value.replace(/\D/g, '').replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-});
-// Função para validar e-mail do form //
-const isValidEmail = (email) => {
-	const regex =
-	  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-	return regex.test(String(email).toLowerCase())
-}
-// Função popula dados de uso do usuario //
 
 // Funções de efeito de Scroll na lista de cursos //
 const setupProcess = () => {
@@ -608,9 +544,10 @@ function scrollCourses() {
     setupFinance();
 }
 
+
 // Função para salvar dados no banco
 function dataSave(data){
-	fetch('./processar_quiz.php' , {
+	fetch('./back/processar_quiz.php' , {
 		method: 'POST',
 		headers: {
             'Content-Type': 'application/json; charset=utf8', // Define o tipo de dados que será enviado
@@ -632,6 +569,162 @@ function dataSave(data){
 }
 
 // ------ Eventos de escuta ------ //
-$startGameButton.addEventListener("click", formValidate);
+//$startGameButton.addEventListener("click", formValidate);
 $backQuestionButton.addEventListener("click", backQuestion);
 
+const btnGenerate = document.querySelector('#generate-pdf');
+
+/*btnGenerate.addEventListener("click", () => {
+	const content = document.querySelector('#content')
+
+	const options = {
+		margin: [0, 5, 10, 5],
+		filename: 'Sebrae-MG_Maturidade_Digital_resultado.pdf',
+		html2canvas: {scale: 0.5},
+		image: {type: 'jpeg', quality: 0.9},
+        jsPDF: {unit: 'mm', format: 'a4', orientation: 'portrait'}
+	}
+	html2pdf().set(options).from(content).save();
+}) */
+
+
+// ---------------------------- //
+// ------ Inicializações ------ //
+// ---------------------------- //
+
+// ------ Busca e prepara os dados das questões ------ //
+fetch('js/dados.json')
+.then(response => response.json())
+.then(data => {
+	$questoes = data.questions
+	$niveis = data.levels
+	$desc = data.userDesc
+	$cursos = data.cursos
+	}
+)
+
+
+// ------ busca dados de empresas vinculadas ------ //
+function vinculaEmpresa(dataId, cnpj){
+	fetch('./back/ameicnpj.php', {
+		method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dataId),
+	})
+	.then(response => response.json())
+	.then(dataRes => {
+		let cnpj = dataRes.valueOf();
+		cnpj = cnpj.toString();
+		console.log(cnpj);
+		meta.map(function (meta) {
+			meta.company = cnpj
+			return meta
+		})
+	})
+	.catch((error) => console.error('Error:', error));
+}
+
+// ------ Dados para contabilizar meta ------ //
+function dadosMeta() {
+	dataUserKc = keycloak.idTokenParsed
+	tokenId = keycloak.idToken
+	dataId = {tokenId: tokenId, userId: dataUserKc.cpf}
+    
+	meta.push({
+		company: cnpj,
+		nome: dataUserKc.name,
+        date_hour_start: dateTime[0].data_atual,
+        date_hour_end: dateTime[0].data_final,
+        carga_horaria: "1",
+        theme_id: 10101,
+        code_integration: "2025-03-11 10:42:00",
+        type: "APLICATIVO",
+        title: "Maturidade Digital",
+        description: `Diagnóstico prernchido pelo usuário ${dataUserKc.name}`,
+        credential: "maturidadedigital",
+        cod_projeto: "829f8355-6d5c-47de-beb8-f2c0184e2f34",
+        cod_acao: "421588",
+		instrumento: "Diagnóstico",
+		nome_realizacao: "Atendimento Remoto",
+		tipo_realizacao: "PRT",
+		origin_id: 36,
+		cod_meio_atendimento: 11,
+		cod_categoria: 19,
+		orientacao_cliente: "orientacao"
+	})
+	vinculaEmpresa(dataId);
+	return meta
+}
+
+
+// ------ Funções de formatação ------ //
+
+// ------ DateTime -------- //
+function getFormattedDateGMT3() {
+    const now = new Date();
+
+    // Ajusta a data para o fuso horário GMT-3
+    const offsetHours = -3; // GMT-3
+    now.setHours(now.getUTCHours() + offsetHours);
+
+    // Formata a data no padrão desejado
+    const pad = (num) => String(num).padStart(2, '0');
+    const year = now.getFullYear();
+    const month = pad(now.getMonth() + 1);
+    const day = pad(now.getDate());
+    const hours = pad(now.getHours());
+    const minutes = pad(now.getMinutes());
+    const minutesPlus = pad(now.getMinutes()+1);
+    const seconds = pad(now.getSeconds());
+
+	let start_date = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+	let end_date = `${year}-${month}-${day} ${hours}:${minutesPlus}:${seconds}`
+
+	actualDate.push({
+		data_atual: start_date,
+		data_final: end_date
+	})
+    return actualDate;
+}
+// Função autologout //
+function autoLogout() {
+	keycloak.logout();
+}
+
+function testar(){
+	fetch('https://api.partner.sebraemg.com.br/v1/interaction', {
+		method: 'POST',
+		mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/json',
+			'ApiKey': ApiKey
+        },
+        body: JSON.stringify(meta),
+	})
+	.then(response => response.json())
+	.then(dataM => {
+		console.log(dataM);
+		})
+	.catch((error) => console.error('Error:', error));
+}
+
+const cList = document.getElementById('course-list-collapse');
+
+let seeMore = document.getElementById('list-toggle');
+let contentList = document.getElementById('course-list');
+seeMore.addEventListener('click', () => {
+	contentList.classList.toggle('gradient');
+	
+	if (cList.classList.contains('show')) {
+		cList.classList.toggle('show');
+		seeMore.innerHTML = 'Ver mais cursos';
+		cList.style.height = '15rem';
+		
+	} else {
+		cList.classList.add('show');
+		seeMore.innerHTML = 'Ver menos cursos';
+		cList.style.height = cList.scrollHeight + 'px';
+	}
+});

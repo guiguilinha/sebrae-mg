@@ -332,7 +332,7 @@
     		"desc": "Aprenda a criar vídeos que atraem e convertem clientes para o seu negócio.",
     		"nivel": [1, 2, 3],
     		"link": "https://sebraeplay.com.br/cursos/luz-camera-e-conversao",
-    		"img": "sebrae-play",
+    		"img": "img/luz-camera-convercao.png",
     		"extra": ""
     	},
     	{
@@ -341,7 +341,7 @@
     		"desc": "Simplifique a emissão de notas fiscais eletrônicas para o seu negócio com esta ferramenta prática.",
     		"nivel": [0],
     		"link": "https://sebrae.com.br/sites/PortalSebrae/produtoseservicos/emissornfe",
-    		"img": "",
+    		"img": "img/emissor-nf-sebrae.png",
     		"extra": ""
     	},
     	{
@@ -350,7 +350,7 @@
     		"desc": "Melhore o controle financeiro do seu negócio com consultoria especializada e personalizada.",
     		"nivel": [0],
     		"link": "https://sebraemg.com.br/consultoria/consultoria-gestao-financeira/",
-    		"img": "",
+    		"img": "img/consultoria-financeira.png",
     		"extra": ""
     	},
     	{
@@ -359,7 +359,7 @@
     		"desc": "Aprenda a criar e-mails de alto impacto, distribuí-los com as ferramentas certas, monitorar sua reputação como remetente, medir o sucesso dos envios e muito mais.",
     		"nivel": [3],
     		"link": "https://sebraeplay.com.br/cursos/e-mail-marketing-para-a-sua-empresa",
-    		"img": "",
+    		"img": "img/email-marketing.png",
     		"extra": ""
     	},
     	{
@@ -368,7 +368,7 @@
     		"desc": "Aprenda a como aproveitar as oportunidades do marketing digital para posicionar e destacar o seu negócio no ambiente on-line, com estratégias aplicáveis imediatamente.",
     		"nivel": [2, 3],
     		"link": "https://sebraeplay.com.br/cursos/planejamento-de-marketing-digital",
-    		"img": "",
+    		"img": "img/planejamento-mkt-digital.png",
     		"extra": ""
     	},
     	{
@@ -377,7 +377,7 @@
     		"desc": "Receba orientações individuais para entender e reavaliar suas estratégias de marketing digital e seu modelo de comunicação nas redes sociais.",
     		"nivel": [0],
     		"link": "",
-    		"img": "",
+    		"img": "img/consultoria-mkt-digital.png",
     		"extra": ""
     	},
     	{
@@ -386,7 +386,7 @@
     		"desc": "Descubra como potencializar sua presença e vendas no Facebook com estratégias práticas.",
     		"nivel": [1, 2],
     		"link": "https://sebraeplay.com.br/cursos/facebook-day",
-    		"img": "facebook",
+    		"img": "img/facebook-day.png",
     		"extra": ""
     	},
     	{
@@ -395,7 +395,7 @@
     		"desc": "Domine as ferramentas do Instagram para expandir seu alcance e atrair mais clientes.",
     		"nivel": [1, 2],
     		"link": "https://sebraeplay.com.br/cursos/instagram-day",
-    		"img": "instagram",
+    		"img": "img/instagram-day.png",
     		"extra": ""
     	},
     	{
@@ -404,7 +404,7 @@
     		"desc": "Participe da nossa parceria com o Mercado Livre e descubra como vender seus produtos em uma das maiores plataformas de e-commerce. Receba orientações para otimizar suas vendas on-line e alcance mais clientes, aproveitando todo o potencial do marketplace.",
     		"nivel": [3],
     		"link": "https://sebrae.com.br/sites/PortalSebrae/parceriamercadolivre",
-    		"img": "",
+    		"img": "img/se-joga-online.png",
     		"extra": ""
     	},
     	{
@@ -413,7 +413,7 @@
     		"desc": "Entenda o comportamento do consumidor digital e aprenda a adaptar suas estratégias para atrair e engajar clientes no ambiente online.",
     		"nivel": [2, 3],
     		"link": "https://sebraeplay.com.br/cursos/comportamento-do-consumidor-digital",
-    		"img": "",
+    		"img": "img/comportamento-consumidor.png",
     		"extra": ""
     	},
     	{
@@ -422,292 +422,11 @@
     		"desc": "Utilize nossa plataforma digital para elaborar o seu plano de negócios. Com 14 ferramentas disponíveis, você pode usá-las como e onde quiser. Construa um plano completo ou utilize apenas o que precisa no seu momento atual.",
     		"nivel": [0],
     		"link": "https://pnbox.sebrae.com.br/",
-    		"img": "",
+    		"img": "img/pnbox.png",
     		"extra": ""
     	},
 
 
-
-
-        {
-            "categoria": "Comunicação e marca",
-            "nome": "Sebraetec - Branding",
-            "desc": "Desenvolva uma estratégia de branding personalizada para o seu negócio, garantindo que sua marca seja percebida de forma autêntica e relevante pelos seus clientes.",
-            "nivel": [0],
-            "link": "https://sebraetec.sebraemg.com.br/produto/branding/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Comunicação e marca",
-            "nome": "DigitalBiz - Oficina O Texto Vendedor",
-            "desc": "Descubra técnicas de escrita que mostram ao público o valor do seu negócio e aprenda a pensar legendas que geram interação, utilizar palavras-chave, escrever textos para anúncios e muito mais.",
-            "nivel": [2, 3],
-            "link": "https://movimentolab.sebraemg.com.br/digital-biz/o-texto-vendedor/",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Comunicação e marca",
-            "nome": "Sebraetec - Comunicação Visual – Crie Sua Marca",
-            "desc": "Desenvolva uma identidade visual forte e profissional para sua marca com um especialista.",
-            "nivel": [1, 2],
-            "link": "https://sebraetec.sebraemg.com.br/produto/comunicacao-visual-identidade-visual-mais-combo-2/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Comunicação e marca",
-            "nome": "Sebraetec - Branding + Identidade Visual",
-            "desc": "Invista em branding e identidade visual para tornar sua empresa uma referência no mercado. Uma gestão eficaz da imagem da marca é fundamental para alcançar o sucesso. Com essa consultoria você vai criar e desenvolver conteúdos que expressem o verdadeiro propósito da sua marca.",
-            "nivel": [2],
-            "link": "https://sebraetec.sebraemg.com.br/produto/branding-identidade-visual/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Comunicação e marca",
-            "nome": "Sebraetec - Comunicação Visual",
-            "desc": "Aproveite a consultoria de Comunicação Visual e Identidade Visual para criar uma marca forte e alinhada com a personalidade do seu negócio. Fortaleça sua presença no mercado com uma comunicação visual que transmita seus valores e conquiste seus clientes.",
-            "nivel": [2, 3],
-            "link": "https://sebraetec.sebraemg.com.br/produto/comunicacao-visual-identidade-visual-mais/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Comunicação e marca",
-            "nome": "Sebraetec - Impulsiona Conteúdos",
-            "desc": "Capacite-se e comece a planejar e produzir conteúdos relevantes que vão engajar seu público-alvo e gerar um feedback contínuo e crescente.",
-            "nivel": [2],
-            "link": "https://sebraetec.sebraemg.com.br/produto/impulsiona-midias-sociais-planejamento-e-producao-de-conteudo-para-as-principais-midias-sociais/",
-            "img": "sebraetec",
-            "extra": ""	
-        },
-        {
-            "categoria": "Finanças e pagamentos",
-            "nome": "Atendimento Especializado em Finanças",
-            "desc": "Receba orientações individuais e sob medida para compreender e otimizar a gestão financeira de seus negócios.",
-            "nivel": [0],
-            "link": "",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Finanças e pagamentos",
-            "nome": "MODELAÇÃO Finanças",
-            "desc": "Programa gratuito, presencial, dinâmico, mão na massa e com foco em finanças O objetivo é trazer à tona pontos de oportunidades em finanças, resgatando aspectos que poderão ser aprofundados em uma continuidade. Utiliza ferramentas financeiras para identificar e impulsionar melhorias.",
-            "nivel": [2],
-            "link": "https://oferta.sebraemg.com.br/modelacao-sebrae",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Não categorizado",
-            "nome": "Curso de Introdução ao BIM",
-            "desc": "Entenda como a Modelagem da Informação da Construção (BIM) pode transformar os processos da sua micro ou pequena empresa, com foco em mudanças tecnológicas e de gestão.",
-            "nivel": [3],
-            "link": "",
-            "img": "bim",
-            "extra": "civil"
-        },
-        {
-            "categoria": "Não categorizado",
-            "nome": "Portal da Inovação",
-            "desc": "Acesse a plataforma gratuita que foi criada para guiar empreendedores e gestores públicos em busca de soluções inovadoras desmistificando a ideia de que inovação é algo grandioso e tecnológico.",
-            "nivel": [0],
-            "link": "https://inovacaosebraeminas.com.br/",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Não categorizado",
-            "nome": "Prepara Gastronomia - Gestão Integrada",
-            "desc": "Participe do programa que oferece consultorias de gestão e operação para melhorar os processos do seu negócio no segmento de alimentação fora do lar.",
-            "nivel": [1, 2, 3],
-            "link": "",
-            "img": "food",
-            "extra": "food"
-        },
-        {
-            "categoria": "Não categorizado",
-            "nome": "Sebrae Play",
-            "desc": "Acesse uma plataforma completa de capacitação empresarial, com conteúdos exclusivos e atualizados para aprimorar a gestão, vendas, marketing e outras áreas essenciais do seu negócio.",
-            "nivel": [0],
-            "link": "https://sebraeplay.com.br/",
-            "img": "sebrae-play",
-            "extra": ""
-        },
-        {
-            "categoria": "Não categorizado",
-            "nome": "Bootcamp",
-            "desc": "Participe de uma imersão dinâmica e intensa com foco em criatividade, inovação e experimentação. Utilizando métodos ágeis aplicados pelas empresas mais inovadoras do mundo,o curso oferece aprendizado prático, adaptado aos pequenos negócios.",
-            "nivel": "0",
-            "link": "https://serviobrasileirodeapoiosmicroepequenasempresasmg.twygoead.com/e/352710-curso-bootcamp-repositorio",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Não categorizado",
-            "nome": "Sebraeplay - Apresentações de Impacto",
-            "desc": "Aprenda sobre os principais pontos que você deve se atentar ao desenvolver uma apresentação, desde a história que você quer contar, até o design dos slides.",
-            "nivel": [0],
-            "link": "https://sebraeplay.com.br/cursos/apresentacoes-de-impacto",
-            "img": "sebrae-play",
-            "extra": ""
-        },
-        {
-            "categoria": "Não categorizado",
-            "nome": "Sebrae Connect",
-            "desc": "Conecte-se com soluções plug and play das áreas de Finanças e pagamentos, Marketing Digital e Gestão de Operações e Processos e reduza tempo de esforço e custos.",
-            "nivel": [2, 3, 4],
-            "link": "https://connect.sebraemg.com.br/",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "DigitalBiz - Oficina Gestão de Redes Sociais",
-            "desc": "Aprenda a transformar suas redes sociais em poderosas aliadas para impulsionar o seu negócio na internet.",
-            "nivel": [2, 3],
-            "link": "https://movimentolab.sebraemg.com.br/digital-biz/gestao-de-redes-sociais/",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Digital Biz - Oficina Instagram, Facebook e WhatsApp para negócios",
-            "desc": "Aprenda a usar Instagram, Facebook e WhatsApp estrategicamente para impulsionar seus negócios.",
-            "nivel": [1, 2],
-            "link": "https://movimentolab.sebraemg.com.br/digital-biz/instagram-facebook-e-whatsapp-para-negocios/",
-            "img": "whatsapp",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Digitalize ",
-            "desc": "Participe de oficinas e atividades práticas, que vão te ensinar a implementar conhecimentos sobre digitalização de forma prática e eficaz nos seus negócios.",
-            "nivel": [0],
-            "link": "",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Sebraetec - Consultoria Omnichannel para Integração dos Canais de Vendas",
-            "desc": "Aproveite a consultoria Omnichannel para integrar todos os seus canais de vendas, proporcionando uma experiência de compra mais fluida e eficiente para seus clientes, e impulsionando os resultados do seu negócio.",
-            "nivel": [2, 3, 4],
-            "link": "https://sebraetec.sebraemg.com.br/produto/consultoria-omnichannel-para-integracao-dos-canais-de-vendas/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Sebraetec - Consultoria para Growth Hacking",
-            "desc": "Descubra novas maneiras de pensar sobre a gestão da sua empresa e aprenda a criar planos de ação eficazes para a divulgação e comercialização dos seus produtos e serviços nos canais on-line. Potencialize sua presença digital e alcance mais clientes!",
-            "nivel": [3, 4],
-            "link": "https://sebraetec.sebraemg.com.br/produto/consultoria-para-growth-hacking/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Sebraetec - Implantação de Loja Virtual - Diagnóstico de Avaliação",
-            "desc": "Participe do diagnóstico de avaliação para a implantação de uma loja virtual e descubra como otimizar sua presença on-line. Receba orientações personalizadas para criar uma loja que atraia clientes e potencialize suas vendas no ambiente digital.",
-            "nivel": [3, 4],
-            "link": "https://sebraetec.sebraemg.com.br/produto/implantacao-de-loja-virtual-diagnostico-de-avaliacao/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Sebraetec - Implantação de Loja Virtual - Plus",
-            "desc": "Participe do processo de implantação da sua loja virtual e receba todo o suporte necessário para estabelecer uma presença on-line de sucesso. Transforme seu negócio e alcance novos clientes no ambiente digital.",
-            "nivel": [3, 4],
-            "link": "https://sebraetec.sebraemg.com.br/produto/implantacao-de-loja-virtual/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Inserção Digital – Desenvolvimento de Website – Pocket",
-            "desc": "Melhore a sua rede de relacionamentos e aumente as possibilidades de alcance e interação com o seu público. Esta consultoria vai te ajudar a estabelecer a sua presença digital de forma profissional e eficiente.",
-            "nivel": [2, 3],
-            "link": "https://sebraetec.sebraemg.com.br/produto/insercao-digital-desenvolvimento-de-website-mais/",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Sebraetec - Inserção Digital – Desenvolvimento de Website – Plus",
-            "desc": "Construa a presença digital da sua empresa com um website profissional, totalmente personalizado para as suas necessidades. Aumente sua visibilidade online e atraia mais clientes com essa solução completa de inserção digital.",
-            "nivel": [2, 3],
-            "link": "https://sebraetec.sebraemg.com.br/produto/insercao-digital-desenvolvimento-de-website/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Sebraetec - Planejamento para Busca Orgânica – SEO",
-            "desc": "Receba orientação especializada e aprenda a otimizar seu site para atrair mais visitantes. Descubra estratégias eficazes de SEO que vão ajudar seu negócio a se destacar nos resultados de busca e conquistar mais clientes.",
-            "nivel": [3, 4],
-            "link": "https://sebraetec.sebraemg.com.br/produto/planejamento-para-busca-organica-seo/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Sebraetec - Planejamento para Presença digital e Links Patrocinados",
-            "desc": "Receba orientação especializada para planejar e otimizar campanhas de tráfego on-line, garantindo visibilidade assertiva para o público-alvo. Inclui estratégias para redes sociais, links patrocinados e outras mídias digitais.",
-            "nivel": [3, 4],
-            "link": "https://sebraetec.sebraemg.com.br/produto/planejamento-para-presenca-digital-e-links-patrocinados/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Reload",
-            "desc": "Participe do maior evento de Marketing Digital do Sebrae. Ele é para quem quer se atualizar, inspirar, pensar fora da caixa, alavancar seu negócio e se destacar no mundo digital.",
-            "nivel": [0],
-            "link": "https://reload.sebrae.com.br/",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Sebraetec - Acelera Digital - Estratégia e Canais de Mkt Digital",
-            "desc": "Destaque sua empresa no mercado e conquiste novos públicos com uma presença digital forte, ganhando visibilidade e conectando-se com seu público nas redes sociais.",
-            "nivel": [1, 2],
-            "link": "https://sebraetec.sebraemg.com.br/produto/acelera-digital/",
-            "img": "sebraetec",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Atendimento Especializado em Marketing Digital",
-            "desc": "Desenvolva suas mídias digitais para criar conteúdos estratégicos que fortaleçam a comunicação do seu negócio. Aprenda a conectar-se melhor com seu público e a gerar impacto por meio de uma presença digital mais eficiente",
-            "nivel": [0],
-            "link": "",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Desenvolvimento de Mídias Digitais de Comunicação – Plus",
-            "desc": "Desenvolva suas mídias digitais e aprenda a criar conteúdos que conectem seu negócio ao público certo. Otimize sua comunicação e fortaleça sua presença digital com estratégias que geram resultados",
-            "nivel": [2, 3],
-            "link": "https://sebraetec.sebraemg.com.br/produto/desenvolvimento-de-midias-digitais-de-comunicacao/",
-            "img": "",
-            "extra": ""
-        },
-        {
-            "categoria": "Presença digital",
-            "nome": "Desenvolvimento de Mídias Digitais de Comunicação – Pocket",
-            "desc": "Desenvolva suas mídias digitais para criar conteúdos estratégicos que fortaleçam a comunicação do seu negócio. Aprenda a conectar-se melhor com seu público e a gerar impacto por meio de uma presença digital mais eficiente",
-            "nivel": [2, 3],
-            "link": "https://sebraetec.sebraemg.com.br/produto/desenvolvimento-de-midias-digitais-de-comunicacao-mais/",
-            "img": "",
-            "extra": ""
-        },			
         {
             "categoria": "Processos e gestão",
             "nome": "ALI ",
@@ -858,6 +577,286 @@
             "desc": "Conquiste novos mercados e aumente suas vendas com a estratégia Rotas para o Mercado. Defina canais, melhore processos de vendas e implemente ações práticas para otimizar seus resultados.",
             "nivel": [0],
             "link": "",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "DigitalBiz - Oficina Gestão de Redes Sociais",
+            "desc": "Aprenda a transformar suas redes sociais em poderosas aliadas para impulsionar o seu negócio na internet.",
+            "nivel": [2, 3],
+            "link": "https://movimentolab.sebraemg.com.br/digital-biz/gestao-de-redes-sociais/",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Digital Biz - Oficina Instagram, Facebook e WhatsApp para negócios",
+            "desc": "Aprenda a usar Instagram, Facebook e WhatsApp estrategicamente para impulsionar seus negócios.",
+            "nivel": [1, 2],
+            "link": "https://movimentolab.sebraemg.com.br/digital-biz/instagram-facebook-e-whatsapp-para-negocios/",
+            "img": "whatsapp",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Digitalize ",
+            "desc": "Participe de oficinas e atividades práticas, que vão te ensinar a implementar conhecimentos sobre digitalização de forma prática e eficaz nos seus negócios.",
+            "nivel": [0],
+            "link": "",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Sebraetec - Consultoria Omnichannel para Integração dos Canais de Vendas",
+            "desc": "Aproveite a consultoria Omnichannel para integrar todos os seus canais de vendas, proporcionando uma experiência de compra mais fluida e eficiente para seus clientes, e impulsionando os resultados do seu negócio.",
+            "nivel": [2, 3, 4],
+            "link": "https://sebraetec.sebraemg.com.br/produto/consultoria-omnichannel-para-integracao-dos-canais-de-vendas/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Sebraetec - Consultoria para Growth Hacking",
+            "desc": "Descubra novas maneiras de pensar sobre a gestão da sua empresa e aprenda a criar planos de ação eficazes para a divulgação e comercialização dos seus produtos e serviços nos canais on-line. Potencialize sua presença digital e alcance mais clientes!",
+            "nivel": [3, 4],
+            "link": "https://sebraetec.sebraemg.com.br/produto/consultoria-para-growth-hacking/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Sebraetec - Implantação de Loja Virtual - Diagnóstico de Avaliação",
+            "desc": "Participe do diagnóstico de avaliação para a implantação de uma loja virtual e descubra como otimizar sua presença on-line. Receba orientações personalizadas para criar uma loja que atraia clientes e potencialize suas vendas no ambiente digital.",
+            "nivel": [3, 4],
+            "link": "https://sebraetec.sebraemg.com.br/produto/implantacao-de-loja-virtual-diagnostico-de-avaliacao/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Sebraetec - Implantação de Loja Virtual - Plus",
+            "desc": "Participe do processo de implantação da sua loja virtual e receba todo o suporte necessário para estabelecer uma presença on-line de sucesso. Transforme seu negócio e alcance novos clientes no ambiente digital.",
+            "nivel": [3, 4],
+            "link": "https://sebraetec.sebraemg.com.br/produto/implantacao-de-loja-virtual/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Inserção Digital – Desenvolvimento de Website – Pocket",
+            "desc": "Melhore a sua rede de relacionamentos e aumente as possibilidades de alcance e interação com o seu público. Esta consultoria vai te ajudar a estabelecer a sua presença digital de forma profissional e eficiente.",
+            "nivel": [2, 3],
+            "link": "https://sebraetec.sebraemg.com.br/produto/insercao-digital-desenvolvimento-de-website-mais/",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Sebraetec - Inserção Digital – Desenvolvimento de Website – Plus",
+            "desc": "Construa a presença digital da sua empresa com um website profissional, totalmente personalizado para as suas necessidades. Aumente sua visibilidade online e atraia mais clientes com essa solução completa de inserção digital.",
+            "nivel": [2, 3],
+            "link": "https://sebraetec.sebraemg.com.br/produto/insercao-digital-desenvolvimento-de-website/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Sebraetec - Planejamento para Busca Orgânica – SEO",
+            "desc": "Receba orientação especializada e aprenda a otimizar seu site para atrair mais visitantes. Descubra estratégias eficazes de SEO que vão ajudar seu negócio a se destacar nos resultados de busca e conquistar mais clientes.",
+            "nivel": [3, 4],
+            "link": "https://sebraetec.sebraemg.com.br/produto/planejamento-para-busca-organica-seo/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Sebraetec - Planejamento para Presença digital e Links Patrocinados",
+            "desc": "Receba orientação especializada para planejar e otimizar campanhas de tráfego on-line, garantindo visibilidade assertiva para o público-alvo. Inclui estratégias para redes sociais, links patrocinados e outras mídias digitais.",
+            "nivel": [3, 4],
+            "link": "https://sebraetec.sebraemg.com.br/produto/planejamento-para-presenca-digital-e-links-patrocinados/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Reload",
+            "desc": "Participe do maior evento de Marketing Digital do Sebrae. Ele é para quem quer se atualizar, inspirar, pensar fora da caixa, alavancar seu negócio e se destacar no mundo digital.",
+            "nivel": [0],
+            "link": "https://reload.sebrae.com.br/",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Sebraetec - Acelera Digital - Estratégia e Canais de Mkt Digital",
+            "desc": "Destaque sua empresa no mercado e conquiste novos públicos com uma presença digital forte, ganhando visibilidade e conectando-se com seu público nas redes sociais.",
+            "nivel": [1, 2],
+            "link": "https://sebraetec.sebraemg.com.br/produto/acelera-digital/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Atendimento Especializado em Marketing Digital",
+            "desc": "Desenvolva suas mídias digitais para criar conteúdos estratégicos que fortaleçam a comunicação do seu negócio. Aprenda a conectar-se melhor com seu público e a gerar impacto por meio de uma presença digital mais eficiente",
+            "nivel": [0],
+            "link": "",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Desenvolvimento de Mídias Digitais de Comunicação – Plus",
+            "desc": "Desenvolva suas mídias digitais e aprenda a criar conteúdos que conectem seu negócio ao público certo. Otimize sua comunicação e fortaleça sua presença digital com estratégias que geram resultados",
+            "nivel": [2, 3],
+            "link": "https://sebraetec.sebraemg.com.br/produto/desenvolvimento-de-midias-digitais-de-comunicacao/",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Presença digital",
+            "nome": "Desenvolvimento de Mídias Digitais de Comunicação – Pocket",
+            "desc": "Desenvolva suas mídias digitais para criar conteúdos estratégicos que fortaleçam a comunicação do seu negócio. Aprenda a conectar-se melhor com seu público e a gerar impacto por meio de uma presença digital mais eficiente",
+            "nivel": [2, 3],
+            "link": "https://sebraetec.sebraemg.com.br/produto/desenvolvimento-de-midias-digitais-de-comunicacao-mais/",
+            "img": "",
+            "extra": ""
+        },			
+
+        {
+            "categoria": "Comunicação e marca",
+            "nome": "Sebraetec - Branding",
+            "desc": "Desenvolva uma estratégia de branding personalizada para o seu negócio, garantindo que sua marca seja percebida de forma autêntica e relevante pelos seus clientes.",
+            "nivel": [0],
+            "link": "https://sebraetec.sebraemg.com.br/produto/branding/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Comunicação e marca",
+            "nome": "DigitalBiz - Oficina O Texto Vendedor",
+            "desc": "Descubra técnicas de escrita que mostram ao público o valor do seu negócio e aprenda a pensar legendas que geram interação, utilizar palavras-chave, escrever textos para anúncios e muito mais.",
+            "nivel": [2, 3],
+            "link": "https://movimentolab.sebraemg.com.br/digital-biz/o-texto-vendedor/",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Comunicação e marca",
+            "nome": "Sebraetec - Comunicação Visual – Crie Sua Marca",
+            "desc": "Desenvolva uma identidade visual forte e profissional para sua marca com um especialista.",
+            "nivel": [1, 2],
+            "link": "https://sebraetec.sebraemg.com.br/produto/comunicacao-visual-identidade-visual-mais-combo-2/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Comunicação e marca",
+            "nome": "Sebraetec - Branding + Identidade Visual",
+            "desc": "Invista em branding e identidade visual para tornar sua empresa uma referência no mercado. Uma gestão eficaz da imagem da marca é fundamental para alcançar o sucesso. Com essa consultoria você vai criar e desenvolver conteúdos que expressem o verdadeiro propósito da sua marca.",
+            "nivel": [2],
+            "link": "https://sebraetec.sebraemg.com.br/produto/branding-identidade-visual/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Comunicação e marca",
+            "nome": "Sebraetec - Comunicação Visual",
+            "desc": "Aproveite a consultoria de Comunicação Visual e Identidade Visual para criar uma marca forte e alinhada com a personalidade do seu negócio. Fortaleça sua presença no mercado com uma comunicação visual que transmita seus valores e conquiste seus clientes.",
+            "nivel": [2, 3],
+            "link": "https://sebraetec.sebraemg.com.br/produto/comunicacao-visual-identidade-visual-mais/",
+            "img": "sebraetec",
+            "extra": ""
+        },
+        {
+            "categoria": "Comunicação e marca",
+            "nome": "Sebraetec - Impulsiona Conteúdos",
+            "desc": "Capacite-se e comece a planejar e produzir conteúdos relevantes que vão engajar seu público-alvo e gerar um feedback contínuo e crescente.",
+            "nivel": [2],
+            "link": "https://sebraetec.sebraemg.com.br/produto/impulsiona-midias-sociais-planejamento-e-producao-de-conteudo-para-as-principais-midias-sociais/",
+            "img": "sebraetec",
+            "extra": ""	
+        },
+        {
+            "categoria": "Finanças e pagamentos",
+            "nome": "Atendimento Especializado em Finanças",
+            "desc": "Receba orientações individuais e sob medida para compreender e otimizar a gestão financeira de seus negócios.",
+            "nivel": [0],
+            "link": "",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Finanças e pagamentos",
+            "nome": "MODELAÇÃO Finanças",
+            "desc": "Programa gratuito, presencial, dinâmico, mão na massa e com foco em finanças O objetivo é trazer à tona pontos de oportunidades em finanças, resgatando aspectos que poderão ser aprofundados em uma continuidade. Utiliza ferramentas financeiras para identificar e impulsionar melhorias.",
+            "nivel": [2],
+            "link": "https://oferta.sebraemg.com.br/modelacao-sebrae",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Não categorizado",
+            "nome": "Curso de Introdução ao BIM",
+            "desc": "Entenda como a Modelagem da Informação da Construção (BIM) pode transformar os processos da sua micro ou pequena empresa, com foco em mudanças tecnológicas e de gestão.",
+            "nivel": [3],
+            "link": "",
+            "img": "bim",
+            "extra": "civil"
+        },
+        {
+            "categoria": "Não categorizado",
+            "nome": "Portal da Inovação",
+            "desc": "Acesse a plataforma gratuita que foi criada para guiar empreendedores e gestores públicos em busca de soluções inovadoras desmistificando a ideia de que inovação é algo grandioso e tecnológico.",
+            "nivel": [0],
+            "link": "https://inovacaosebraeminas.com.br/",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Não categorizado",
+            "nome": "Prepara Gastronomia - Gestão Integrada",
+            "desc": "Participe do programa que oferece consultorias de gestão e operação para melhorar os processos do seu negócio no segmento de alimentação fora do lar.",
+            "nivel": [1, 2, 3],
+            "link": "",
+            "img": "food",
+            "extra": "food"
+        },
+        {
+            "categoria": "Não categorizado",
+            "nome": "Sebrae Play",
+            "desc": "Acesse uma plataforma completa de capacitação empresarial, com conteúdos exclusivos e atualizados para aprimorar a gestão, vendas, marketing e outras áreas essenciais do seu negócio.",
+            "nivel": [0],
+            "link": "https://sebraeplay.com.br/",
+            "img": "sebrae-play",
+            "extra": ""
+        },
+        {
+            "categoria": "Não categorizado",
+            "nome": "Bootcamp",
+            "desc": "Participe de uma imersão dinâmica e intensa com foco em criatividade, inovação e experimentação. Utilizando métodos ágeis aplicados pelas empresas mais inovadoras do mundo,o curso oferece aprendizado prático, adaptado aos pequenos negócios.",
+            "nivel": [0],
+            "link": "https://serviobrasileirodeapoiosmicroepequenasempresasmg.twygoead.com/e/352710-curso-bootcamp-repositorio",
+            "img": "",
+            "extra": ""
+        },
+        {
+            "categoria": "Não categorizado",
+            "nome": "Sebraeplay - Apresentações de Impacto",
+            "desc": "Aprenda sobre os principais pontos que você deve se atentar ao desenvolver uma apresentação, desde a história que você quer contar, até o design dos slides.",
+            "nivel": [0],
+            "link": "https://sebraeplay.com.br/cursos/apresentacoes-de-impacto",
+            "img": "sebrae-play",
+            "extra": ""
+        },
+        {
+            "categoria": "Não categorizado",
+            "nome": "Sebrae Connect",
+            "desc": "Conecte-se com soluções plug and play das áreas de Finanças e pagamentos, Marketing Digital e Gestão de Operações e Processos e reduza tempo de esforço e custos.",
+            "nivel": [2, 3, 4],
+            "link": "https://connect.sebraemg.com.br/",
             "img": "",
             "extra": ""
         }

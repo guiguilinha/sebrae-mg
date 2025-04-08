@@ -88,6 +88,10 @@ main {
     font-style: italic;
 }
 
+#user-name {
+    opacity: 0.8;
+}
+
 #inicianteDigital {
     background-image: url("../img/iniciante_digital.png");
 }
@@ -119,21 +123,17 @@ main {
     display:none !important;
 }
 
-.card {
+.card-home {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 6rem;
+    min-height: 14rem;
     max-height: 15rem;
     border: 0;
     border-color: transparent;
     border-radius: 0.5rem;
     min-width: 12.5rem;
     max-width: 60rem;
-}
-
-.card-home {
-    min-height: 14rem;
 }
 
 .card-home .card-title {
@@ -145,15 +145,28 @@ main {
     background-image: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50% );
 }
 
+.card-home {
+    box-sizing: border-box;
+}
+
+.card {
+    height: 100%;
+}
+
+.card-text:last-child {
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 0.3rem;
+}
+/*
+
 .card-title {
     position: absolute;
     bottom: 1.5rem;
     color: #ffffff;
 }
 
-.card-text {
-    display: none;
-}
+
 
 .card-courses {
     margin: 0.75rem 0;
@@ -161,8 +174,8 @@ main {
 
 .card-courses:hover .card-text {
     display: block;
-/*    -webkit-animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;  */
+   -webkit-animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-ver-top 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;  
 }
 
 .card-text, .card-title-course {
@@ -186,7 +199,7 @@ main {
     right: 0;
     width: 1rem;
     height: 1rem;
-}
+} */
 
 .btn-question-sebrae {
     transform: skewX(-12deg);
@@ -655,4 +668,27 @@ svg#mapSVG .regiao:hover {
     #flag-home {
         display: none;
     }
+}
+
+#course-list-collapse {
+    position: relative;
+    height: 15rem;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+}
+
+#course-list-collapse:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15rem;
+    background: linear-gradient(to top, #ffffff, transparent);
+    z-index: 100;
+    display: none;
+}
+
+.gradient #course-list-collapse:before {
+    display: block;
 }

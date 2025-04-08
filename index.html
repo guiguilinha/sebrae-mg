@@ -209,17 +209,52 @@
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4">  
             <nav class="navbar navbar-expand-lg fixed-top bg-body">
                 <div class="container">
-                    <a href="https://sebraemg.com.br" target="_blank" class="d-flex align-items-center mb-3 mx-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                        <img src="img/logo_sebrae.png" alt="Sebrae MG">
+                    <a href="https://sebraemg.com.br" target="_blank" class="d-flex align-items-center mb-3 mx-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none" width="100">
+                        <img src="img/logo-sebrae-mg.svg" alt="Sebrae MG">
                     </a>
-                </div>
+                    <div class="gap-4" id="login-btns">
+                      <button class="btn btn-primary text-uppercase" onclick="keycloak.login()">Entrar</button>
+                      <button class="btn text-uppercase" onclick="keycloak.register()">Cadastre-se</button>
+                    </div>
+                    <div class="d-flex gap-4 hide" id="login-info">
+                      <div class="d-flex gap-2">
+                        <svg id="Single-Neutral-Circle--Streamline-Streamline-3.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="2.5em" height="2.5em" class="pt-1"><desc>Single Neutral Circle Streamline Icon: https://streamlinehq.com</desc><defs></defs><title>single-neutral-circle</title><path d="M0.5 12a11.5 11.5 0 1 0 23 0 11.5 11.5 0 1 0 -23 0" fill="none" stroke="#b9b9b9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="M7.75 8.75a4.25 4.25 0 1 0 8.5 0 4.25 4.25 0 1 0 -8.5 0" fill="none" stroke="#b9b9b9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path><path d="M18.317 18.5a6.988 6.988 0 0 0 -12.634 0" fill="none" stroke="#b9b9b9" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path></svg>
+                        <span class="flex-column"><small class="m-0 lh-1 mb-1">Seja bem vindo,</small><p class="m-0 lh-1 fw-medium" id="user-name"></p></span>
+                      </div>
+                      <button class="btn-outline-secondary btn" id="logout" onclick="keycloak.logout()">Logout</button>
+                    </div>
+                  </div>
             </nav>
         </header>
-        <div class="teste">
-          <pre id="output"></pre>
-          <pre id="event"></pre>
-        </div>
+        
     <!-- Cabeçalho -->
+    <!-- Check Login-->
+    
+    <div class="modal fade" id="notLogin" aria-labelledby="Login" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <div class="d-flex justify-content-center align-items-center mb-4">
+                <img src="img/Shield.svg" alt="Atenção, fazer login">
+              </div>
+              <div class="px-3">
+                <p class="justify-content-center fw-medium text-center">
+                  O conteúdo é exclusivo para quem tem uma conta no Sebrae, faça seu login ou cadastre-se!
+                </p>
+              </div>
+              <div class="gap-4 d-flex justify-content-center align-items-center py-4">
+                <button type="button" class="btn btn-primary  text-uppercase fw-bold" onclick="keycloak.login()">Entrar</button>
+                <button type="button" class="btn  text-uppercase fw-bold" onclick="keycloak.register()">Criar uma conta</button>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Check Login-->
     <section class="start">
         <!-- Hero -->
         <section class="d-flex bg-index-hero indexHero">    
@@ -228,10 +263,10 @@
                     <div class="cols-12 col-sm-8 col-lg-8">
                         <h1 class="display-3 fw-bold text-body-emphasis lh-1 mb-3">Índice de Maturidade Digital</h1>
                         <p class="lead">O <strong>Índice de Maturidade Digital</strong> é uma ferramenta que ajuda você, micro ou pequeno empreendedor, a avaliar o nível de digitalização do seu negócio.</p>
-                        <div class="d-grid gap-2 d-md-block">
-                            <a class="btn btn-primary btn-sebrae text-uppercase" href="#blockContentAbout">Saiba como funciona</a>
-                            <a class="btn btn-primary btn-sebrae text-uppercase" href="#formStartTest">Iniciar teste</a>
-                        </div>
+                        <!-- <div class="d-grid gap-2 d-md-block">
+                            <a id="comoFunciona" class="btn btn-primary text-uppercase" href="#blockContentAbout">Saiba como funciona</a>
+                            <a id="iniciaTeste" class="btn btn-primary text-uppercase" >Iniciar teste</a>
+                        </div> -->
                     </div>
                     <div class="col-1 col-sm-4 col-lg-4" id="flag-home">
                         <img src="img/index-maturidade.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="450" height="440" loading="lazy">
@@ -242,7 +277,7 @@
         <!-- Hero -->
     
         <!-- Content -->
-        <section class="d-block indexContent py-5" id="blockContentAbout">
+        <section class="d-block indexContent pb-5" id="blockContentAbout">
             <div class="container col-xxl-8 bg-brand rounded-3">
                 <div class="p-5 pb-0">
                     <p class="col-lg-12 fs-5 fw-light text-white">
@@ -292,49 +327,8 @@
 
         <!-- Form Start -->
         <section class="d-flex indexStart" id="formStartTest">
-            <div class="container d-grid col-lg-6 col-md-6 col-sm-6 rounded-3 p-5 align-items-center">
-                <h2 class="h3">Para iniciar, preencha com seus dados</h2>
-                <form class="row g-3 needs-validation" autocomplete="on" novalidate id="sebrae-form">
-                    <div class="mb-3">
-                        <label for="formControlNome" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="formControlNome" placeholder="Digite seu nome" minlength="3" name="nome" required>
-                        <div class="invalid-feedback text-danger">Você deve informar seu nome</div>
-                      </div>
-                      <div class="mb-3">
-                        <label for="formControlEmpresa" class="form-label">Empresa</label>
-                        <input type="text" class="form-control" id="formControlEmpresa" placeholder="Digite o nome da sua empresa" minlength="3" name="empresa" required>
-                        <div class="invalid-feedback text-danger">Você deve informar o nome de sua empresa</div>
-                      </div>
-                      <div class="mb-3">
-                        <label for="formControlEmail" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="formControlEmail" placeholder="nome@exemplo.com.br" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" name="email" required>
-                        <div class="invalid-feedback text-danger">Você deve informar um e-mail válido</div>
-                      </div>
-                      <div class="mb-3">
-                        <label for="formControlWhats" class="form-label">WhatsApp</label>
-                        <input type="tel" class="form-control" id="formControlWhats" placeholder="(38) 99999-9999" name="whats" required>
-                        <div class="invalid-feedback text-danger">Você deve informar seu WhatsApp</div>
-                      </div>
-                      <div class="mb-3">
-                        <label for="formControlUF" class="form-label">Estado</label>
-                        <select class="form-select" id="formControlUF" aria-label="Selecione seu estado" placeholder="Selecione seu estado" name="estado" required>
-                            <option selected disable value="">Selecione seu estado</option>
-                        </select>
-                        <div class="invalid-feedback text-danger">Você deve selecionar seu estado</div>
-                      </div>
-                      <div class="mb-3">
-                        <label for="formControlCidade" class="form-label">Cidade</label>
-                        <select class="form-select form-control choices-single" id="formControlCidade" aria-label="Selecione sua cidade" placeholder="Selecione sua cidade" name="cidade" required>
-                            <option selected disable value="">Selecione sua cidade</option>
-                        </select>
-                        <div class="invalid-feedback text-danger">Você deve selecionar sua cidade</div>
-                      </div>
-                   <!-- <div class="form-check mb-5">
-                        <input type="checkbox" class="form-check-input" id="flexCheck">
-                        <label class="form-check-label" for="flexCheck">Aceito receber por e-mail o resultado e demais informações sobre a Jornada Digital e teste de Maturidade Digital</label>
-                    </div> -->
-                    <button class="btn btn-primary btn-sebrae text-uppercase start-test" type="submit">Iniciar teste</button>
-                </form>
+            <div class="container d-grid col-lg-6 col-md-6 col-sm-6 rounded-3 py-1 align-items-center">
+              <a id="iniciaTeste" class="btn btn-lg btn-primary text-uppercase" >Iniciar teste</a>
             </div>
         </section>
         <!-- Form Start -->
@@ -369,7 +363,7 @@
 
             </div>
             <div class="container d-block col-xxl-8 px-4 py-2 my-2 justify-content-md-end box-next">  
-                <button type="button" class="btn btn-lg btn-outline-secondary btn-sebrae text-uppercase back">Voltar</button>
+                <button type="button" class="btn btn-lg btn-outline-secondary text-uppercase back">Voltar</button>
             </div>
         </section>
     <!-- Questions Block -->
@@ -392,331 +386,824 @@
                         </div>
                     </div>
                 </div>
+            </section>
+              <section class="d-block callToActionSebraePlay mt-3 mt-lg-5 mt-md-5 mt-sm-3">
+                <div class="square-top pt-5 px-2">
+                  <div class="container col-xxl-8 justify-content-center pt-3">
+                    <h3 class="text-cta-sp justify-content-center">O Sebrae preparou uma trilha de <span class="bg-brand-secondary">vídeos gratuita</span> no Sebrae Play com conteúdos para impulsionar a Maturidade Digital do seu negócio</h3>
+                  </div>
+                  <div class="d-flex pt-4">
+                    <a  class="mx-auto btn btn-exception color-change-2x" target="_blank"><span id="btn-level">Iniciante Digital</span><br>Acessar o Sebrae Play</a>
+                  </div>
+                  
+                  <div class="square first-square">
+                    <canvas width="308" height="224" style="width: 100%; height: 100%;"></canvas>
+                  </div>
+                  <div class="square second-square">
+                    <canvas width="162" height="126" style="width: 100%; height: 100%;"></canvas>
+                  </div>
+                  <div class="square third-square">
+                    <canvas width="740" height="330" style="width: 100%; height: 100%;"></canvas>
+                  </div>
+                  <div class="square fourty-square">
+                    <canvas width="308" height="224" style="width: 100%; height: 100%;"></canvas>
+                  </div>
+                  <div class="square fivethy-square">
+                    <canvas width="308" height="224" style="width: 100%; height: 100%;"></canvas>
+                  </div>
+                </div>
+              </section>
+
+              <section class="d-block levelDetail pt-3 pt-lg-3 pt-md-3 pt-sm-3">
                 <div class="container pt-0 resultBlock">
                     <div class="row flex-lg align-items-center g-5">
-                      <div class="cols-12 col-sm-6 col-lg-7 px-3">
+                      <div class="col-12 px-3">
                         <h1 class="h3 fw-bold lh-1 pb-3">Entenda como é calculado o nível de maturidade digital.</h1>
                         <p class="lead level-text">O nível de maturidade digital é formado com a média do resultado de cinco importantes temas observados, cada resposta é relacionada a um tema e recebe uma pontuação.</p>
                         <p class="lead level-text fs">A pontuação total em cada tema determina seu nível de maturidade digital neste tema, a soma total destes resultados indica o nível de maturidade digital do seu negócio.</p>
-                      </div>
-                      <div class="col-12 col-sm-6 col-lg-4 mt-3 mt-lg-5 mt-md-5 mt-sm-3" id="bars">
-                        <div class="pt-3 process">
-                          <label class="fw-medium">Processos e gestão</label>
-                          <div class="progress rounded-3" role="progressbar" aria-label="Processos e gestão" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar rounded-3"></div>
-                          </div>
-                          <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
-                        </div>
-                        <div class="pt-3 sell">
-                          <label class="fw-medium">Vendas e atendimento</label>
-                          <div class="progress rounded-3" role="progressbar" aria-label="Vendas e atendimento" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar rounded-3"></div>
-                          </div>
-                          <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
-                        </div>
-                        <div class="pt-3 digital">
-                          <label class="fw-medium">Presença digital</label>
-                          <div class="progress rounded-3" role="progressbar" aria-label="Presença digital" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar rounded-3" ></div>
-                          </div>
-                          <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
-                        </div>  
-                        <div class="pt-3 communication">
-                          <label class="fw-medium">Comunicação e marca</label>
-                          <div class="progress rounded-3" role="progressbar" aria-label="Comunicação e marca" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar rounded-3"></div>
-                          </div>
-                          <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
-                        </div>
-                        <div class="pt-3 finance">
-                          <label class="fw-medium">Finanças e pagamentos</label>
-                          <div class="progress rounded-3" role="progressbar" aria-label="Finanças e pagamentos" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
-                            <div class="progress-bar rounded-3"></div>
-                          </div>
-                          <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
-                        </div>
                       </div>
                     </div>
                 </div>
             </section>
             <!-- Results Hero --> 
-            <section class="d-block callToActionSebraePlay mt-3 mt-lg-5 mt-md-5 mt-sm-3">
-              <div class="square-top pt-5 px-2">
-                <div class="container col-xxl-8 justify-content-center pt-3">
-                  <h3 class="text-cta-sp justify-content-center">O Sebrae preparou uma trilha de <span class="bg-brand-secondary">vídeos gratuita</span> no Sebrae Play com conteúdos para impulsionar a Maturidade Digital do seu negócio</h3>
-                </div>
-                <div class="d-flex pt-4">
-                  <a  class="mx-auto btn btn-exception color-change-2x" target="_blank"><span id="btn-level">Iniciante Digital</span><br>Acessar o Sebrae Play</a>
-                </div>
-                
-                <div class="square first-square">
-                  <canvas width="308" height="224" style="width: 100%; height: 100%;"></canvas>
-                </div>
-                <div class="square second-square">
-                  <canvas width="162" height="126" style="width: 100%; height: 100%;"></canvas>
-                </div>
-                <div class="square third-square">
-                  <canvas width="740" height="330" style="width: 100%; height: 100%;"></canvas>
-                </div>
-                <div class="square fourty-square">
-                  <canvas width="308" height="224" style="width: 100%; height: 100%;"></canvas>
-                </div>
-                <div class="square fivethy-square">
-                  <canvas width="308" height="224" style="width: 100%; height: 100%;"></canvas>
-                </div>
-              </div>
-            </section>
             <section class="d-block levelDetail py-3 py-lg-5 py-md-5 py-sm-3">
+              
+              <!-- Lista de temas com cursos -->
+                <!-- Processos e gestão -->
+                <div class="container processTheme">
+                  <p class="h4 fw-semibold mb-1">Processos e gestão</p>
+                  <span class="under-detail d-block mb-2"></span>
+                  <div class="pt-3 process col-lg-4 col-md-4 col-sm-12">
+                    <div class="progress rounded-3" role="progressbar" aria-label="Processos e gestão" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar rounded-3"></div>
+                    </div>
+                    <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
+                  </div>
+                  <p class="text-body userDescLevel">Mensagem</p>
+                </div>
+                <!-- Vendas e atendimento -->
+                <div class="container sellTheme">
+                  <p class="h4 fw-semibold mb-1">Vendas e atendimento</p>
+                  <span class="under-detail d-block mb-2"></span>
+                  <div class="pt-3 sell col-lg-4 col-md-4 col-sm-12">
+                    <div class="progress rounded-3" role="progressbar" aria-label="Vendas e atendimento" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar rounded-3"></div>
+                    </div>
+                    <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
+                  </div>
+                  <p class="text-body userDescLevel">Mensagem</p>
+                </div>
+                <!-- Presença digital -->
+                <div class="container digitalTheme">
+                  <p class="h4 fw-semibold mb-1">Presença digital</p>
+                  <span class="under-detail d-block mb-2"></span>
+                  <div class="pt-3 digital col-lg-4 col-md-4 col-sm-12">
+                    <div class="progress rounded-3" role="progressbar" aria-label="Presença digital" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar rounded-3" ></div>
+                    </div>
+                    <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
+                  </div>
+                  <p class="text-body userDescLevel">Mensagem</p>
+                </div>
+                <!-- Comunicação e marca -->
+                <div class="container communicationTheme">
+                  <p class="h4 fw-semibold mb-1">Comunicação e marca</p>
+                  <span class="under-detail d-block mb-2"></span>
+                  <div class="pt-3 communication col-lg-4 col-md-4 col-sm-12">
+                    <div class="progress rounded-3" role="progressbar" aria-label="Comunicação e marca" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar rounded-3"></div>
+                    </div>
+                    <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
+                  </div>
+                  <p class="text-body userDescLevel">Mensagem</p>
+                </div>
+                <!-- Finanças e pagamentos -->
+                <div class="container financeTheme">
+                  <p class="h4 fw-semibold mb-1">Finanças e pagamentos</p>
+                  <span class="under-detail d-block mb-2"></span>
+                  <div class="pt-3 finance col-lg-4 col-md-4 col-sm-12">
+                    <div class="progress rounded-3" role="progressbar" aria-label="Finanças e pagamentos" aria-valuenow="" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-bar rounded-3"></div>
+                    </div>
+                    <small class="text-body"><strong>Nível <span class="level-theme"></span>: </strong><span class="level-theme-title"></span></small>
+                  </div>
+                  <p class="text-body userDescLevel">Mensagem</p>
+                </div>
+            </section>
+            <section class="d-block py-2 mb-5 cards-list">
               <!-- Título -->
               <div class="container">
                 <h3 class="h2 fw-semibold text-black-50 text-center pb-5">Aqui estão as soluções selecionadas para você, organizadas por nível e temática, conforme o seu nível de maturidade digital.</h3>
               </div>
-              <!-- Lista de temas com cursos -->
-              <!-- Processos e gestão -->
-              
-                <div class="container processTheme">
-                  <p class="h4 fw-semibold mb-1">Processos e gestão</p>
-                  <span class="under-detail d-block mb-2"></span>
-                  <p class="fs-5 text-secondary mb-0 userLevelTheme">Nível</p>
-                  <p class="text-body userDescLevel">Mensagem</p>
-                </div>
-                <div class="container bg-black bg-opacity-10 mb-3 pb-2 pb-sm-3 pb-md-5 pb-lg-5 px-2 px-lg-5 px-md-5 px-sm-3 rounded-3 tab-courses" id="processCourses">
-                  <nav class="navbar">
-                    <div class="navbar-expand">
-                      <ul class="nav nav-underline ms-2" id="box-tab-process" role="tablist">
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-process-iniciante" data-bs-toggle="tab" data-bs-target="#tab-process-iniciante" role="tab" aria-controls="tab-process-iniciante" aria-selected="true">Iniciante Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-process-aprendiz" data-bs-toggle="tab" data-bs-target="#tab-process-aprendiz" role="tab" aria-controls="tab-process-aprendiz" aria-selected="false">Aprendiz Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-process-empreendedor" data-bs-toggle="tab" data-bs-target="#tab-process-empreendedor" role="tab" aria-controls="tab-process-empreendedor" aria-selected="false">Empreendedor Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-process-inovador" data-bs-toggle="tab" data-bs-target="#tab-process-inovador" role="tab" aria-controls="tab-process-inovador" aria-selected="false">Inovador Digital</a>
-                        </li>
-                        <li class="nav-item">
-                          <p class="text-body">
-                            <span class="position-relative badge-invite badge bg-warning p-2 visible">Clique nos outros níveis para mais conteúdo</span>
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </nav>
-                  <div class="card-list overflow-x-scroll col">
-                    <div class="tab-content  card-content d-flex col-lg-12" id="tab-content-process">
-                      <!-- Iniciante -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-process-iniciante" role="tabpanel" aria-labelledby="tab-process-iniciante" tabindex="0"></div>
-                      <!-- Aprendiz -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-process-aprendiz" role="tabpanel" aria-labelledby="tab-process-aprendiz" tabindex="0"></div>
-                      <!-- Empreendedor -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-process-empreendedor" role="tabpanel" aria-labelledby="tab-process-empreendedor" tabindex="0"></div>
-                      <!-- Inovador -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-process-inovador" role="tabpanel" aria-labelledby="tab-process-inovador" tabindex="0"></div>
+              <div class="container">
+                <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-3">
+                <div class="col">
+                  <div class="card">
+                    <img src="img/luz-camera-convercao.png" class="img-fluid rounded-start" alt="...">
+                    <div class="card-body">
+                      <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Comunicação e marca</small></p>
+                      <h5 class="card-title">Luz, câmera, conversão</h5>
+                      <div class="card-level-badge mb-2">
+                        <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+                        <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+                        <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+                        <span class="hide badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+                      </div>
+                      <p class="card-text">Aprenda a criar vídeos que atraem e convertem clientes para o seu negócio.</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="https://sebraeplay.com.br/cursos/luz-camera-e-conversao" target="_blank">Saiba mais</a></small></p>
                     </div>
                   </div>
                 </div>
-                <section class="d-block py-1 mb-5 color-line"></section>
-              <!-- Vendas e atendimento -->
-                <div class="container sellTheme">
-                  <p class="h4 fw-semibold mb-1">Vendas e atendimento</p>
-                  <span class="under-detail d-block mb-2"></span>
-                  <p class="fs-5 text-secondary mb-0 userLevelTheme">Nível</p>
-                  <p class="text-body userDescLevel">Mensagem</p>
-                </div>
-                <div class="container bg-black bg-opacity-10 mb-3 pb-2 pb-sm-3 pb-md-5 pb-lg-5 px-2 px-lg-5 px-md-5 px-sm-3 rounded-3 tab-courses" id="sellCourses">
-                  <nav class="navbar">
-                    <div class="navbar-expand">
-                      <ul class="nav nav-underline ms-2" id="box-tab-sell" role="tablist">
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success visible" >Você está aqui</span>
-                          <a class="nav-link text-black-50 active" id="link-sell-iniciante" data-bs-toggle="tab" data-bs-target="#tab-sell-iniciante" role="tab" aria-controls="tab-sell-iniciante" aria-selected="true">Iniciante Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-sell-aprendiz" data-bs-toggle="tab" data-bs-target="#tab-sell-aprendiz" role="tab" aria-controls="tab-sell-aprendiz" aria-selected="false">Aprendiz Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-sell-empreendedor" data-bs-toggle="tab" data-bs-target="#tab-sell-empreendedor" role="tab" aria-controls="tab-sell-empreendedor" aria-selected="false">Empreendedor Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-sell-inovador" data-bs-toggle="tab" data-bs-target="#tab-sell-inovador" role="tab" aria-controls="tab-sell-inovador" aria-selected="false">Inovador Digital</a>
-                        </li>
-                        <li class="nav-item">
-                          <p class="text-body">
-                            <span class="position-relative badge-invite badge bg-warning p-2 visible">Clique nos outros níveis para mais conteúdo</span>
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </nav>
-                  <div class="card-list overflow-x-scroll col">
-                    <div class="tab-content  card-content d-flex col-lg-12" id="tab-content-sell">
-                      <!-- Iniciante -->
-                      <div class="tab-pane content-inner d-flex gap-2 show active" id="tab-sell-iniciante" role="tabpanel" aria-labelledby="tab-sell-iniciante" tabindex="0"></div>
-                      <!-- Aprendiz -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-sell-aprendiz" role="tabpanel" aria-labelledby="tab-sell-aprendiz" tabindex="0"></div>
-                      <!-- Empreendedor -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-sell-empreendedor" role="tabpanel" aria-labelledby="tab-sell-empreendedor" tabindex="0"></div>
-                      <!-- Inovador -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-sell-inovador" role="tabpanel" aria-labelledby="tab-sell-inovador" tabindex="0"></div>
+                <div class="col">
+                  <div class="card">
+                    <img src="img/emissor-nf-sebrae.png" class="img-fluid rounded-start" alt="...">
+                    <div class="card-body">
+                      <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Finanças e pagamentos</small></p>
+                      <h5 class="card-title">Emissor de NF do Sebrae</h5>
+                      <div class="card-level-badge mb-2">
+                        <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+                        <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+                        <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+                        <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+                      </div>
+                      <p class="card-text">Simplifique a emissão de notas fiscais eletrônicas para o seu negócio com esta ferramenta prática.</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="https://sebrae.com.br/sites/PortalSebrae/produtoseservicos/emissornfe" target="_blank">Saiba mais</a></small></p>
                     </div>
                   </div>
                 </div>
-                <section class="d-block py-1 mb-5 color-line"></section>  
-              <!-- Presença digital -->
-                <div class="container digitalTheme">
-                  <p class="h4 fw-semibold mb-1">Presença digital</p>
-                  <span class="under-detail d-block mb-2"></span>
-                  <p class="fs-5 text-secondary mb-0 userLevelTheme">Nível</p>
-                  <p class="text-body userDescLevel">Mensagem</p>
-                </div>
-                <div class="container bg-black bg-opacity-10 mb-3 pb-2 pb-sm-3 pb-md-5 pb-lg-5 px-2 px-lg-5 px-md-5 px-sm-3 rounded-3 tab-courses" id="digitalCourses">
-                  <nav class="navbar">
-                    <div class="navbar-expand">
-                      <ul class="nav nav-underline ms-2" id="box-tab-digital" role="tablist">
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success visible" >Você está aqui</span>
-                          <a class="nav-link text-black-50 active" id="link-digital-iniciante" data-bs-toggle="tab" data-bs-target="#tab-digital-iniciante" role="tab" aria-controls="tab-digital-iniciante" aria-selected="true">Iniciante Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-digital-aprendiz" data-bs-toggle="tab" data-bs-target="#tab-digital-aprendiz" role="tab" aria-controls="tab-digital-aprendiz" aria-selected="false">Aprendiz Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-digital-empreendedor" data-bs-toggle="tab" data-bs-target="#tab-digital-empreendedor" role="tab" aria-controls="tab-digital-empreendedor" aria-selected="false">Empreendedor Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-digital-inovador" data-bs-toggle="tab" data-bs-target="#tab-digital-inovador" role="tab" aria-controls="tab-digital-inovador" aria-selected="false">Inovador Digital</a>
-                        </li>
-                        <li class="nav-item">
-                          <p class="text-body">
-                            <span class="position-relative badge-invite badge bg-warning p-2 visible">Clique nos outros níveis para mais conteúdo</span>
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </nav>
-                  <div class="card-list overflow-x-scroll col">
-                    <div class="tab-content  card-content d-flex col-lg-12" id="tab-content-digital">
-                      <!-- Iniciante -->
-                      <div class="tab-pane content-inner d-flex gap-2 show active" id="tab-digital-iniciante" role="tabpanel" aria-labelledby="tab-digital-iniciante" tabindex="0"></div>
-                      <!-- Aprendiz -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-digital-aprendiz" role="tabpanel" aria-labelledby="tab-digital-aprendiz" tabindex="0"></div>
-                      <!-- Empreendedor -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-digital-empreendedor" role="tabpanel" aria-labelledby="tab-digital-empreendedor" tabindex="0"></div>
-                      <!-- Inovador -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-digital-inovador" role="tabpanel" aria-labelledby="tab-digital-inovador" tabindex="0"></div>
+                <div class="col">
+                  <div class="card">
+                    <img src="img/consultoria-financeira.png" class="img-fluid rounded-start" alt="...">
+                    <div class="card-body">
+                      <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Finanças e pagamentos</small></p>
+                      <h5 class="card-title">Consultoria Gestão Financeira</h5>
+                      <div class="card-level-badge mb-2">
+                        <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+                        <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+                        <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+                        <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+                      </div>
+                      <p class="card-text">Melhore o controle financeiro do seu negócio com consultoria especializada e personalizada.</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="https://sebraemg.com.br/consultoria/consultoria-gestao-financeira/" target="_blank">Saiba mais</a></small></p>
                     </div>
                   </div>
                 </div>
-                <section class="d-block py-1 mb-5 color-line"></section>
-              <!-- Comunicação e marca -->
-                <div class="container communicationTheme">
-                  <p class="h4 fw-semibold mb-1">Comunicação e marca</p>
-                  <span class="under-detail d-block mb-2"></span>
-                  <p class="fs-5 text-secondary mb-0 userLevelTheme">Nível</p>
-                  <p class="text-body userDescLevel">Mensagem</p>
-                </div>
-                <div class="container bg-black bg-opacity-10 mb-3 pb-2 pb-sm-3 pb-md-5 pb-lg-5 px-2 px-lg-5 px-md-5 px-sm-3 rounded-3 tab-courses" id="communicationCourses">
-                  <nav class="navbar">
-                    <div class="navbar-expand">
-                      <ul class="nav nav-underline ms-2" id="box-tab-communication" role="tablist">
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success visible" >Você está aqui</span>
-                          <a class="nav-link text-black-50 active" id="link-communication-iniciante" data-bs-toggle="tab" data-bs-target="#tab-communication-iniciante" role="tab" aria-controls="tab-communication-iniciante" aria-selected="true">Iniciante Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-communication-aprendiz" data-bs-toggle="tab" data-bs-target="#tab-communication-aprendiz" role="tab" aria-controls="tab-communication-aprendiz" aria-selected="false">Aprendiz Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-communication-empreendedor" data-bs-toggle="tab" data-bs-target="#tab-communication-empreendedor" role="tab" aria-controls="tab-communication-empreendedor" aria-selected="false">Empreendedor Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-communication-inovador" data-bs-toggle="tab" data-bs-target="#tab-communication-inovador" role="tab" aria-controls="tab-communication-inovador" aria-selected="false">Inovador Digital</a>
-                        </li>
-                        <li class="nav-item">
-                          <p class="text-body">
-                            <span class="position-relative badge-invite badge bg-warning p-2 visible">Clique nos outros níveis para mais conteúdo</span>
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </nav>
-                  <div class="card-list overflow-x-scroll col">
-                    <div class="tab-content  card-content d-flex col-lg-12" id="tab-content-communication">
-                      <!-- Iniciante -->
-                      <div class="tab-pane content-inner d-flex gap-2 show active" id="tab-communication-iniciante" role="tabpanel" aria-labelledby="tab-communication-iniciante" tabindex="0"></div>
-                      <!-- Aprendiz -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-communication-aprendiz" role="tabpanel" aria-labelledby="tab-communication-aprendiz" tabindex="0"></div>
-                      <!-- Empreendedor -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-communication-empreendedor" role="tabpanel" aria-labelledby="tab-communication-empreendedor" tabindex="0"></div>
-                      <!-- Inovador -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-communication-inovador" role="tabpanel" aria-labelledby="tab-communication-inovador" tabindex="0"></div>
+                <div class="col">
+                  <div class="card">
+                    <img src="img/email-mkt.png" class="img-fluid rounded-start" alt="...">
+                    <div class="card-body">
+                      <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Presença digital</small></p>
+                      <h5 class="card-title">E-mail Marketing para sua Empresa</h5>
+                      <div class="card-level-badge mb-2">
+                        <span class="hide badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+                        <span class="hide badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+                        <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+                        <span class="hide badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+                      </div>
+                      <p class="card-text">Aprenda a criar e-mails de alto impacto, distribuí-los com as ferramentas certas, monitorar sua reputação como remetente, medir o sucesso dos envios e muito mais.</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="https://sebraeplay.com.br/cursos/e-mail-marketing-para-a-sua-empresa" target="_blank">Saiba mais</a></small></p>
                     </div>
                   </div>
                 </div>
-                <section class="d-block py-1 mb-5 color-line"></section>
-              <!-- Finanças e pagamentos -->
-                <div class="container financeTheme">
-                  <p class="h4 fw-semibold mb-1">Finanças e pagamentos</p>
-                  <span class="under-detail d-block mb-2"></span>
-                  <p class="fs-5 text-secondary mb-0 userLevelTheme">Nível</p>
-                  <p class="text-body userDescLevel">Mensagem</p>
-                </div>
-                <div class="container bg-black bg-opacity-10 mb-3 pb-2 pb-sm-3 pb-md-5 pb-lg-5 px-2 px-lg-5 px-md-5 px-sm-3 rounded-3 tab-courses" id="financeCourses">
-                  <nav class="navbar">
-                    <div class="navbar-expand">
-                      <ul class="nav nav-underline ms-2" id="box-tab-finance" role="tablist">
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success visible" >Você está aqui</span>
-                          <a class="nav-link text-black-50 active" id="link-finance-iniciante" data-bs-toggle="tab" data-bs-target="#tab-finance-iniciante" role="tab" aria-controls="tab-finance-iniciante" aria-selected="true">Iniciante Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-finance-aprendiz" data-bs-toggle="tab" data-bs-target="#tab-finance-aprendiz" role="tab" aria-controls="tab-finance-aprendiz" aria-selected="false">Aprendiz Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-finance-empreendedor" data-bs-toggle="tab" data-bs-target="#tab-finance-empreendedor" role="tab" aria-controls="tab-finance-empreendedor" aria-selected="false">Empreendedor Digital</a>
-                        </li>
-                        <li class="nav-item align-baseline" role="presentation">
-                          <span class="position-relative badge-level-position translate-middle badge rounded-pill bg-success invisible">Você está aqui</span>
-                          <a class="nav-link text-black-50" id="link-finance-inovador" data-bs-toggle="tab" data-bs-target="#tab-finance-inovador" role="tab" aria-controls="tab-finance-inovador" aria-selected="false">Inovador Digital</a>
-                        </li>
-                        <li class="nav-item">
-                          <p class="text-body">
-                            <span class="position-relative badge-invite badge bg-warning p-2 visible">Clique nos outros níveis para mais conteúdo</span>
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </nav>
-                  <div class="card-list overflow-x-scroll col">
-                    <div class="tab-content  card-content d-flex col-lg-12" id="tab-content-finance">
-                      <!-- Iniciante -->
-                      <div class="tab-pane content-inner d-flex gap-2 show active" id="tab-finance-iniciante" role="tabpanel" aria-labelledby="tab-finance-iniciante" tabindex="0"></div>
-                      <!-- Aprendiz -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-finance-aprendiz" role="tabpanel" aria-labelledby="tab-finance-aprendiz" tabindex="0"></div>
-                      <!-- Empreendedor -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-finance-empreendedor" role="tabpanel" aria-labelledby="tab-finance-empreendedor" tabindex="0"></div>
-                      <!-- Inovador -->
-                      <div class="tab-pane content-inner d-flex gap-2" id="tab-finance-inovador" role="tabpanel" aria-labelledby="tab-finance-inovador" tabindex="0"></div>
+                <div class="col">
+                  <div class="card">
+                    <img src="img/planejamento-mkt-digital.png" class="img-fluid rounded-start" alt="...">
+                    <div class="card-body">
+                      <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Presença digital</small></p>
+                      <h5 class="card-title">Planejamento de Marketing Digital</h5>
+                      <div class="card-level-badge mb-2">
+                        <span class="hide badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+                        <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+                        <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+                        <span class="hide badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+                      </div>
+                      <p class="card-text">Aprenda a como aproveitar as oportunidades do marketing digital para posicionar e destacar o seu negócio no ambiente on-line, com estratégias aplicáveis imediatamente.</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="https://sebraeplay.com.br/cursos/planejamento-de-marketing-digital" target="_blank">Saiba mais</a></small></p>
                     </div>
                   </div>
                 </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="img/consultoria-mkt-digital.png" class="img-fluid rounded-start" alt="...">
+                    <div class="card-body">
+                      <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Presença digital</small></p>
+                      <h5 class="card-title">Consultoria em Marketing Digital</h5>
+                      <div class="card-level-badge mb-2">
+                        <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+                        <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+                        <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+                        <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+                      </div>
+                      <p class="card-text">Receba orientações individuais para entender e reavaliar suas estratégias de marketing digital e seu modelo de comunicação nas redes sociais.</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="#sebrae-units" target="_blank">Saiba mais</a></small></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="img/facebook-day.png" class="img-fluid rounded-start" alt="...">
+                    <div class="card-body">
+                      <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Presença digital</small></p>
+                      <h5 class="card-title">Facebook Day</h5>
+                      <div class="card-level-badge mb-2">
+                        <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+                        <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+                        <span class="hide badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+                        <span class="hide badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+                      </div>
+                      <p class="card-text">Descubra como potencializar sua presença e vendas no Facebook com estratégias práticas.</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="https://sebraeplay.com.br/cursos/facebook-day" target="_blank">Saiba mais</a></small></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="img/instagram-day.png" class="img-fluid rounded-start" alt="...">
+                    <div class="card-body">
+                      <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Presença digital</small></p>
+                      <h5 class="card-title">Instagram Day</h5>
+                      <div class="card-level-badge mb-2">
+                        <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+                        <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+                        <span class="hide badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+                        <span class="hide badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+                      </div>
+                      <p class="card-text">Domine as ferramentas do Instagram para expandir seu alcance e atrair mais clientes.</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="https://sebraeplay.com.br/cursos/instagram-day" target="_blank">Saiba mais</a></small></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="img/se-joga-online.png" class="img-fluid rounded-start" alt="...">
+                    <div class="card-body">
+                      <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Presença digital</small></p>
+                      <h5 class="card-title">Se Joga no Online</h5>
+                      <div class="card-level-badge mb-2">
+                        <span class="hide badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+                        <span class="hide badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+                        <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+                        <span class="hide badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+                      </div>
+                      <p class="card-text">Participe da nossa parceria com o Mercado Livre e descubra como vender seus produtos em uma das maiores plataformas de e-commerce. Receba orientações para otimizar suas vendas on-line e alcance mais clientes, aproveitando todo o potencial do marketplace.</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="https://sebrae.com.br/sites/PortalSebrae/parceriamercadolivre" target="_blank">Saiba mais</a></small></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="img/comportamento-consumidor.png" class="img-fluid rounded-start" alt="...">
+                    <div class="card-body">
+                      <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Presença digital</small></p>
+                      <h5 class="card-title">Comportamento do consumido digitalr</h5>
+                      <div class="card-level-badge mb-2">
+                        <span class="hide badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+                        <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+                        <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+                        <span class="hide badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+                      </div>
+                      <p class="card-text">Entenda o comportamento do consumidor digital e aprenda a adaptar suas estratégias para atrair e engajar clientes no ambiente online.</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="https://sebraeplay.com.br/cursos/comportamento-do-consumidor-digital" target="_blank">Saiba mais</a></small></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <img src="img/pnbox.png" class="img-fluid rounded-start" alt="...">
+                    <div class="card-body">
+                      <p class="card-text mb-0 pb-0"><small class="text-body-secondary text-uppercase">Processos e gestão</small></p>
+                      <h5 class="card-title">PNBOX</h5>
+                      <div class="card-level-badge mb-2">
+                        <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span> 
+                        <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> 
+                        <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> 
+                        <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> 
+                      </div>
+                      <p class="card-text">Utilize nossa plataforma digital para elaborar o seu plano de negócios. Com 14 ferramentas disponíveis, você pode usá-las como e onde quiser. Construa um plano completo ou utilize apenas o que precisa no seu momento atual.</p>
+                      <p class="card-text"><small class="text-body-secondary"><a href="https://pnbox.sebrae.com.br/" target="_blank">Saiba mais</a></small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+          
+            </section>
+            <section class="d-block py-1 mb-5 complete-list">
+              <div class="container">
+                <h3 class="h2 fw-semibold text-black-50 text-center pb-5">Abaixo você encontra muitos outros conteúdos que vão ajudar seu negócio crescer</h3>
+              </div>
+              <div class="container gradient" id="course-list">  
+                <ul class="list-group list-group-flush" id="course-list-collapse">
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Processos e gestão</div>
+                      ALI
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Processos e gestão</div>
+                      Consultoria FOCUS
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Processos e gestão</div>
+                      Consultoria Gestão Competitiva para o Varejo
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Processos e gestão</div>
+                      Sebraetec - Adequação à Lei Geral de Proteção de Dados Pessoais (LGPD)
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Processos e gestão</div>
+                      Sebraetec - Eficiência nos Processos Empresariais
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Processos e gestão</div>
+                      Sebraetec - Organização e Controle de Estoque
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Processos e gestão</div>
+                      Educampo
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Processos e gestão</div>
+                      Consultoria Modelagem de Negócio
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Processos e gestão</div>
+                      Gestão de KPI na Prática
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                    </div>
+                  </a>
+
+
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Vendas e atendimento</div>
+                      DigitalBiz - Oficina Funil de Vendas
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Vendas e atendimento</div>
+                      DigitalBiz - Oficina Posts que Vendem
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Vendas e atendimento</div>
+                      Planejamento e Preparação para Comercialização em Marketplace
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Vendas e atendimento</div>
+                      Sebraetec - Implantação ou Adequação na Operação do Delivery
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Vendas e atendimento</div>
+                      Sebraetec - Impulsiona Vendas
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Vendas e atendimento</div>
+                      Caminhos da Moda
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Vendas e atendimento</div>
+                      MODELAÇÃO Mercado
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Vendas e atendimento</div>
+                      Rotas para o mercado
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      DigitalBiz - Oficina Gestão de Redes Sociais
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Digital Biz - Oficina Instagram, Facebook e WhatsApp para negócios
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Digitalize
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Sebraetec - Consultoria Omnichannel para Integração dos Canais de Vendas
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Sebraetec - Consultoria para Growth Hacking
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Sebraetec - Implantação de Loja Virtual - Diagnóstico de Avaliação
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Sebraetec - Implantação de Loja Virtual - Plus
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Inserção Digital – Desenvolvimento de Website – Pocket
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Sebraetec - Inserção Digital – Desenvolvimento de Website – Plus
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Sebraetec - Planejamento para Busca Orgânica – SEO
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Sebraetec - Planejamento para Presença digital e Links Patrocinados
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Reload
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Sebraetec - Acelera Digital - Estratégia e Canais de Mkt Digital
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Atendimento Especializado em Marketing Digital
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Desenvolvimento de Mídias Digitais de Comunicação – Plus
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Presença digital</div>
+                      Desenvolvimento de Mídias Digitais de Comunicação – Pocket
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Comunicação e marca1</div>
+                      Sebraetec - Branding
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Comunicação e marca</div>
+                      DigitalBiz - Oficina O Texto Vendedor
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Comunicação e marca</div>
+                      Sebraetec - Comunicação Visual – Crie Sua Marca
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Comunicação e marca</div>
+                      Sebraetec - Branding + Identidade Visual
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Comunicação e marca</div>
+                      Sebraetec - Comunicação Visual
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Comunicação e marca</div>
+                      Sebraetec - Impulsiona Conteúdos
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Finanças e pagamentos</div>
+                      Atendimento Especializado em Finanças
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Finanças e pagamentos</div>
+                      MODELAÇÃO Finanças
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                    </div>
+                  </a>
+
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Transversais</div>
+                      Curso de Introdução ao BIM
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Transversais</div>
+                      Portal da Inovação
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Transversais</div>
+                      Prepara Gastronomia - Gestão Integrada
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Transversais</div>
+                      Sebrae Play
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Transversais</div>
+                      Bootcamp
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Transversais</div>
+                      Sebraeplay - Apresentações de Impacto
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                  <a class="list-group-item-action list-group-item d-flex justify-content-between align-items-start" href="#sebrae-units">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Transversais</div>
+                      Sebrae Connect
+                    </div>
+                    <div class="ms-2 align-content-between my-auto">
+                      <span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span>
+                      <span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span>
+                      <span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span>
+                    </div>
+                  </a>
+                </ul>
+                <button id="list-toggle" class="btn btn-link w-100" role="button" >Ver mais cursos</button>
+              </div>
             </section>
   
             <section class="d-block unitsSebraeMg" id="sebrae-units">
@@ -1015,7 +1502,8 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://amei.sebrae.com.br/auth/js/keycloak.js"></script>
-    <script src="js/index.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="js/index.js" type="text/javascript" defer></script>
 </body>
 </html>
 
