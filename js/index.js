@@ -27,6 +27,8 @@ const $headerSection = document.querySelector("header");
 const $footerSection = document.querySelector("footer");
 // Variaveis página de inicio
 const $startGameButton = document.querySelector(".start-test");
+const $testLoginButton = document.querySelector("#login-button");
+const $testLogoutButton = document.querySelector("#logout-button");
 // Variaveis página de teste
 const $questionsContainer = document.querySelector(".question-core");
 const $questionsParentContainer = document.querySelector(".question-container");
@@ -92,13 +94,19 @@ let data;
 keycloak = new Keycloak();
 keycloak.init(initOptions)
 	.then(authenticated => {
-		console.log('Init Success (' +(authenticated ? 'Authenticated' : 'Not Authenticated') + ')');
-		dataUserKc = keycloak.idTokenParsed
-		
-		document.getElementById('login-btns').classList.add('hide');
-		document.getElementById('login-info').classList.remove('hide');
-		document.getElementById('user-name').innerHTML = `${dataUserKc.name}`;
-
+		if (authenticated === true) {
+			console.log('Init Success (Authenticated)');
+			document.getElementById('login-btns').classList.add('hide');
+			document.getElementById('login-info').classList.remove('hide');
+			document.getElementById('user-name').innerHTML = dataUserKc.name;	
+		} else {
+			console.log('Init Success (NOT Authenticated)');
+			document.getElementById('login-btns').classList.remove('hide');
+			document.getElementById('login-info').classList.add('hide');
+			cnpj = keycloak.tokenParsed.cpf;
+			vinculaEmpresa(cnpj);
+			dataUserKc = keycloak.idTokenParsed
+		}
 	})
 	.catch( () => {
 		output(authenticated);
@@ -106,6 +114,20 @@ keycloak.init(initOptions)
 // ------------------------------------------------------------------------- //
 // -------------------- Valida login para iniciar teste -------------------- //
 // ------------------------------------------------------------------------- //
+
+$testLoginButton.addEventListener('click', () => {
+	if(keycloak.authenticated === true){
+		document.getElementById('login-btns').classList.add('hide');
+		document.getElementById('login-info').classList.remove('hide');
+	} else {
+		document.getElementById('login-btns').classList.remove('hide');
+		document.getElementById('login-info').classList.add('hide');	
+	}
+})
+
+
+
+
 
 function checkLogin() {
 	if(keycloak.authenticated === true){
