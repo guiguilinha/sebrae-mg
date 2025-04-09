@@ -95,17 +95,17 @@ keycloak = new Keycloak();
 keycloak.init(initOptions)
 	.then(authenticated => {
 		if (authenticated === true) {
+			dataUserKc = keycloak.idTokenParsed
+			cnpj = keycloak.tokenParsed.cpf;
 			console.log('Init Success (Authenticated)');
 			document.getElementById('login-btns').classList.add('hide');
 			document.getElementById('login-info').classList.remove('hide');
-			document.getElementById('user-name').innerHTML = dataUserKc.name;	
+			document.getElementById('user-name').innerHTML = dataUserKc.given_name;	
+			vinculaEmpresa(cnpj);
 		} else {
 			console.log('Init Success (NOT Authenticated)');
 			document.getElementById('login-btns').classList.remove('hide');
 			document.getElementById('login-info').classList.add('hide');
-			cnpj = keycloak.tokenParsed.cpf;
-			vinculaEmpresa(cnpj);
-			dataUserKc = keycloak.idTokenParsed
 		}
 	})
 	.catch( () => {
