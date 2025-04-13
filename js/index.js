@@ -60,6 +60,13 @@ const $levelNumberBar = document.querySelectorAll(".level-theme");
 const $levelTitleBar = document.querySelectorAll(".level-theme-title");
 // Variaveis página de resultados => nível do usuário por tema
 const $userCategoryLevel = document.querySelectorAll(".userLevelTheme");
+
+const $userDetailList = document.getElementById("resultDetailList");
+const $userDetailDesc = document.querySelectorAll(".userDescLevel");
+
+const $levelBadge = document.querySelector(".levelBadge");
+const $cardList = document.getElementById("cardList");
+
 const $levelTabOption = document.querySelectorAll(".tab-courses ul.nav");
 const $levelTabContent = document.querySelectorAll(".tab-content");
 // variaveis página de resultados => lista de cursos por usuário
@@ -293,17 +300,179 @@ function finishTest(){
 	for(let i = 0; i < $resultBars.length; i++) {
 		$resultBars[i].textContent = `${pointsCategory[i].percent}%`;
 		$resultBars[i].setAttribute("style", `width: ${pointsCategory[i].percent}%`);
-		$levelNumberBar[i].textContent = pointsCategory[i].level;
-		$levelTitleBar[i].textContent = pointsCategory[i].levelName;
+		
 	}
 	
 	// Preenche dados de datalhes por tema
-	for(let j = 0; j < $userCategoryLevel.length; j++) {
-		$userCategoryLevel[j].textContent = pointsCategory[j].levelName;
-		$userCategoryLevel[j].nextElementSibling.textContent = $desc
+	for(let j = 0; j < $userDetailList.children.length; j++) {
+		//$userDetailList.children[j].textContent = pointsCategory[j].levelName;
+		$userDetailList.children[j].lastElementChild.textContent = $desc
 			.filter((item) => item.lvl == pointsCategory[j].level && item.category === pointsCategory[j].category)
 			.map((desc) => desc.desc);
-		setLevelTheme(j, pointsCategory[j].level);
+		let statusLevel = pointsCategory[j].level;
+		let listLevelCard = $cardList.children[0].children
+		switch(statusLevel) {
+			case 1:
+				$userDetailList.children[j].children[0].lastElementChild.innerHTML = '<span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>';
+				switch (pointsCategory[j].category) {
+					case "Processos e gestão":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("processos-gestao") && item.classList.contains("iniciante")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Vendas e atendimento":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("vendas-atendimento") && item.classList.contains("iniciante")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Presença digital":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("presenca-digital") && item.classList.contains("iniciante")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Comunicação e marca":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("comunicacao-marca") && item.classList.contains("iniciante")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Finanças e pagamentos":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("financas-pagamentos") && item.classList.contains("iniciante")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+				}
+				break;
+			case 2:
+				$userDetailList.children[j].children[0].lastElementChild.innerHTML = '<span class="badge fw-medium text-warning-emphasis bg-warning-subtle border border-warning-subtle">Aprendiz</span> '
+				switch (pointsCategory[j].category) {
+					case "Processos e gestão":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("processos-gestao") && item.classList.contains("aprendiz")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Vendas e atendimento":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("vendas-atendimento") && item.classList.contains("aprendiz")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Presença digital":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("presenca-digital") && item.classList.contains("aprendiz")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Comunicação e marca":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("comunicacao-marca") && item.classList.contains("aprendiz")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Finanças e pagamentos":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("financas-pagamentos") && item.classList.contains("aprendiz")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+				}
+				break;
+			case 3:
+				$userDetailList.children[j].children[0].lastElementChild.innerHTML = '<span class="badge fw-medium text-primary-emphasis bg-primary-subtle border border-primary-subtle">Empreendedor</span> '
+				switch (pointsCategory[j].category) {
+					case "Processos e gestão":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("processos-gestao") && item.classList.contains("empreeendedor")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Vendas e atendimento":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("vendas-atendimento") && item.classList.contains("empreendedor")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Presença digital":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("presenca-digital") && item.classList.contains("empreendedor")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Comunicação e marca":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("comunicacao-marca") && item.classList.contains("empreendedor")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Finanças e pagamentos":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("financas-pagamentos") && item.classList.contains("empreendedor")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+				}
+				break;
+			case 4:
+				$userDetailList.children[j].children[0].lastElementChild.innerHTML = '<span class="badge fw-medium text-info-emphasis bg-info-subtle border border-info-subtle">Inovador</span> '
+				switch (pointsCategory[j].category) {
+					case "Processos e gestão":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("processos-gestao") && item.classList.contains("inovador")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Vendas e atendimento":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("vendas-atendimento") && item.classList.contains("inovador")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Presença digital":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("presenca-digital") && item.classList.contains("inovador")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Comunicação e marca":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("comunicacao-marca") && item.classList.contains("inovador")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+					case "Finanças e pagamentos":
+						listLevelCard.forEach(item => {
+							if(item.classList.contains("financas-pagamentos") && item.classList.contains("aprendiz")){
+								item.classList.remove("hide");
+							}
+						});
+					break;
+				}
+				break;
+		}
 	}
 
 	//Cria e popula os cards de cursos por categoria
@@ -463,6 +632,7 @@ function populateResultHero(hero){
 	$btnTrail.parentElement.setAttribute('href', hero.link);
 }
 // Função que popula o nível do usuário por tema //
+/*
 function setLevelTheme(i, level){
 	level = level - 1
 	for(let k = 0; k <= 3; k++) {
@@ -481,6 +651,7 @@ function setLevelTheme(i, level){
 		}
 	}	
 }
+	*/
 // Função para criar os cards de cursos //
 function createCard(currentName, currentDesc, currentLink, currentImg, extraCategory, currentLevel){ 
     let setBg = "bg-brand";
@@ -732,8 +903,9 @@ function testar(){
 	.catch((error) => console.error('Error:', error));
 }
 
-const cList = document.getElementById('course-list-collapse');
+//const cList = document.getElementById('course-list-collapse');
 
+/*
 let seeMore = document.getElementById('list-toggle');
 let contentList = document.getElementById('course-list');
 seeMore.addEventListener('click', () => {
@@ -750,3 +922,4 @@ seeMore.addEventListener('click', () => {
 		cList.style.height = cList.scrollHeight + 'px';
 	}
 });
+*/

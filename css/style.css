@@ -139,6 +139,8 @@ main {
 .card-home .card-title {
     bottom: 0.75rem;
     font-size: 1rem;
+    position:absolute;
+    color: #ffffff;
 }
 
 .card-home .card-body {
@@ -468,7 +470,9 @@ svg#mapSVG {
 svg#mapSVG .regiao {
   transition: .5s;
   filter: opacity(0.7);
+  cursor: pointer;
 }
+
 svg#mapSVG .regiao:hover {
     filter: opacity(1);
 }
