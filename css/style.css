@@ -696,3 +696,9 @@ svg#mapSVG .regiao:hover {
 .gradient #course-list-collapse:before {
     display: block;
 }
+
+@media print {
+    header, footer, .callToActionSebraePlay, .square-top  {
+        display: none !important;
+    }
+}

@@ -1,3 +1,7 @@
+
+
+
+
 // Variaveis Keycloak //
 let keycloak = Keycloak()
 let initOptions = {onLoad: 'check-sso',};
@@ -66,6 +70,7 @@ const $userDetailDesc = document.querySelectorAll(".userDescLevel");
 
 const $levelBadge = document.querySelector(".levelBadge");
 const $cardList = document.getElementById("cardList");
+const $PDF = document.getElementById("gerarPDF");
 
 const $levelTabOption = document.querySelectorAll(".tab-courses ul.nav");
 const $levelTabContent = document.querySelectorAll(".tab-content");
@@ -310,7 +315,7 @@ function finishTest(){
 			.filter((item) => item.lvl == pointsCategory[j].level && item.category === pointsCategory[j].category)
 			.map((desc) => desc.desc);
 		let statusLevel = pointsCategory[j].level;
-		let listLevelCard = $cardList.children[0].children
+		const listLevelCard = Array.from($cardList.children[0].children)
 		switch(statusLevel) {
 			case 1:
 				$userDetailList.children[j].children[0].lastElementChild.innerHTML = '<span class="badge fw-medium text-success-emphasis bg-success-subtle border border-success-subtle">Iniciante</span>';
@@ -902,6 +907,38 @@ function testar(){
 		})
 	.catch((error) => console.error('Error:', error));
 }
+
+let specialElementHandler = {
+	'#editor': function (element, renderer) {
+		return true;
+	}
+};
+
+
+function gerarPDF(){
+	window.html2canvas = html2canvas;
+	window.jsPDF = window.jspdf.jsPDF;
+	
+	const screen = document.getElementById("formfinishingTest") 
+	let srcwidth = screen.scrollWidth;
+	const pdf = new jsPDF('p', 'pt', 'a4');
+
+	pdf.html(screen, {
+		html2canvas: {
+			scale: 600 / srcwidth,
+			x: 0,
+			y: 0,
+		},
+		callback: function() {
+			pdf.save("maturidade-digital-resultado.pdf");
+		},
+	})
+}
+
+$PDF.addEventListener('click', () => {
+	gerarPDF();
+})
+
 
 //const cList = document.getElementById('course-list-collapse');
 
