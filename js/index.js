@@ -935,10 +935,11 @@ function gerarPDF(){
 	})
 }
 
+/*
 $PDF.addEventListener('click', () => {
 	gerarPDF();
 })
-
+*/
 
 //const cList = document.getElementById('course-list-collapse');
 
