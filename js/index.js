@@ -694,7 +694,7 @@ function changeImageSrc(newSrc){
 }
 
 // Funções de efeito de Scroll na lista de cursos //
-const setupProcess = () => {
+/* const setupProcess = () => {
     new ScrollBooster({
         viewport: document.querySelector('#processCourses .card-list'),
         content: document.querySelector('#processCourses .card-content'),
@@ -740,7 +740,7 @@ function scrollCourses() {
     setupDigital();
     setupCommunication();
     setupFinance();
-}
+}*/
 
 
 // Função para salvar dados no banco
@@ -770,7 +770,7 @@ function dataSave(data){
 //$startGameButton.addEventListener("click", formValidate);
 $backQuestionButton.addEventListener("click", backQuestion);
 
-const btnGenerate = document.querySelector('#generate-pdf');
+//const btnGenerate = document.querySelector('#generate-pdf');
 
 /*btnGenerate.addEventListener("click", () => {
 	const content = document.querySelector('#content')
@@ -892,7 +892,7 @@ function autoLogout() {
 }
 
 function testar(){
-	fetch('https://api.partner.sebraemg.com.br/v1/interaction', {
+	fetch('https://api.partner.sebraemg.com.br/v1/interaction', { //'https://api.partner.sebraemg.com.br/v1/interaction'
 		method: 'POST',
 		mode: 'no-cors',
         headers: {
@@ -914,7 +914,7 @@ let specialElementHandler = {
 	}
 };
 
-
+/*
 function gerarPDF(){
 	window.html2canvas = html2canvas;
 	window.jsPDF = window.jspdf.jsPDF;
@@ -933,7 +933,7 @@ function gerarPDF(){
 			pdf.save("maturidade-digital-resultado.pdf");
 		},
 	})
-}
+} */
 
 /*
 $PDF.addEventListener('click', () => {

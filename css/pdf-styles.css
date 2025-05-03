@@ -1,0 +1,61 @@
+/* Estilos específicos para geração de PDF */
+.pdf-export #formfinishingTest {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.pdf-export #formfinishingTest .resultHero {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    margin: 0 0 0.5rem 0 !important;
+}
+
+.pdf-export #formfinishingTest .resultHero #text-result-general {
+    width: 80% !important;
+    margin-right: 0.5rem !important;
+}
+
+.pdf-export #formfinishingTest .resultHero #img-result-general {
+    width: 20% !important;
+    max-width: 150px !important;
+}
+
+.pdf-export #formfinishingTest .callToActionSebraePlay {
+    width: 100% !important;
+    margin: 0.5rem 0 !important;
+    page-break-after: always !important;
+}
+
+.pdf-export #formfinishingTest #resultDetail {
+    page-break-before: always !important;
+    margin: 0 !important;
+}
+
+.pdf-export #formfinishingTest #resultDetailList {
+    page-break-after: always !important;
+    margin: 0 !important;
+}
+
+.pdf-export #formfinishingTest .card-list {
+    font-size: 85% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+}
+
+.pdf-export #formfinishingTest .card-list .card {
+    margin: 0 0 0.25rem 0 !important;
+    padding: 0.25rem !important;
+    font-size: 85% !important;
+    width: 100% !important;
+    min-height: 80px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+}
+
+.pdf-export #formfinishingTest .card-list .card-body {
+    padding: 0.25rem !important;
+    margin: 0 !important;
+} 
