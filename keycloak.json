@@ -1,0 +1,8 @@
+{
+    "realm": "externo",
+    "auth-server-url": "https://amei.sebrae.com.br/auth",
+    "ssl-required": "external",
+    "resource": "maturidadedigital",
+    "public-client": true,
+    "confidential-port": 0
+  }
