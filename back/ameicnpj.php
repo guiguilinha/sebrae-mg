@@ -9,14 +9,14 @@ header("Access-Control-Allow-Credentials: true");
 // Captura o corpo da requisição
 $json = file_get_contents('php://input');
 $dados = json_decode($json, true);
-$urlAmei =  "https://amei.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token"; //"https://amei.homolog.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token";
+$urlAmei =  "https://amei.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token"; //"https://amei.homolog.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token"; https://amei.homolog.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token
 
 // Verifica se os dados foram recebidos corretamente
 if ($dados && isset($dados['tokenId']) && isset($dados['userId'])) {
     
     $curl = curl_init();
     curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://amei.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token', //'https://amei.homolog.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token'
+        CURLOPT_URL => 'https://amei.sebrae.com.br/auth/realms/externo/protocol/openid/token', //'https://amei.homolog.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token'; https://amei.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -46,7 +46,7 @@ if ($dados && isset($dados['tokenId']) && isset($dados['userId'])) {
             $cr = curl_init();
 
             curl_setopt_array($cr, array(
-              CURLOPT_URL => 'https://cpe-backend.sebrae.com.br/v1/vinculo-empresa?cpf=' . $dados['userId'],
+              CURLOPT_URL => 'https://cpe-backend.sebrae.com.br/v1/vinculo-empresa?cpf=' . $dados['userId'], //https://cpe-backend.sebrae.com.br/v1/vinculo-empresa?cpf=' . $dados['userId']
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => '',
               CURLOPT_MAXREDIRS => 10,

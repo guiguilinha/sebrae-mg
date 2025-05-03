@@ -2,10 +2,8 @@
   "realm": "externo",
   "auth-server-url": "https://amei.sebrae.com.br/auth",
   "ssl-required": "external",
-  "resource": "maturidadedigital-backend",
-  "credentials": { 
-    "secret": "aUOg6iGnSLivRtMNzVB7N6bHBFHbZ6nZ" 
-  },
+  "resource": "sbr-mg",
+  "public-client": true,
   "confidential-port": 0,
   "policy-enforcer": {}
 }
