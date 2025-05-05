@@ -584,6 +584,13 @@ function finishTest(){
 	
 	$dataUser.push({
 		level: {
+			nome: dataUserKc.name,
+			empresa: cnpj,
+			email: dataUserKc.email,
+			whatsapp: dataUserKc.phone,
+			uf: dataUserKc.state,
+			cidade: dataUserKc.city,
+			newsletter: false,
 			nivel: pointsGeneral[0].level,
 			pontosTotais: totalPoints,
 			processo_nivel: pointsCategory[0].levelName,
@@ -612,14 +619,14 @@ function generalResult(result) {
 function levelName(points){
     let results = 0;
 	let req = [];
-    results = points / 12 * 100;
-    if(results <= 30){
+    results = points;
+    if(results <= 4){
         points = $niveis[0].id
 		req = points
-    } else if (results > 30 && results < 60) {
+    } else if (results > 4 && results < 8) {
 		points = $niveis[1].id
 		req = points
-    } else if (results > 59 && results <= 83) {
+    } else if (results > 8 && results <= 10) {
 		points = $niveis[2].id
 		req = points
     } else {
