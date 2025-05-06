@@ -1,7 +1,3 @@
-
-
-
-
 // Variaveis Keycloak //
 let keycloak = Keycloak()
 let initOptions = {onLoad: 'check-sso',};
@@ -136,10 +132,6 @@ $testLoginButton.addEventListener('click', () => {
 		document.getElementById('login-info').classList.add('hide');	
 	}
 })
-
-
-
-
 
 function checkLogin() {
 	if(keycloak.authenticated === true){
@@ -480,116 +472,14 @@ function finishTest(){
 		}
 	}
 
-	//Cria e popula os cards de cursos por categoria
-	/*if (document.readyState !== "loading") {
-		$cursos.forEach((item)  => {		
-			let cardMount = "";
-			if(item.categoria === "Processos e gestão"){ 
-					if(item.nivel.includes(1) || item.nivel.includes(0)) {
-						cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Iniciante digital");
-						$tbProIni.append(cardMount);
-    	        	} 
-					if(item.nivel.includes(2) || item.nivel.includes(0)) {
-    	            	cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Aprendiz digital");
-						$tbProApr.append(cardMount);
-					} 
-					if(item.nivel.includes(3) || item.nivel.includes(0)) {
-						cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Empreendedor digital");
-    	                $tbProEmp.append(cardMount);
-    	            }
-					if(item.nivel.includes(4) || item.nivel.includes(0)) {
-						cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Inovador digital");
-						$tbProIno.append(cardMount);
-					}
-			}
-			if(item.categoria === "Vendas e atendimento"){
-					if(item.nivel.includes(1) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Iniciante digital");
-    	                $tbVenIni.append(cardMount);
-    	            }
-					if(item.nivel.includes(2) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Aprendiz digital");
-    	                $tbVenApr.append(cardMount);
-    	            }
-					if(item.nivel.includes(3) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Empreendedor digital");
-    	                $tbVenEmp.append(cardMount);
-    	            }
-					if(item.nivel.includes(3) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Inovador digital");
-    	                $tbVenIno.append(cardMount);
-					}
-			}
-			if(item.categoria === "Presença digital"){
-					if(item.nivel.includes(1) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Iniciante digital");
-    	                $tbDigIni.append(cardMount);
-    	            }
-					if(item.nivel.includes(2) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Aprendiz digital");
-    	                $tbDigApr.append(cardMount);
-    	            }
-					if(item.nivel.includes(3) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Empreendedor digital");
-    	                $tbDigEmp.append(cardMount);
-    	            }
-					if(item.nivel.includes(4) || item.nivel.includes(0)) {
-						cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Inovador digital");
-						$tbDigIno.append(cardMount);
-					}
-			}
-			if(item.categoria === "Comunicação e marca"){
-					if(item.nivel.includes(1) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Iniciante digital");
-    	                $tbComIni.append(cardMount);
-    	            }
-					if(item.nivel.includes(2) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Aprendiz digital");
-    	                $tbComApr.append(cardMount);
-    	            }
-					if(item.nivel.includes(3) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Empreendedor digital");
-    	                $tbComEmp.append(cardMount);
-    	            }
-					if(item.nivel.includes(4) || item.nivel.includes(0)) {
-						cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Inovador digital");
-						$tbComIno.append(cardMount);
-					}
-			}
-			if(item.categoria === "Finanças e pagamentos"){
-					if(item.nivel.includes(1) || item.nivel.includes(0)) {
-						cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Iniciante digital");
-    	                $tbFinIni.append(cardMount);
-    	            }
-					if(item.nivel.includes(2) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Aprendiz digital");
-    	                $tbFinApr.append(cardMount);
-    	            }
-					if(item.nivel.includes(3) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Empreendedor digital");
-    	                $tbFinEmp.append(cardMount);
-    	            }
-					if(item.nivel.includes(4) || item.nivel.includes(0)) {
-    	                cardMount = createCard(item.nome, item.desc, item.link, item.img, item.extra, "Inovador digital");
-						$tbFinIno.append(cardMount);
-					}
-			}
-		});
-		if (document.readyState !== "loading") {
-			scrollCourses();
-		} else {
-		  document.addEventListener("DOMContentLoaded", scrollCourses);
-		}
-	} */
-	
 	$dataUser.push({
 		level: {
 			nome: dataUserKc.name,
 			empresa: cnpj,
 			email: dataUserKc.email,
-			whatsapp: dataUserKc.phone,
-			uf: dataUserKc.state,
-			cidade: dataUserKc.city,
+			whatsapp: dataUserKc.telefoneCelular,
+			uf: dataUserKc.uf,
+			cidade: dataUserKc.cidade,
 			newsletter: false,
 			nivel: pointsGeneral[0].level,
 			pontosTotais: totalPoints,
@@ -643,27 +533,7 @@ function populateResultHero(hero){
 	$btnTrail.textContent = hero.level;
 	$btnTrail.parentElement.setAttribute('href', hero.link);
 }
-// Função que popula o nível do usuário por tema //
-/*
-function setLevelTheme(i, level){
-	level = level - 1
-	for(let k = 0; k <= 3; k++) {
-		if(level == k) {
-			
-			$levelTabOption[i].children[k].children[1].classList.add("active", "show");
-			$levelTabOption[i].children[k].children[0].classList.remove("invisible");
-			$levelTabOption[i].children[k].children[0].classList.add("visible");
-			$levelTabContent[i].children[k].classList.add("active", "show");
-        } else {
-			
-			$levelTabOption[i].children[k].children[1].classList.remove("active", "show");
-			$levelTabOption[i].children[k].children[0].classList.remove("visible");
-			$levelTabOption[i].children[k].children[0].classList.add("invisible");
-			$levelTabContent[i].children[k].classList.remove("active", "show");
-		}
-	}	
-}
-	*/
+
 // Função para criar os cards de cursos //
 function createCard(currentName, currentDesc, currentLink, currentImg, extraCategory, currentLevel){ 
     let setBg = "bg-brand";
@@ -700,56 +570,6 @@ function changeImageSrc(newSrc){
     $levelImg.src = newSrc;
 }
 
-// Funções de efeito de Scroll na lista de cursos //
-/* const setupProcess = () => {
-    new ScrollBooster({
-        viewport: document.querySelector('#processCourses .card-list'),
-        content: document.querySelector('#processCourses .card-content'),
-        scrollMode: 'native',
-        direction: 'horizontal'
-    });
-}
-const setupSell = () => {
-    new ScrollBooster({
-        viewport: document.querySelector('#sellCourses .card-list'),
-        content: document.querySelector('#sellCourses .card-content'),
-        scrollMode: 'native',
-        direction: 'horizontal'
-    });
-}
-const setupDigital = () => {
-    new ScrollBooster({
-        viewport: document.querySelector('#digitalCourses .card-list'),
-        content: document.querySelector('#digitalCourses .card-content'),
-        scrollMode: 'native',
-        direction: 'horizontal'
-    });
-}
-const setupCommunication = () => {
-    new ScrollBooster({
-        viewport: document.querySelector('#communicationCourses .card-list'),
-        content: document.querySelector('#communicationCourses .card-content'),
-        scrollMode: 'native',
-        direction: 'horizontal'
-    });
-}
-const setupFinance = () => {
-    new ScrollBooster({
-        viewport: document.querySelector('#financeCourses .card-list'),
-        content: document.querySelector('#financeCourses .card-content'),
-        scrollMode: 'native',
-        direction: 'horizontal'
-    });
-}
-function scrollCourses() {
-    setupProcess();
-    setupSell();
-    setupDigital();
-    setupCommunication();
-    setupFinance();
-}*/
-
-
 // Função para salvar dados no banco
 function dataSave(data){
 	fetch('./back/processar_quiz.php' , {
@@ -774,24 +594,7 @@ function dataSave(data){
 }
 
 // ------ Eventos de escuta ------ //
-//$startGameButton.addEventListener("click", formValidate);
 $backQuestionButton.addEventListener("click", backQuestion);
-
-//const btnGenerate = document.querySelector('#generate-pdf');
-
-/*btnGenerate.addEventListener("click", () => {
-	const content = document.querySelector('#content')
-
-	const options = {
-		margin: [0, 5, 10, 5],
-		filename: 'Sebrae-MG_Maturidade_Digital_resultado.pdf',
-		html2canvas: {scale: 0.5},
-		image: {type: 'jpeg', quality: 0.9},
-        jsPDF: {unit: 'mm', format: 'a4', orientation: 'portrait'}
-	}
-	html2pdf().set(options).from(content).save();
-}) */
-
 
 // ---------------------------- //
 // ------ Inicializações ------ //
@@ -920,51 +723,3 @@ let specialElementHandler = {
 		return true;
 	}
 };
-
-/*
-function gerarPDF(){
-	window.html2canvas = html2canvas;
-	window.jsPDF = window.jspdf.jsPDF;
-	
-	const screen = document.getElementById("formfinishingTest") 
-	let srcwidth = screen.scrollWidth;
-	const pdf = new jsPDF('p', 'pt', 'a4');
-
-	pdf.html(screen, {
-		html2canvas: {
-			scale: 600 / srcwidth,
-			x: 0,
-			y: 0,
-		},
-		callback: function() {
-			pdf.save("maturidade-digital-resultado.pdf");
-		},
-	})
-} */
-
-/*
-$PDF.addEventListener('click', () => {
-	gerarPDF();
-})
-*/
-
-//const cList = document.getElementById('course-list-collapse');
-
-/*
-let seeMore = document.getElementById('list-toggle');
-let contentList = document.getElementById('course-list');
-seeMore.addEventListener('click', () => {
-	contentList.classList.toggle('gradient');
-	
-	if (cList.classList.contains('show')) {
-		cList.classList.toggle('show');
-		seeMore.innerHTML = 'Ver mais cursos';
-		cList.style.height = '15rem';
-		
-	} else {
-		cList.classList.add('show');
-		seeMore.innerHTML = 'Ver menos cursos';
-		cList.style.height = cList.scrollHeight + 'px';
-	}
-});
-*/
