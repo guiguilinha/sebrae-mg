@@ -811,7 +811,7 @@ fetch('js/dados.json')
 
 // ------ busca dados de empresas vinculadas ------ //
 function vinculaEmpresa(dataUserKc, cnpj){
-	dataId = {tokenId: tokenId, userId: dataUserKc.cpf}
+	dataId = {tokenId: keycloak.idToken, userId: dataUserKc.cpf}
 	fetch('./back/ameicnpj.php', {
 		method: 'POST',
         headers: {
