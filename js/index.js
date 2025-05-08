@@ -706,7 +706,7 @@ function autoLogout() {
 }
 
 function testar(){
-	fetch('https://dev.api.partner.sebraemg.com.br/v1/interaction', { //'https://api.partner.sebraemg.com.br/v1/interaction'
+	fetch('https://api.partner.sebraemg.com.br/v1/interaction', { //'https://api.partner.sebraemg.com.br/v1/interaction'
 		method: 'POST',
 		mode: 'no-cors',
         headers: {
