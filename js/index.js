@@ -104,12 +104,12 @@ keycloak.init(initOptions)
 	.then(authenticated => {
 		if (authenticated === true) {
 			dataUserKc = keycloak.idTokenParsed
-			cnpj = keycloak.tokenParsed.cpf;
+			dataId = {tokenId: keycloak.idToken, userId: dataUserKc.cpf}
 			console.log('Init Success (Authenticated)');
 			document.getElementById('login-btns').classList.add('hide');
 			document.getElementById('login-info').classList.remove('hide');
 			document.getElementById('user-name').innerHTML = dataUserKc.given_name;	
-			vinculaEmpresa(cnpj);
+			vinculaEmpresa(dataId, cnpj);
 		} else {
 			console.log('Init Success (NOT Authenticated)');
 			document.getElementById('login-btns').classList.remove('hide');
@@ -611,7 +611,7 @@ fetch('js/dados.json')
 	}
 )
 
-
+let dataTest
 // ------ busca dados de empresas vinculadas ------ //
 function vinculaEmpresa(dataId, cnpj){
 	fetch('./back/ameicnpj.php', {
@@ -623,11 +623,13 @@ function vinculaEmpresa(dataId, cnpj){
 	})
 	.then(response => response.json())
 	.then(dataRes => {
+		dataTest = JSON.parse(dataRes)
 		let cnpj = dataRes.valueOf();
+		console.log(dataRes);
 		cnpj = cnpj.toString();
 		console.log(cnpj);
 		meta.map(function (meta) {
-			meta.company = cnpj
+			meta.company = cnpj.cnpj
 			return meta
 		})
 	})
@@ -641,26 +643,27 @@ function dadosMeta() {
 	dataId = {tokenId: tokenId, userId: dataUserKc.cpf}
     
 	meta.push({
-		company: cnpj,
-		nome: dataUserKc.name,
-        date_hour_start: dateTime[0].data_atual,
-        date_hour_end: dateTime[0].data_final,
-        carga_horaria: "1",
-        theme_id: 10101,
-        code_integration: "2025-03-11 10:42:00",
-        type: "APLICATIVO",
-        title: "Maturidade Digital",
-        description: `Diagnóstico prernchido pelo usuário ${dataUserKc.name}`,
-        credential: "maturidadedigital",
-        cod_projeto: "829f8355-6d5c-47de-beb8-f2c0184e2f34",
-        cod_acao: "421588",
-		instrumento: "Diagnóstico",
-		nome_realizacao: "Atendimento Remoto",
-		tipo_realizacao: "PRT",
-		origin_id: 36,
-		cod_meio_atendimento: 11,
-		cod_categoria: 19,
-		orientacao_cliente: "orientacao"
+		"customer": dataUserKc.cpf,
+		"company":"",
+		"nome": dataUserKc.name,
+        "date_hour_start": dateTime[0].data_atual,
+        "date_hour_end": dateTime[0].data_final,
+        "carga_horaria": "1",
+        "theme_id": 10101,
+        "code_integration": dateTime[0].data_atual,
+        "type": "APLICATIVO",
+        "title": "Maturidade Digital",
+        "description": `Diagnóstico prernchido pelo usuário ${dataUserKc.name}`,
+        "credential": "maturidadedigital",
+        "cod_projeto": "829f8355-6d5c-47de-beb8-f2c0184e2f34",
+        "cod_acao": "421588",
+		"instrumento": "Diagnóstico",
+		"nome_realizacao": "Atendimento Remoto",
+		"tipo_realizacao": "PRT",
+		"origin_id": 36,
+		"cod_meio_atendimento": 11,
+		"cod_categoria": 19,
+		"orientacao_cliente": "orientacao"
 	})
 	vinculaEmpresa(dataId);
 	return meta
@@ -702,7 +705,7 @@ function autoLogout() {
 }
 
 function testar(){
-	fetch('https://api.partner.sebraemg.com.br/v1/interaction', { //'https://api.partner.sebraemg.com.br/v1/interaction'
+	fetch('https://dev.api.partner.sebraemg.com.br/v1/interaction', { //'https://api.partner.sebraemg.com.br/v1/interaction'
 		method: 'POST',
 		mode: 'no-cors',
         headers: {

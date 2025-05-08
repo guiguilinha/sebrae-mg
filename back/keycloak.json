@@ -1,6 +1,6 @@
 {
  "realm": "externo",
-   "auth-server-url": "https://amei.sebrae.com.br/auth",
+   "auth-server-url": "https://amei.homolog.kubernetes.sebrae.com.br/auth",
    "ssl-required": "external",
    "resource": "maturidadedigital-backend",
    "credentials": { 

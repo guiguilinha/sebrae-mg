@@ -1,4 +1,7 @@
 <?php
+
+ini_set('display_errors', 1);
+
 // Configurar cabeçalhos para permitir requisições de outras origens (CORS)
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
@@ -9,14 +12,14 @@ header("Access-Control-Allow-Credentials: true");
 // Captura o corpo da requisição
 $json = file_get_contents('php://input');
 $dados = json_decode($json, true);
-$urlAmei =  "https://amei.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token"; //"https://amei.homolog.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token"; https://amei.homolog.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token
+$urlAmei =  "https://amei.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token"; //"https://amei.homolog.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token"; https://amei.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token
 
 // Verifica se os dados foram recebidos corretamente
 if ($dados && isset($dados['tokenId']) && isset($dados['userId'])) {
     
     $curl = curl_init();
     curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://amei.sebrae.com.br/auth/realms/externo/protocol/openid/token', //'https://amei.homolog.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token'; https://amei.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token
+        CURLOPT_URL => $urlAmei, //'https://amei.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token'; https://amei.kubernetes.sebrae.com.br/auth/realms/externo/protocol/openid-connect/token
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
@@ -35,8 +38,12 @@ if ($dados && isset($dados['tokenId']) && isset($dados['userId'])) {
     $statusCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
     curl_close($curl);
+   // var_dump($response);
 
-    if (curl_errno($curl)) {
+    //echo json_encode($response);     
+    
+
+   if (curl_errno($curl)) {
         echo "Erro: ".curl_errno($curl);
     } else {
         if ($statusCode === 200) {
@@ -46,7 +53,7 @@ if ($dados && isset($dados['tokenId']) && isset($dados['userId'])) {
             $cr = curl_init();
 
             curl_setopt_array($cr, array(
-              CURLOPT_URL => 'https://cpe-backend.sebrae.com.br/v1/vinculo-empresa?cpf=' . $dados['userId'], //https://cpe-backend.sebrae.com.br/v1/vinculo-empresa?cpf=' . $dados['userId']
+              CURLOPT_URL => 'https://cpe-backend.homologacao.sebrae.com.br/v1/vinculo-empresa?cpf=' . $dados['userId'], //https://cpe-backend.homologacao.sebrae.com.br/v1/vinculo-empresa?cpf=' . $dados['userId']
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => '',
               CURLOPT_MAXREDIRS => 10,
@@ -65,16 +72,7 @@ if ($dados && isset($dados['tokenId']) && isset($dados['userId'])) {
             
             curl_close($cr);
 
-            $dataJson = json_decode($dataCia, true);
-
-            foreach ($dataJson as $key) {
-                if($key['isPrincipal'] === true) {
-                    $data = json_decode($key["cnpj"]);
-                    $cnpj = $data;
-                    echo json_encode($data);            
-                    //return $cnpj;
-                }
-            }
+            echo json_encode($dataCia);
 
         } else {
             echo json_encode([
@@ -85,7 +83,7 @@ if ($dados && isset($dados['tokenId']) && isset($dados['userId'])) {
                 "statusCode" => $statusCode
             ]);
         }
-    }
+    } 
 } else {
     echo json_encode([
         "status" => "erro",
