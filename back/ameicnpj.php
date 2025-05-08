@@ -53,7 +53,7 @@ if ($dados && isset($dados['tokenId']) && isset($dados['userId'])) {
             $cr = curl_init();
 
             curl_setopt_array($cr, array(
-              CURLOPT_URL => 'https://cpe-backend.homologacao.sebrae.com.br/v1/vinculo-empresa?cpf=' . $dados['userId'], //https://cpe-backend.homologacao.sebrae.com.br/v1/vinculo-empresa?cpf=' . $dados['userId']
+              CURLOPT_URL => 'https://cpe-backend.sebrae.com.br/v1/vinculo-empresa?cpf=' . $dados['userId'], //https://cpe-backend.homologacao.sebrae.com.br/v1/vinculo-empresa?cpf=' . $dados['userId']
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => '',
               CURLOPT_MAXREDIRS => 10,
