@@ -104,12 +104,14 @@ keycloak.init(initOptions)
 	.then(authenticated => {
 		if (authenticated === true) {
 			dataUserKc = keycloak.idTokenParsed
-			dataId = {tokenId: keycloak.idToken, userId: dataUserKc.cpf}
+			let cpf = dataUserKc.cpf.replace(/[^0-9]/g, '')
+			dataId = {tokenId: keycloak.idToken, userId: cpf}
 			console.log('Init Success (Authenticated)');
+			console.log('User ID: ' + dataUserKc.name);
 			document.getElementById('login-btns').classList.add('hide');
 			document.getElementById('login-info').classList.remove('hide');
 			document.getElementById('user-name').innerHTML = dataUserKc.given_name;	
-			vinculaEmpresa(dataId, cnpj);
+			vinculaEmpresa(dataId);
 		} else {
 			console.log('Init Success (NOT Authenticated)');
 			document.getElementById('login-btns').classList.remove('hide');
@@ -613,8 +615,7 @@ fetch('js/dados.json')
 
 let dataTest
 // ------ busca dados de empresas vinculadas ------ //
-function vinculaEmpresa(dataUserKc, cnpj){
-	dataId = {tokenId: keycloak.idToken, userId: dataUserKc.cpf}
+function vinculaEmpresa(dataId) {
 	fetch('./back/ameicnpj.php', {
 		method: 'POST',
         headers: {
@@ -625,14 +626,8 @@ function vinculaEmpresa(dataUserKc, cnpj){
 	.then(response => response.json())
 	.then(dataRes => {
 		dataTest = JSON.parse(dataRes)
-		let cnpj = dataRes.valueOf();
-		console.log(dataRes);
-		cnpj = cnpj.toString();
-		console.log(cnpj);
-		meta.map(function (meta) {
-			meta.company = cnpj.cnpj
-			return meta
-		})
+		cnpj = dataTest[0].cnpj
+		return cnpj
 	})
 	.catch((error) => console.error('Error:', error));
 }
@@ -645,7 +640,7 @@ function dadosMeta() {
     
 	meta.push({
 		"customer": dataUserKc.cpf,
-		"company":"",
+		"company": cnpj,
 		"nome": dataUserKc.name,
         "date_hour_start": dateTime[0].data_atual,
         "date_hour_end": dateTime[0].data_final,
@@ -672,6 +667,11 @@ function dadosMeta() {
 
 
 // ------ Funções de formatação ------ //
+
+// ------ regex CPF ------ //
+function formatarCPF(cpf) {
+	return string.replace(/[^a-zA-Z0-9]]/g, "")
+}
 
 // ------ DateTime -------- //
 function getFormattedDateGMT3() {
@@ -706,7 +706,7 @@ function autoLogout() {
 }
 
 function testar(){
-	fetch('https://api.partner.sebraemg.com.br/v1/interaction', { //'https://api.partner.sebraemg.com.br/v1/interaction'
+	fetch('https://dev.api.partner.sebraemg.com.br/v1/interaction', { //'https://api.partner.sebraemg.com.br/v1/interaction'
 		method: 'POST',
 		mode: 'no-cors',
         headers: {
@@ -727,3 +727,4 @@ let specialElementHandler = {
 		return true;
 	}
 };
+
